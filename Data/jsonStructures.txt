@@ -1,0 +1,143 @@
+playlistData.json format:
+
+{
+    "items": [
+        {
+            "data": [
+                {
+                    "playlist": [
+                        {
+                            "name": "initial",
+                            "id": "generic_id",
+                            "total-songs": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Song1",
+                                            "URI": "generic_URI",
+                                            "artist": [
+                                                {
+                                                    "name":"initial",
+                                                    "URI":"generic_URI" 
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Song2",
+                                            "URI": "generic_URI",
+                                            "artist": [
+                                                {
+                                                    "name":"initial",
+                                                    "URI":"generic_URI" 
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+#################################
+
+genreData.json format:
+
+{
+    "items": [
+        {
+            "genres": [
+                "Alt"
+            ],
+            "data": [
+                {
+                    "artist": [
+                        {
+                            "name": "initial",
+                            "genres": ["Alt"],
+                            "URI": "generic_URI",
+                            "popularity":1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Song1",
+                                            "URI": "generic_URI",
+                                            "exception": true,
+                                            "genre": "not-Alt",
+                                            "duration": 458512,
+                                            "popularity":1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Song2",
+                                            "URI": "generic_URI",
+                                            "exception": false,
+                                            "genre": "Alt",
+                                            "duration": 157965,
+                                            "popularity":2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+#################################
+
+listeningData.json format:
+
+{
+    "items": [
+        {
+            "popularity": [
+                {
+                    "timestamp":"2020-06-04 00:49:24.240000"
+                }
+            ],
+            "data": [
+                [
+                    {
+                        "timestamp":"2020-06-05T02:44:50.540Z",
+                        "name":"initial",
+                        "URI":"generic_URI"
+                    }
+                ]
+            ]
+        }
+    ]
+}
+
+#################################
+
+tokenData.json format:
+
+{
+    "data": [
+        {
+            "clientSecret": "generic_client_secret", 
+            "token": "generic_token", 
+            "refreshToken": "generic_refresh_token", 
+            "clientID": "generic_client_ID", 
+            "clientUserID": "generic_client_User_ID",
+            "redirectURI": "generic_redirect_URI"
+        }
+    ]
+}
