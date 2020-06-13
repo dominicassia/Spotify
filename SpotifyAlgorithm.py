@@ -812,7 +812,7 @@ def addPlaylist(path, playlistID, playlistTrackNum, playlistName):
         json.dump(temp, fw, indent=4) 
         fw.close()
 
-def createPlaylist(token, playlistName, songs):
+def createPlaylist(token, playlistName, songs, userID):
 
     print('\tCreating playlist.')
 

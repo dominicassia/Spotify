@@ -5,6 +5,7 @@
                 "Alt",
                 "Alt-Light",
                 "EDM",
+                "Jazz",
                 "Modern",
                 "Pop",
                 "Rap",
@@ -7229,7 +7230,9 @@
                     "artist": [
                         {
                             "name": "Hott Headzz",
-                            "genres": [],
+                            "genres": [
+                                "Rap"
+                            ],
                             "URI": "spotify:artist:47hkgwnnlluE8suPZiPclc",
                             "popularity": 1,
                             "songs": [
@@ -7277,7 +7280,9 @@
                     "artist": [
                         {
                             "name": "Frank Sinatra",
-                            "genres": [],
+                            "genres": [
+                                "Jazz"
+                            ],
                             "URI": "spotify:artist:1Mxqyy3pSjf8kZZL4QVxS0",
                             "popularity": 1,
                             "songs": [
