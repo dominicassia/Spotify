@@ -757,6 +757,20 @@
                                             "popularity": 1
                                         }
                                     ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Simplify",
+                                            "URI": "spotify:track:4bsMM8V87y5igGk6urk6b7",
+                                            "exception": false,
+                                            "genres": [
+                                                "Alt"
+                                            ],
+                                            "duration": 212213,
+                                            "popularity": 1
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -1955,6 +1969,21 @@
                                             "popularity": 1
                                         }
                                     ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Devil Eyes",
+                                            "URI": "spotify:track:7MiZjKawmXTsTNePyTfPyL",
+                                            "exception": false,
+                                            "genres": [
+                                                "Modern",
+                                                "Alt-Light"
+                                            ],
+                                            "duration": 131271,
+                                            "popularity": 1
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -2514,6 +2543,20 @@
                                                 "Rap-Light"
                                             ],
                                             "duration": 200124,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Desert Eagle",
+                                            "URI": "spotify:track:1yYYIilGsCoijulZUZpllx",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap-Light"
+                                            ],
+                                            "duration": 237480,
                                             "popularity": 1
                                         }
                                     ]
@@ -3297,6 +3340,18 @@
                                             "popularity": 1
                                         }
                                     ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "bad guy",
+                                            "URI": "spotify:track:2Fxmhks0bxGSBdJ92vM42m",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 194087,
+                                            "popularity": 1
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -3666,6 +3721,18 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 142500,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Lava",
+                                            "URI": "spotify:track:2dIeraguJ8SoHDqXfSZelZ",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 157303,
                                             "popularity": 1
                                         }
                                     ]
@@ -7297,6 +7364,20 @@
                                             "popularity": 1
                                         }
                                     ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Somethin' Stupid",
+                                            "URI": "spotify:track:4feXcsElKIVsGwkbnTHAfV",
+                                            "exception": false,
+                                            "genres": [
+                                                "Jazz"
+                                            ],
+                                            "duration": 162493,
+                                            "popularity": 1
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -7318,6 +7399,198 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 199508,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Moter",
+                            "genres": [],
+                            "URI": "spotify:artist:4kIFvYrKT2C08BWI7KfTch",
+                            "popularity": 1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Homefinder",
+                                            "URI": "spotify:track:3BQ6u88dG7Adpjfi6esJCM",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 285000,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Jerry Folk",
+                            "genres": [],
+                            "URI": "spotify:artist:356FCJoyYWyzONni54Dgrv",
+                            "popularity": 1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Purple Feelings (feat. Rainsford)",
+                                            "URI": "spotify:track:4j58N9Ww4rpuOxiTK2sFVZ",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 205380,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "DaBaby",
+                            "genres": [],
+                            "URI": "spotify:artist:4r63FhuTkUYltbVAg5TQnk",
+                            "popularity": 1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Suge",
+                                            "URI": "spotify:track:2gwkD6igEhQbDQegRCcdoB",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 163320,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "The xx",
+                            "genres": [],
+                            "URI": "spotify:artist:3iOvXCl6edW5Um0fXEBRXy",
+                            "popularity": 1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Islands",
+                                            "URI": "spotify:track:27BpBnTNtY9SBrE3EusnM6",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 160720,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Tom Misch",
+                            "genres": [],
+                            "URI": "spotify:artist:1uiEZYehlNivdK3iQyAbye",
+                            "popularity": 1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Beautiful Escape",
+                                            "URI": "spotify:track:5MChi9fdCbTIWDJPPUuuW6",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 276785,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "YG",
+                            "genres": [],
+                            "URI": "spotify:artist:0A0FS04o6zMoto8OKPsDwY",
+                            "popularity": 1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Why You Always Hatin?",
+                                            "URI": "spotify:track:39hnH8WdPmNT3Q3yzwC9Rg",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 196600,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "The Knocks",
+                            "genres": [],
+                            "URI": "spotify:artist:2x7EATekOPhFGRx3syMGEC",
+                            "popularity": 1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Brazilian Soul (feat. Sofi Tukker)",
+                                            "URI": "spotify:track:6rKq8Ri90B3UGEiWuN9e2I",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 197373,
+                                            "popularity": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Lil Wayne",
+                            "genres": [],
+                            "URI": "spotify:artist:55Aa2cqylxrFIXC767Z865",
+                            "popularity": 1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Uproar",
+                                            "URI": "spotify:track:3wScL5W8H40zzCKN0atfBk",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 194184,
                                             "popularity": 1
                                         }
                                     ]

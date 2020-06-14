@@ -353,24 +353,56 @@ def listeningHistory(response):
 
     print('\t\tdone.')
 
+    print('\tCalculating song popularity.')
+
+    popularity()
+
+    print('\t\tdone.')
+
     print('\n\t', songsWritten, 'songs written')
 
 def popularity():
 
     # If a song is added to the listening history, add 1 to the popularity of that song within genre data
 
-    path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\listeningData.json'                     
+    path1 = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\listeningData.json'                     
 
-    with open(path, 'r+') as fileAppend:
+    with open(path1) as fileRead:
 
-        listeningData = json.load(fileAppend.text)
+        listeningData = json.load(fileRead)
 
-        # Get last checked timestamp
+        # Find the index of the timestamp checked last
 
-        lastChecked = listeningData['items'][0]['popularity'][0]['timestamp']
+        for i in range(len(listeningData['items'][0]['data'])):
 
-        print(lastChecked)
+            if listeningData['items'][0]['popularity'][0]['timestamp'] == listeningData['items'][0]['data'][i][0]['timestamp']:
 
+                index = i
+                break
+
+        # Find the song in genreData.json and add one to 'popularity'
+
+        path2 = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\genreData.json'  
+
+        with open(path2, 'r+') as fileAppend:
+
+            genreData = json.load(fileAppend)
+
+            # Start at last index + 1 and go for the remaining length 
+
+            for j in range(len(index + 1, listeningData['items'][0]['data'])):
+
+                # Find the index of the song were adding to 
+
+                for k in range(len(genreData['items'][0]['data'])):
+
+                    for l in range(len(genreData['items'][0]['data'][k]['artist'][0]['songs'])):
+
+                        if listeningData['items'][0]['data'][j][0]['URI'] == genreData['items'][0]['data'][k]['artist'][0]['songs'][l]['song'][0]['URI']:
+
+                            # Add one to artist and song
+
+                            pass
 
 def addTimestamp(path, timeStamp, trackName, trackURI):
 

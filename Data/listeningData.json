@@ -3,7 +3,7 @@
         {
             "popularity": [
                 {
-                    "timestamp": "2020-06-04 00:49:24.240000"
+                    "timestamp": "2001-06-05 02:44:50.500000"
                 }
             ],
             "data": [
@@ -1818,6 +1818,139 @@
                         "timestamp": "2020-06-13 14:40:35.350000",
                         "name": "Fly Me To The Moon (In Other Words)",
                         "URI": "spotify:track:5b7OgznPJJr1vHNYGyvxau"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 14:42:47.470000",
+                        "name": "Somethin' Stupid",
+                        "URI": "spotify:track:4feXcsElKIVsGwkbnTHAfV"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 16:47:54.540000",
+                        "name": "Inhale",
+                        "URI": "spotify:track:05bUAkDRK3xzvVkZlGU6ee"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:09:36.360000",
+                        "name": "bad guy",
+                        "URI": "spotify:track:2Fxmhks0bxGSBdJ92vM42m"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:11:47.470000",
+                        "name": "Devil Eyes",
+                        "URI": "spotify:track:7MiZjKawmXTsTNePyTfPyL"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:15:02.020000",
+                        "name": "Uproar",
+                        "URI": "spotify:track:3wScL5W8H40zzCKN0atfBk"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:18:01.010000",
+                        "name": "Throwaway (with Clairo)",
+                        "URI": "spotify:track:2MnEG4htbbdfoUsyzxZ4BM"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:21:20.200000",
+                        "name": "Brazilian Soul (feat. Sofi Tukker)",
+                        "URI": "spotify:track:6rKq8Ri90B3UGEiWuN9e2I"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:25:45.450000",
+                        "name": "Lava",
+                        "URI": "spotify:track:2dIeraguJ8SoHDqXfSZelZ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:41:33.330000",
+                        "name": "Simplify",
+                        "URI": "spotify:track:4bsMM8V87y5igGk6urk6b7"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:47:35.350000",
+                        "name": "Why You Always Hatin?",
+                        "URI": "spotify:track:39hnH8WdPmNT3Q3yzwC9Rg"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:53:18.180000",
+                        "name": "Beautiful Escape",
+                        "URI": "spotify:track:5MChi9fdCbTIWDJPPUuuW6"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-13 17:58:15.150000",
+                        "name": "Desert Eagle",
+                        "URI": "spotify:track:1yYYIilGsCoijulZUZpllx"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-14 01:16:08.080000",
+                        "name": "Desert Eagle",
+                        "URI": "spotify:track:1yYYIilGsCoijulZUZpllx"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-14 02:09:08.080000",
+                        "name": "Islands",
+                        "URI": "spotify:track:27BpBnTNtY9SBrE3EusnM6"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-14 02:38:23.230000",
+                        "name": "Instant Crush (feat. Julian Casablancas)",
+                        "URI": "spotify:track:2cGxRwrMyEAp8dEbuZaVv6"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-14 02:41:02.020000",
+                        "name": "Goodie Bag",
+                        "URI": "spotify:track:4vHNeBWDQpVCmGbaccrRzi"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-14 02:43:18.180000",
+                        "name": "Suge",
+                        "URI": "spotify:track:2gwkD6igEhQbDQegRCcdoB"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-14 02:54:44.440000",
+                        "name": "Purple Feelings (feat. Rainsford)",
+                        "URI": "spotify:track:4j58N9Ww4rpuOxiTK2sFVZ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-14 03:03:03.030000",
+                        "name": "Homefinder",
+                        "URI": "spotify:track:3BQ6u88dG7Adpjfi6esJCM"
                     }
                 ]
             ]
