@@ -353,7 +353,7 @@ def listeningHistory(response):
 
     print('\t\tdone.')
 
-    print('\tCalculating song popularity.')
+    print('\tCalculating popularity.')
 
     popularity()
 
@@ -384,13 +384,13 @@ def popularity():
 
         path2 = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\genreData.json'  
 
-        with open(path2, 'r+') as fileAppend:
+        # Start at last index + 1 and go for the remaining length 
 
-            genreData = json.load(fileAppend)
+        for j in range(index + 1, len(listeningData['items'][0]['data'])):
 
-            # Start at last index + 1 and go for the remaining length 
+            with open(path2, 'r+') as fileAppend:
 
-            for j in range(len(index + 1, listeningData['items'][0]['data'])):
+                genreData = json.load(fileAppend)
 
                 # Find the index of the song were adding to 
 
@@ -398,11 +398,23 @@ def popularity():
 
                     for l in range(len(genreData['items'][0]['data'][k]['artist'][0]['songs'])):
 
+                        # Find song by URI
+
                         if listeningData['items'][0]['data'][j][0]['URI'] == genreData['items'][0]['data'][k]['artist'][0]['songs'][l]['song'][0]['URI']:
 
-                            # Add one to artist and song
+                            # Get current value of popularity of song and add one
 
-                            pass
+                            genreData['items'][0]['data'][k]['artist'][0]['songs'][l]['song'][0]['popularity'] += 1
+
+                            # Get current value of popularity of artist and add one
+
+                            genreData['items'][0]['data'][k]['artist'][0]['popularity'] += 1
+
+                json.dump(genreData, fileAppend, indent=4)
+
+
+
+                            
 
 def addTimestamp(path, timeStamp, trackName, trackURI):
 
