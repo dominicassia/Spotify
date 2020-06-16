@@ -353,13 +353,14 @@ def listeningHistory(response):
 
     print('\t\tdone.')
 
-    print('\tCalculating popularity.')
+    print('\n\tCalculating popularity.')
 
-    popularity()
+    adjusted = popularity()
 
     print('\t\tdone.')
 
     print('\n\t', songsWritten, 'songs written')
+    print('\n\t', adjusted, 'popularity classes adjusted')
 
 def popularity():
 
@@ -377,44 +378,64 @@ def popularity():
 
             if listeningData['items'][0]['popularity'][0]['timestamp'] == listeningData['items'][0]['data'][i][0]['timestamp']:
 
-                index = i
                 break
 
         # Find the song in genreData.json and add one to 'popularity'
 
         path2 = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\genreData.json'  
 
-        # Start at last index + 1 and go for the remaining length 
+        # Start at last index + 1 and go for the remaining length of songs not adjusted with 
 
-        for j in range(index + 1, len(listeningData['items'][0]['data'])):
+        for j in range(i + 1, len(listeningData['items'][0]['data'])):
 
-            with open(path2, 'r+') as fileAppend:
+            # Open genreData.json to read from
 
-                genreData = json.load(fileAppend)
+            with open(path2) as genreDataRead:
+
+                genreDataR = json.load(genreDataRead)
 
                 # Find the index of the song were adding to 
 
-                for k in range(len(genreData['items'][0]['data'])):
+                for k in range(len(genreDataR['items'][0]['data'])):
 
-                    for l in range(len(genreData['items'][0]['data'][k]['artist'][0]['songs'])):
+                    for l in range(len(genreDataR['items'][0]['data'][k]['artist'][0]['songs'])):
 
                         # Find song by URI
 
-                        if listeningData['items'][0]['data'][j][0]['URI'] == genreData['items'][0]['data'][k]['artist'][0]['songs'][l]['song'][0]['URI']:
+                        if listeningData['items'][0]['data'][j][0]['URI'] == genreDataR['items'][0]['data'][k]['artist'][0]['songs'][l]['song'][0]['URI']:
 
                             # Get current value of popularity of song and add one
 
-                            genreData['items'][0]['data'][k]['artist'][0]['songs'][l]['song'][0]['popularity'] += 1
+                            genreDataR['items'][0]['data'][k]['artist'][0]['songs'][l]['song'][0]['popularity'] += 1
 
                             # Get current value of popularity of artist and add one
 
-                            genreData['items'][0]['data'][k]['artist'][0]['popularity'] += 1
+                            genreDataR['items'][0]['data'][k]['artist'][0]['popularity'] += 1
+         
+                # Open genreData.json to read from   
 
-                json.dump(genreData, fileAppend, indent=4)
+                with open(path2, 'w') as genreDataWrite:
 
+                    # Place the new popularity integers in genreData.json
 
+                    json.dump(genreDataR, genreDataWrite, indent=4)     
 
-                            
+        # Update the timestamp at at the top of listeningData.json
+
+        # Assign last checked timestamp to the popularity class for next time
+
+        try:
+            listeningData['items'][0]['popularity'][0]['timestamp'] = listeningData['items'][0]['data'][j][0]['timestamp']
+        
+            with open(path1, 'w') as fileWrite:
+
+                json.dump(listeningData, fileWrite, indent=4)
+
+                return j
+
+        except UnboundLocalError:
+
+            return 0
 
 def addTimestamp(path, timeStamp, trackName, trackURI):
 
@@ -953,7 +974,21 @@ main()
     similarSongs():     songs listened to before and after a track will give insight to what genre that song may be --> if a un-genred song is surrounded by the same genres x amount of time, guess that that song is that genre
         nearbySongs():      find songs that have been played "around" a track and comapre their genres   songL --> songC --> songR, determine songC's genre by L & R genre
 
-    popularity():       how many times a song is added with recently played
+    Data
+        Users
+            listOfUsers.json
+            <Username>
+                genreData
+                tokenData
+                listeningData
+                playlistData
+            <Username>
+                genreData
+                tokenData
+                listeningData
+                playlistData
+
+    dirCheck():     ensure there are data files to write to, if not create them with the generic format
 
 '''
 
