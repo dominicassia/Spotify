@@ -60,7 +60,7 @@
                                 "Rap"
                             ],
                             "URI": "spotify:artist:3TVXtAsR1Inumwj472S9r4",
-                            "popularity": 10,
+                            "popularity": 21,
                             "songs": [
                                 {
                                     "song": [
@@ -220,7 +220,133 @@
                                                 "Rap"
                                             ],
                                             "duration": 250337,
-                                            "popularity": 1
+                                            "popularity": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Jumpman",
+                                            "URI": "spotify:track:27GmP9AWRs744SzKcpJsTZ",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 205879,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Still Here",
+                                            "URI": "spotify:track:4YJmZfvlheSziXem8HBWrj",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 189853,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Controlla",
+                                            "URI": "spotify:track:3O8NlPh2LByMU9lSRSHedm",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 245226,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Uptown (feat. Bun B & Lil Wayne)",
+                                            "URI": "spotify:track:0q7LGcVSpsIoSbjChtZ8lI",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 382262,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Know Yourself",
+                                            "URI": "spotify:track:5InOp6q2vvx0fShv3bzFLZ",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 275840,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Can\u2019t Take A Joke",
+                                            "URI": "spotify:track:1dUHF4RyMmMTveJ0Rby6Xm",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 163974,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Mob Ties",
+                                            "URI": "spotify:track:7rC5Pl8rQSX4myONQHYPBK",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 205146,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Feel No Ways",
+                                            "URI": "spotify:track:3cjF2OFRmip8spwZYQRKxP",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 240653,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "I'm Upset",
+                                            "URI": "spotify:track:3qN5qMTKyEEmiTZD38BNTT",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 214466,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -236,7 +362,7 @@
                                 "Modern"
                             ],
                             "URI": "spotify:artist:5Lhxlge1CR1DrgDAje8Qaw",
-                            "popularity": 5,
+                            "popularity": 6,
                             "songs": [
                                 {
                                     "song": [
@@ -262,7 +388,7 @@
                                                 "Modern"
                                             ],
                                             "duration": 202213,
-                                            "popularity": 3
+                                            "popularity": 4
                                         }
                                     ]
                                 },
@@ -462,7 +588,7 @@
                                 "Modern"
                             ],
                             "URI": "spotify:artist:1tQu5TjcAK68fx8qrc8ZgF",
-                            "popularity": 14,
+                            "popularity": 15,
                             "songs": [
                                 {
                                     "song": [
@@ -557,6 +683,20 @@
                                             ],
                                             "duration": 189295,
                                             "popularity": 4
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "WHO CARES",
+                                            "URI": "spotify:track:54tBcApxjKD2p78MtPp4nG",
+                                            "exception": false,
+                                            "genres": [
+                                                "Modern"
+                                            ],
+                                            "duration": 349185,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -1895,7 +2035,7 @@
                                 "Alt-Light"
                             ],
                             "URI": "spotify:artist:4dM6NDYSfLcspt8GLoT5aE",
-                            "popularity": 7,
+                            "popularity": 9,
                             "songs": [
                                 {
                                     "song": [
@@ -1935,7 +2075,7 @@
                                                 "Alt-Light"
                                             ],
                                             "duration": 206196,
-                                            "popularity": 1
+                                            "popularity": 2
                                         }
                                     ]
                                 },
@@ -1950,7 +2090,7 @@
                                                 "Alt-Light"
                                             ],
                                             "duration": 177045,
-                                            "popularity": 1
+                                            "popularity": 2
                                         }
                                     ]
                                 },
@@ -2244,7 +2384,7 @@
                                 "Rap-Light"
                             ],
                             "URI": "spotify:artist:4xRYI6VqpkE3UwrDrAZL8L",
-                            "popularity": 3,
+                            "popularity": 4,
                             "songs": [
                                 {
                                     "song": [
@@ -2254,7 +2394,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 244880,
-                                            "popularity": 1
+                                            "popularity": 2
                                         }
                                     ]
                                 },
@@ -5061,7 +5201,7 @@
                             "name": "ZHU",
                             "genres": [],
                             "URI": "spotify:artist:28j8lBWDdDSHSSt5oPlsX2",
-                            "popularity": 2,
+                            "popularity": 5,
                             "songs": [
                                 {
                                     "song": [
@@ -5084,6 +5224,42 @@
                                             "genres": [],
                                             "duration": 180572,
                                             "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Exhale",
+                                            "URI": "spotify:track:6jKDgvE2pnYWRnj7xZV8zc",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 209766,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Working For It",
+                                            "URI": "spotify:track:0P6RjFd2HgG2AXJadQuGfE",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 231813,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Intoxicate",
+                                            "URI": "spotify:track:0nD2HHezOd08mhvmgnjh3I",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 294915,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -8054,6 +8230,174 @@
                                             "genres": [],
                                             "duration": 266773,
                                             "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Kaskade",
+                            "genres": [],
+                            "URI": "spotify:artist:6TQj5BFPooTa08A7pk8AQ1",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "In the Morning",
+                                            "URI": "spotify:track:5v8umLXzP5j4BDqDxqEyTp",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 211097,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Kings of Leon",
+                            "genres": [],
+                            "URI": "spotify:artist:2qk9voo8llSGYcZ6xrBzKx",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Sex on Fire",
+                                            "URI": "spotify:track:0ntQJM78wzOLVeCUAW7Y45",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 203346,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Chris Brown",
+                            "genres": [],
+                            "URI": "spotify:artist:7bXgB6jMjp9ATFy66eO08Z",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "No Guidance (feat. Drake)",
+                                            "URI": "spotify:track:6XHVuErjQ4XNm6nDPVCxVX",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 260640,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Kodak Black",
+                            "genres": [],
+                            "URI": "spotify:artist:46SHBwWsqBkxI7EeeBEQG7",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Tunnel Vision",
+                                            "URI": "spotify:track:4Q3N4Ct4zCuIHuZ65E3BD4",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 268186,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "BlocBoy JB",
+                            "genres": [],
+                            "URI": "spotify:artist:4TEJudQY2pXxVHPE3gD2EU",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Look Alive (feat. Drake)",
+                                            "URI": "spotify:track:4qKcDkK6siZ7Jp1Jb4m0aL",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 181263,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Swae Lee",
+                            "genres": [],
+                            "URI": "spotify:artist:1zNqQNIdeOUZHb8zbZRFMX",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Won't Be Late (feat. Drake)",
+                                            "URI": "spotify:track:2sqsNXfN0HtgDEgaHXiUTa",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 218709,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Skrillex",
+                            "genres": [],
+                            "URI": "spotify:artist:5he5w2lnU9x7JFhnwcekXX",
+                            "popularity": 1,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Scary Monsters and Nice Sprites",
+                                            "URI": "spotify:track:4rwpZEcnalkuhPyGkEdhu0",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 243353,
+                                            "popularity": 1
                                         }
                                     ]
                                 }

@@ -974,20 +974,6 @@ main()
     similarSongs():     songs listened to before and after a track will give insight to what genre that song may be --> if a un-genred song is surrounded by the same genres x amount of time, guess that that song is that genre
         nearbySongs():      find songs that have been played "around" a track and comapre their genres   songL --> songC --> songR, determine songC's genre by L & R genre
 
-    Data
-        Users
-            listOfUsers.json
-            <Username>
-                genreData
-                tokenData
-                listeningData
-                playlistData
-            <Username>
-                genreData
-                tokenData
-                listeningData
-                playlistData
-
     dirCheck():     ensure there are data files to write to, if not create them with the generic format
 
 '''

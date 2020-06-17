@@ -3,7 +3,7 @@
         {
             "popularity": [
                 {
-                    "timestamp": "2020-06-16 15:49:47.470000"
+                    "timestamp": "2020-06-17 04:04:30.300000"
                 }
             ],
             "data": [
@@ -2095,6 +2095,13 @@
                 ],
                 [
                     {
+                        "timestamp": "2020-06-16 03:03:46.460000",
+                        "name": "Scary Monsters and Nice Sprites",
+                        "URI": "spotify:track:4rwpZEcnalkuhPyGkEdhu0"
+                    }
+                ],
+                [
+                    {
                         "timestamp": "2020-06-16 14:49:31.310000",
                         "name": "Clubhouse",
                         "URI": "spotify:track:7rdyAfIm1t6h6I1gyLtD17"
@@ -2182,6 +2189,188 @@
                         "timestamp": "2020-06-16 15:49:47.470000",
                         "name": "Bad Company (feat. BlocBoy JB)",
                         "URI": "spotify:track:3ZYwSDF9knZI0RVlKR4PHC"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 16:38:17.170000",
+                        "name": "Different",
+                        "URI": "spotify:track:3bjLA6ukBcGtvhe5tybxp7"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 19:28:59.590000",
+                        "name": "Won't Be Late (feat. Drake)",
+                        "URI": "spotify:track:2sqsNXfN0HtgDEgaHXiUTa"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 19:38:28.280000",
+                        "name": "Look Alive (feat. Drake)",
+                        "URI": "spotify:track:4qKcDkK6siZ7Jp1Jb4m0aL"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 19:43:03.030000",
+                        "name": "I'm Upset",
+                        "URI": "spotify:track:3qN5qMTKyEEmiTZD38BNTT"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 19:46:45.450000",
+                        "name": "Tunnel Vision",
+                        "URI": "spotify:track:4Q3N4Ct4zCuIHuZ65E3BD4"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 20:00:37.370000",
+                        "name": "Feel No Ways",
+                        "URI": "spotify:track:3cjF2OFRmip8spwZYQRKxP"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 20:05:00",
+                        "name": "No Guidance (feat. Drake)",
+                        "URI": "spotify:track:6XHVuErjQ4XNm6nDPVCxVX"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 20:08:28.280000",
+                        "name": "Mob Ties",
+                        "URI": "spotify:track:7rC5Pl8rQSX4myONQHYPBK"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 20:11:12.120000",
+                        "name": "Can\u2019t Take A Joke",
+                        "URI": "spotify:track:1dUHF4RyMmMTveJ0Rby6Xm"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 20:15:48.480000",
+                        "name": "Know Yourself",
+                        "URI": "spotify:track:5InOp6q2vvx0fShv3bzFLZ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-16 20:26:57.570000",
+                        "name": "Uptown (feat. Bun B & Lil Wayne)",
+                        "URI": "spotify:track:0q7LGcVSpsIoSbjChtZ8lI"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 00:32:26.260000",
+                        "name": "Controlla",
+                        "URI": "spotify:track:3O8NlPh2LByMU9lSRSHedm"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 00:34:35.350000",
+                        "name": "Still Here",
+                        "URI": "spotify:track:4YJmZfvlheSziXem8HBWrj"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 01:34:05.050000",
+                        "name": "Jumpman",
+                        "URI": "spotify:track:27GmP9AWRs744SzKcpJsTZ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 01:38:45.450000",
+                        "name": "Get It Together",
+                        "URI": "spotify:track:7y6c07pgjZvtHI9kuMVqk1"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 02:41:08.080000",
+                        "name": "Get It Together",
+                        "URI": "spotify:track:7y6c07pgjZvtHI9kuMVqk1"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 02:58:09.090000",
+                        "name": "Otherside",
+                        "URI": "spotify:track:48JqLVpHjXOTHFnV4VdLZu"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 03:01:55.550000",
+                        "name": "Sex on Fire",
+                        "URI": "spotify:track:0ntQJM78wzOLVeCUAW7Y45"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 03:10:09.090000",
+                        "name": "King's Dead (with Kendrick Lamar, Future & James Blake)",
+                        "URI": "spotify:track:1eLSF6HfrRA0AsNmTkUlKx"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 03:14:15.150000",
+                        "name": "Bounce",
+                        "URI": "spotify:track:17A18khjCRm3uNcd2fFn4I"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 03:33:08.080000",
+                        "name": "WHO CARES",
+                        "URI": "spotify:track:54tBcApxjKD2p78MtPp4nG"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 03:49:18.180000",
+                        "name": "Do Whatchu Want To Me",
+                        "URI": "spotify:track:10Zs7eRmTZ7zXmob4GR6Gm"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 03:50:54.540000",
+                        "name": "In the Morning",
+                        "URI": "spotify:track:5v8umLXzP5j4BDqDxqEyTp"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 03:57:08.080000",
+                        "name": "Intoxicate",
+                        "URI": "spotify:track:0nD2HHezOd08mhvmgnjh3I"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 04:01:01.010000",
+                        "name": "Working For It",
+                        "URI": "spotify:track:0P6RjFd2HgG2AXJadQuGfE"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-17 04:04:30.300000",
+                        "name": "Exhale",
+                        "URI": "spotify:track:6jKDgvE2pnYWRnj7xZV8zc"
                     }
                 ]
             ]
