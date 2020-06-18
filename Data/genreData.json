@@ -562,7 +562,7 @@
                             "name": "Oliver Malcolm",
                             "genres": [],
                             "URI": "spotify:artist:5ut4VhaCRPsEjAZ93jpPfK",
-                            "popularity": 2,
+                            "popularity": 3,
                             "songs": [
                                 {
                                     "song": [
@@ -572,6 +572,18 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 199381,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Helen",
+                                            "URI": "spotify:track:6J4gaubSjwTGrtCkXKs91T",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 157372,
                                             "popularity": 2
                                         }
                                     ]
@@ -1898,7 +1910,7 @@
                                 "Rap-Light"
                             ],
                             "URI": "spotify:artist:1Bl6wpkWCQ4KVgnASpvzzA",
-                            "popularity": 2,
+                            "popularity": 3,
                             "songs": [
                                 {
                                     "song": [
@@ -1922,6 +1934,20 @@
                                                 "Rap-Light"
                                             ],
                                             "duration": 273151,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "SUGAR",
+                                            "URI": "spotify:track:6U0FIYXCQ3TGrk4tFpLrEA",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap-Light"
+                                            ],
+                                            "duration": 204533,
                                             "popularity": 2
                                         }
                                     ]
@@ -2602,7 +2628,7 @@
                             "name": "Glass Animals",
                             "genres": [],
                             "URI": "spotify:artist:4yvcSjfu4PC0CYQyLy4wSq",
-                            "popularity": 1,
+                            "popularity": 2,
                             "songs": [
                                 {
                                     "song": [
@@ -2613,6 +2639,18 @@
                                             "genres": [],
                                             "duration": 320654,
                                             "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Your Love (D\u00e9j\u00e0 Vu)",
+                                            "URI": "spotify:track:5DYD4zlGiFlkpLaf2Bk8Vl",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 234372,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -4587,7 +4625,7 @@
                             "name": "Mac Miller",
                             "genres": [],
                             "URI": "spotify:artist:4LLpKhyESsyAXpc4laK94U",
-                            "popularity": 26,
+                            "popularity": 27,
                             "songs": [
                                 {
                                     "song": [
@@ -4766,6 +4804,18 @@
                                             "genres": [],
                                             "duration": 180866,
                                             "popularity": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Doors",
+                                            "URI": "spotify:track:0cDvVjiJ8iKCYcypWJ71ay",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 78013,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -8791,6 +8841,258 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 215173,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Drelli",
+                            "genres": [],
+                            "URI": "spotify:artist:6OO8a55KYiZw6WzH1npKd5",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Ice Cream",
+                                            "URI": "spotify:track:4r0gNBmnMUbyj9DmVfnftn",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 113750,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Allday",
+                            "genres": [],
+                            "URI": "spotify:artist:2Ltr0s15RyvsjqWzSmiSRs",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "OTT",
+                                            "URI": "spotify:track:6g33zvMOjqKjbVLQ6bKdSA",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 160004,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "THE ANXIETY",
+                            "genres": [],
+                            "URI": "spotify:artist:64H8UqGLbJFHwKtGxiV8OP",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Poolside",
+                                            "URI": "spotify:track:1aNiHxopNsQDGRCrrAw9FX",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 224026,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Deb Never",
+                            "genres": [],
+                            "URI": "spotify:artist:55EarwWraRQY9diMo9Oeul",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Swimming",
+                                            "URI": "spotify:track:6frrSEJc3nE3FESO74Xxxe",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 137369,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "diveliner",
+                            "genres": [],
+                            "URI": "spotify:artist:0be7y7HUvSBf8uG1X7pK8f",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Fix You",
+                                            "URI": "spotify:track:3gzZIHF9hKPulY9W29W1Bi",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 181750,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Rapta",
+                            "genres": [],
+                            "URI": "spotify:artist:5pZfgoEH06FQtcGpiTWMq9",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Seasick",
+                                            "URI": "spotify:track:0a87ndeIjUWGxT3XrI1Hre",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 192500,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "brakence",
+                            "genres": [],
+                            "URI": "spotify:artist:4kqFrZkeqDfOIEqTWqbOOV",
+                            "popularity": 3,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "dropout",
+                                            "URI": "spotify:track:6BI0Na9AtisZ3PpkPqEeXk",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 200922,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "fwb",
+                                            "URI": "spotify:track:5PtGchZh3CKBpY9CSUfY3C",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 137751,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "boyband",
+                            "genres": [],
+                            "URI": "spotify:artist:4OxvOPeLvZWDxihwqtOC4D",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "realtree",
+                                            "URI": "spotify:track:3MfYlxtqmhS8TP3ePepMKl",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 168720,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Channel Tres",
+                            "genres": [],
+                            "URI": "spotify:artist:4cUkGQyhLFqKHBtL58HYVp",
+                            "popularity": 3,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Weedman",
+                                            "URI": "spotify:track:1sQeLo71tyRhY7TqHRiSQ9",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 169256,
+                                            "popularity": 3
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "ANNA",
+                            "genres": [],
+                            "URI": "spotify:artist:7K80yOTC0Id95gRaOxDG5u",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Bando",
+                                            "URI": "spotify:track:0kzGjSRHGVcaWxagzQwAyD",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 168000,
                                             "popularity": 2
                                         }
                                     ]

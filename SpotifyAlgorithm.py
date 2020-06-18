@@ -950,6 +950,33 @@ def durationListened(token):
     #     else:
     #         return False
 
+    def constantChecker():
+
+        if isPlaying() == True:
+
+            if moreThanHalf(trackDuration, trackProgress) == True:
+
+                # Add to listening history
+
+                pass
+
+            else:
+
+                # Calculate and wait for the remainder of half the song
+
+                time.sleep( (trackDuration / 2) - trackProgress )
+                constantChecker()
+
+        else:
+            
+            # The song is not playing - wait then reloop
+
+            time.sleep(20)
+            durationListened(token)
+
+    # Call function
+
+    constantChecker()
     
 
 def exeuctionTime(tStart):

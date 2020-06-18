@@ -3,7 +3,7 @@
         {
             "popularity": [
                 {
-                    "timestamp": "2020-06-18 03:39:35.350000"
+                    "timestamp": "2020-06-18 17:20:25.250000"
                 }
             ],
             "data": [
@@ -2546,6 +2546,118 @@
                         "timestamp": "2020-06-18 03:39:35.350000",
                         "name": "Leader Of The Delinquents",
                         "URI": "spotify:track:3hR48Bj9Wgl6xunDG4nsRZ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 03:42:33.330000",
+                        "name": "Weedman",
+                        "URI": "spotify:track:1sQeLo71tyRhY7TqHRiSQ9"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:01:27.270000",
+                        "name": "Doors",
+                        "URI": "spotify:track:0cDvVjiJ8iKCYcypWJ71ay"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:07:33.330000",
+                        "name": "SUGAR",
+                        "URI": "spotify:track:6U0FIYXCQ3TGrk4tFpLrEA"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:10:16.160000",
+                        "name": "Bando",
+                        "URI": "spotify:track:0kzGjSRHGVcaWxagzQwAyD"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:18:58.580000",
+                        "name": "Weedman",
+                        "URI": "spotify:track:1sQeLo71tyRhY7TqHRiSQ9"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:21:47.470000",
+                        "name": "realtree",
+                        "URI": "spotify:track:3MfYlxtqmhS8TP3ePepMKl"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:25:22.220000",
+                        "name": "dropout",
+                        "URI": "spotify:track:6BI0Na9AtisZ3PpkPqEeXk"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:29:17.170000",
+                        "name": "Your Love (D\u00e9j\u00e0 Vu)",
+                        "URI": "spotify:track:5DYD4zlGiFlkpLaf2Bk8Vl"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:32:30.300000",
+                        "name": "Seasick",
+                        "URI": "spotify:track:0a87ndeIjUWGxT3XrI1Hre"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:35:32.320000",
+                        "name": "Fix You",
+                        "URI": "spotify:track:3gzZIHF9hKPulY9W29W1Bi"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:38:15.150000",
+                        "name": "Swimming",
+                        "URI": "spotify:track:6frrSEJc3nE3FESO74Xxxe"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:40:53.530000",
+                        "name": "Helen",
+                        "URI": "spotify:track:6J4gaubSjwTGrtCkXKs91T"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:46:58.580000",
+                        "name": "Poolside",
+                        "URI": "spotify:track:1aNiHxopNsQDGRCrrAw9FX"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:49:38.380000",
+                        "name": "OTT",
+                        "URI": "spotify:track:6g33zvMOjqKjbVLQ6bKdSA"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 15:57:06.060000",
+                        "name": "Ice Cream",
+                        "URI": "spotify:track:4r0gNBmnMUbyj9DmVfnftn"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 17:20:25.250000",
+                        "name": "fwb",
+                        "URI": "spotify:track:5PtGchZh3CKBpY9CSUfY3C"
                     }
                 ]
             ]
