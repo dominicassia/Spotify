@@ -890,6 +890,68 @@ def createPlaylist(token, playlistName, songs, userID):
     print('\t\tdone.\n')  
 
 
+def durationListened(token):
+
+    # https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/
+
+    url = 'https://api.spotify.com/v1/me/player'
+    headers = {'Authorization': 'Bearer ' + token }
+
+    try:
+        response = requests.get(url=url, headers=headers, timeout=10)
+    except TimeoutError:
+        print('timeout error.')
+        durationListened(token)
+
+    print(response.status_code, '\n')
+
+    # Unauthorized
+
+    if response.status_code == 401:
+        time.sleep(10)
+        durationListened(token)
+
+    # No new data to grab
+
+    if response.status_code == 204:
+        time.sleep(20)
+        durationListened(token)
+
+    print(response.text)
+
+    r = json.loads(str(response.text))    
+
+    # Assign
+
+    trackName = r['item']['name'] 
+    trackURI = r['item']['uri']
+    trackProgress = r['progress_ms']
+    trackDuration = r['item']['duration_ms']
+    artistName = r['item']['artists'][0]['name']
+    artistURI = r['item']['artists'][0]['uri']
+
+    # Functions
+
+    def moreThanHalf(duration, progress):
+        if progress > (duration / 2):
+            return True
+        else:
+            return False
+
+    def isPlaying():
+        if r['is_playing'] == 'true':
+            return True
+        else:
+            return False
+
+    # def isPaused():
+    #     if null == 'true':
+    #         return True
+    #     else:
+    #         return False
+
+    
+
 def exeuctionTime(tStart):
     tEnd = time.time()                                                      # End Clock
     exTime = round(tEnd-tStart, 4)                                          # Calculate execution & round execution time
@@ -955,6 +1017,10 @@ def main():
 
     exeuctionTime(tStart)
 
+    # Duration listened
+
+    durationListened(token)
+
 main()
 
 # Continuously run
@@ -975,6 +1041,13 @@ main()
         nearbySongs():      find songs that have been played "around" a track and comapre their genres   songL --> songC --> songR, determine songC's genre by L & R genre
 
     dirCheck():     ensure there are data files to write to, if not create them with the generic format
+
+Ideal script:
+
+    https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/
+
+    Constantly monitors what youre listening to, in order to understand how long you've listened to a song
+
 
 '''
 

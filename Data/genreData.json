@@ -1170,7 +1170,7 @@
                                 "Rap"
                             ],
                             "URI": "spotify:artist:0Y5tJX1MQlPlqiwlOH1tJY",
-                            "popularity": 1,
+                            "popularity": 2,
                             "songs": [
                                 {
                                     "song": [
@@ -1181,6 +1181,20 @@
                                             "genres": [],
                                             "duration": 176720,
                                             "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "through the late night",
+                                            "URI": "spotify:track:1Ci4wASMY4xtKVMeHA6Sd5",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 286235,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -1692,7 +1706,7 @@
                                 "Rap"
                             ],
                             "URI": "spotify:artist:2YZyLoL8N0Wb9xBt1NhZWg",
-                            "popularity": 6,
+                            "popularity": 8,
                             "songs": [
                                 {
                                     "song": [
@@ -1702,19 +1716,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 213400,
-                                            "popularity": 2
-                                        }
-                                    ]
-                                },
-                                {
-                                    "song": [
-                                        {
-                                            "name": "LOVE. FEAT. ZACARI.",
-                                            "URI": "spotify:track:6PGoSes0D9eUDeeAafB2As",
-                                            "exception": false,
-                                            "genres": [],
-                                            "duration": 213400,
-                                            "popularity": 2
+                                            "popularity": 3
                                         }
                                     ]
                                 },
@@ -2035,7 +2037,7 @@
                                 "Alt-Light"
                             ],
                             "URI": "spotify:artist:4dM6NDYSfLcspt8GLoT5aE",
-                            "popularity": 9,
+                            "popularity": 11,
                             "songs": [
                                 {
                                     "song": [
@@ -2138,6 +2140,21 @@
                                             "popularity": 2
                                         }
                                     ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Drifter",
+                                            "URI": "spotify:track:1DehtVbbTjUQjxGaXd5PnH",
+                                            "exception": false,
+                                            "genres": [
+                                                "Modern",
+                                                "Alt-Light"
+                                            ],
+                                            "duration": 210307,
+                                            "popularity": 3
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -2159,7 +2176,9 @@
                                             "name": "I Can\u2019t Get Enough (benny blanco, Selena Gomez, J Balvin, Tainy)",
                                             "URI": "spotify:track:1WSGTYKLEpKfNQYYW5Oymt",
                                             "exception": false,
-                                            "genres": [],
+                                            "genres": [
+                                                "Pop"
+                                            ],
                                             "duration": 158027,
                                             "popularity": 2
                                         }
@@ -2529,7 +2548,7 @@
                                 "Modern"
                             ],
                             "URI": "spotify:artist:4csQIMQm6vI2A2SCVDuM2z",
-                            "popularity": 1,
+                            "popularity": 2,
                             "songs": [
                                 {
                                     "song": [
@@ -2555,6 +2574,21 @@
                                             ],
                                             "duration": 168956,
                                             "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Just Friends",
+                                            "URI": "spotify:track:6tB4XVKceo2307SSWXaO0y",
+                                            "exception": false,
+                                            "genres": [
+                                                "EDM-Light",
+                                                "Modern"
+                                            ],
+                                            "duration": 238991,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -3257,7 +3291,7 @@
                             "name": "Diplo",
                             "genres": [],
                             "URI": "spotify:artist:5fMUXHkw8R8eOP2RNVYEZX",
-                            "popularity": 2,
+                            "popularity": 3,
                             "songs": [
                                 {
                                     "song": [
@@ -3267,6 +3301,18 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 182826,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Worry No More",
+                                            "URI": "spotify:track:0HSqhMUh1BoMKfLY7Hnhzi",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 202563,
                                             "popularity": 2
                                         }
                                     ]
@@ -4217,7 +4263,7 @@
                             "name": "Pusha T",
                             "genres": [],
                             "URI": "spotify:artist:0ONHkAv9pCAFxb0zJwDNTy",
-                            "popularity": 3,
+                            "popularity": 4,
                             "songs": [
                                 {
                                     "song": [
@@ -4251,6 +4297,18 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 153266,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Tick, Tock",
+                                            "URI": "spotify:track:2vzKXHuncOKm655tmT1xDV",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 378066,
                                             "popularity": 2
                                         }
                                     ]
@@ -5201,7 +5259,7 @@
                             "name": "ZHU",
                             "genres": [],
                             "URI": "spotify:artist:28j8lBWDdDSHSSt5oPlsX2",
-                            "popularity": 5,
+                            "popularity": 9,
                             "songs": [
                                 {
                                     "song": [
@@ -5223,7 +5281,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 180572,
-                                            "popularity": 1
+                                            "popularity": 2
                                         }
                                     ]
                                 },
@@ -5259,6 +5317,30 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 294915,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Dreams",
+                                            "URI": "spotify:track:66MGk6BwVMx5O1TJqDAX4Y",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 268043,
+                                            "popularity": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "ONLY",
+                                            "URI": "spotify:track:6hIFc8n6iI9r6NBpVA0Fyl",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 230850,
                                             "popularity": 2
                                         }
                                     ]
@@ -6269,7 +6351,7 @@
                             "name": "Joji",
                             "genres": [],
                             "URI": "spotify:artist:3MZsBdqDrRTJihTHQrO6Dq",
-                            "popularity": 1,
+                            "popularity": 2,
                             "songs": [
                                 {
                                     "song": [
@@ -6280,6 +6362,18 @@
                                             "genres": [],
                                             "duration": 195000,
                                             "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Gimme Love",
+                                            "URI": "spotify:track:2hfoyc7ve6xM4ZEiNIiU1B",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 214557,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -6761,7 +6855,7 @@
                             "name": "The Chainsmokers",
                             "genres": [],
                             "URI": "spotify:artist:69GGBxA162lTqCwzJG5jLp",
-                            "popularity": 2,
+                            "popularity": 3,
                             "songs": [
                                 {
                                     "song": [
@@ -6771,6 +6865,18 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 194080,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Sick Boy",
+                                            "URI": "spotify:track:58kZ9spgxmlEznXGu6FPdQ",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 193200,
                                             "popularity": 2
                                         }
                                     ]
@@ -8398,6 +8504,294 @@
                                             "genres": [],
                                             "duration": 243353,
                                             "popularity": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Kid Cudi",
+                            "genres": [],
+                            "URI": "spotify:artist:0fA0VVWsXO9YnASrzqfmYu",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Leader Of The Delinquents",
+                                            "URI": "spotify:track:3hR48Bj9Wgl6xunDG4nsRZ",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 189544,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Kid Bloom",
+                            "genres": [],
+                            "URI": "spotify:artist:5CXdWANGwYYRPClH6hhC0P",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Wounded/Surrounded",
+                                            "URI": "spotify:track:5SJ6mSr6m0Qcxtqw3U8inr",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 203560,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Yung Lean",
+                            "genres": [],
+                            "URI": "spotify:artist:67lytN32YpUxiSeWlKfHJ3",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Dance in the Dark",
+                                            "URI": "spotify:track:01MfNWiJORqsE3rt1LI0ft",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 173853,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Dua Saleh",
+                            "genres": [],
+                            "URI": "spotify:artist:2DGBzoOLcKLK3eWxFyugdB",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "umbrellar",
+                                            "URI": "spotify:track:00PXRPuZFlM5dv1FeJa69J",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 155762,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Mac Wetha",
+                            "genres": [],
+                            "URI": "spotify:artist:4q1qItmjb9INKQM0F82StP",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Culver",
+                                            "URI": "spotify:track:0YPUrS4tUjcKw6RWgK3kAb",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 169600,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "DEEGAN",
+                            "genres": [],
+                            "URI": "spotify:artist:70KADh6rh0ljLJZtvH8LYi",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "We Heal",
+                                            "URI": "spotify:track:3jDgP0foXp0dUsOZIOryIO",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 214400,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "KennyHoopla",
+                            "genres": [],
+                            "URI": "spotify:artist:5ObBtv5VunwwhQaXXnUrsM",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "plastic door//",
+                                            "URI": "spotify:track:5O24LBipnyWNsnWLEtEihs",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 210990,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Curtis Waters",
+                            "genres": [],
+                            "URI": "spotify:artist:2JbE7jUIGtpXSzytnyMg6U",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Stunnin'",
+                                            "URI": "spotify:track:2LUdpPCiiza6UQugipjMeS",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 144013,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "KISS",
+                            "genres": [],
+                            "URI": "spotify:artist:07XSN3sPlIlB2L2XNcTwJw",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Detroit Rock City",
+                                            "URI": "spotify:track:5AOFcVKXITFEylt2YYwEKB",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 218066,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "The Mar\u00edas",
+                            "genres": [],
+                            "URI": "spotify:artist:2sSGPbdZJkaSE2AbcGOACx",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Clueless",
+                                            "URI": "spotify:track:7mrEpwmQJ7qK1ik7ZjjcdD",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 227234,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Bob Moses",
+                            "genres": [],
+                            "URI": "spotify:artist:6LHsnRBUYhFyt01PdKXAF5",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Enough to Believe - Jamie Jones Remix",
+                                            "URI": "spotify:track:4LtVrrqpn48l4Iq7KIshmi",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 314872,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "The Fratellis",
+                            "genres": [],
+                            "URI": "spotify:artist:3M4ThdJR28z9eSMcQHAZ5G",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Chelsea Dagger",
+                                            "URI": "spotify:track:3ItzRpwvKtkDSNdRSjXu7Z",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 215173,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
