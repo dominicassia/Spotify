@@ -362,7 +362,7 @@
                                 "Modern"
                             ],
                             "URI": "spotify:artist:5Lhxlge1CR1DrgDAje8Qaw",
-                            "popularity": 6,
+                            "popularity": 7,
                             "songs": [
                                 {
                                     "song": [
@@ -417,6 +417,20 @@
                                             ],
                                             "duration": 176889,
                                             "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Miss Mirage",
+                                            "URI": "spotify:track:0IniDDYo8XdZkiIp5EmBP6",
+                                            "exception": false,
+                                            "genres": [
+                                                "Modern"
+                                            ],
+                                            "duration": 262253,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -562,7 +576,7 @@
                             "name": "Oliver Malcolm",
                             "genres": [],
                             "URI": "spotify:artist:5ut4VhaCRPsEjAZ93jpPfK",
-                            "popularity": 3,
+                            "popularity": 4,
                             "songs": [
                                 {
                                     "song": [
@@ -572,7 +586,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 199381,
-                                            "popularity": 2
+                                            "popularity": 3
                                         }
                                     ]
                                 },
@@ -1798,7 +1812,7 @@
                                 "Rap"
                             ],
                             "URI": "spotify:artist:5K4W6rqBFWDnAN6FQUkS6x",
-                            "popularity": 1,
+                            "popularity": 2,
                             "songs": [
                                 {
                                     "song": [
@@ -1809,6 +1823,20 @@
                                             "genres": [],
                                             "duration": 397666,
                                             "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Black Skinhead",
+                                            "URI": "spotify:track:722tgOgdIbNe3BEyLnejw4",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 188013,
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -4493,7 +4521,7 @@
                             "name": "Manwolves",
                             "genres": [],
                             "URI": "spotify:artist:6RCI4WXRwG9jnRHZgzBYFr",
-                            "popularity": 2,
+                            "popularity": 3,
                             "songs": [
                                 {
                                     "song": [
@@ -4503,7 +4531,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 323786,
-                                            "popularity": 2
+                                            "popularity": 3
                                         }
                                     ]
                                 }
@@ -4625,7 +4653,7 @@
                             "name": "Mac Miller",
                             "genres": [],
                             "URI": "spotify:artist:4LLpKhyESsyAXpc4laK94U",
-                            "popularity": 27,
+                            "popularity": 32,
                             "songs": [
                                 {
                                     "song": [
@@ -4683,7 +4711,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 173013,
-                                            "popularity": 2
+                                            "popularity": 3
                                         }
                                     ]
                                 },
@@ -4743,7 +4771,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 208080,
-                                            "popularity": 3
+                                            "popularity": 4
                                         }
                                     ]
                                 },
@@ -4779,7 +4807,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 223120,
-                                            "popularity": 3
+                                            "popularity": 4
                                         }
                                     ]
                                 },
@@ -4791,7 +4819,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 275506,
-                                            "popularity": 3
+                                            "popularity": 4
                                         }
                                     ]
                                 },
@@ -4815,6 +4843,18 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 78013,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Rush Hour",
+                                            "URI": "spotify:track:09VACB0akCnPueTFnjN5Pn",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 201840,
                                             "popularity": 2
                                         }
                                     ]
@@ -6305,7 +6345,7 @@
                             "name": "The White Stripes",
                             "genres": [],
                             "URI": "spotify:artist:4F84IBURUo98rz4r61KF70",
-                            "popularity": 1,
+                            "popularity": 2,
                             "songs": [
                                 {
                                     "song": [
@@ -6315,7 +6355,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 231733,
-                                            "popularity": 1
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -7517,7 +7557,7 @@
                             "name": "Jack Harlow",
                             "genres": [],
                             "URI": "spotify:artist:2LIk90788K0zvyj2JJVwkJ",
-                            "popularity": 2,
+                            "popularity": 4,
                             "songs": [
                                 {
                                     "song": [
@@ -7527,6 +7567,18 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 139741,
+                                            "popularity": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "SUNDOWN",
+                                            "URI": "spotify:track:0ipgd8PPFza3NNmN3Rn2uF",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 125217,
                                             "popularity": 2
                                         }
                                     ]
@@ -8039,7 +8091,7 @@
                             "name": "YG",
                             "genres": [],
                             "URI": "spotify:artist:0A0FS04o6zMoto8OKPsDwY",
-                            "popularity": 2,
+                            "popularity": 3,
                             "songs": [
                                 {
                                     "song": [
@@ -8049,7 +8101,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 196600,
-                                            "popularity": 2
+                                            "popularity": 3
                                         }
                                     ]
                                 }
@@ -8639,7 +8691,7 @@
                             "name": "Dua Saleh",
                             "genres": [],
                             "URI": "spotify:artist:2DGBzoOLcKLK3eWxFyugdB",
-                            "popularity": 2,
+                            "popularity": 3,
                             "songs": [
                                 {
                                     "song": [
@@ -8649,6 +8701,18 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 155762,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "body cast",
+                                            "URI": "spotify:track:3zpC30rfS6vtJGxBCTKK2m",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 151002,
                                             "popularity": 2
                                         }
                                     ]
@@ -9093,6 +9157,150 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 168000,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Bobby Shmurda",
+                            "genres": [],
+                            "URI": "spotify:artist:34Y0ldeyUv7jBvukWOGASO",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Hot N*gga",
+                                            "URI": "spotify:track:19gEmPjfqSZT0ulDRfjl0m",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 194561,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Joey Purp",
+                            "genres": [],
+                            "URI": "spotify:artist:1ewyVtTZBqFYWIcepopRhp",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Girls @ (feat. Chance the Rapper)",
+                                            "URI": "spotify:track:5p7sELomeqtq9ypH3VeVH1",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 212950,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Michl",
+                            "genres": [],
+                            "URI": "spotify:artist:0qG3lxHmrUeKzL1BJJ7IBN",
+                            "popularity": 6,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "When You Loved Me Least",
+                                            "URI": "spotify:track:54Or9jvM3jWsZPaxEBBP4Y",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 216906,
+                                            "popularity": 6
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Sub Urban",
+                            "genres": [],
+                            "URI": "spotify:artist:7gXb99Sf9nNmpNYeAgIQFG",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Freak (feat. REI AMI)",
+                                            "URI": "spotify:track:5jkbw3FDS3bSSb4oLKYbjf",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 194000,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "andy polk",
+                            "genres": [],
+                            "URI": "spotify:artist:0pjzVvlSShyf6ZiWa7ICzw",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "cry no more",
+                                            "URI": "spotify:track:2chGR0bDuJdv1O5JNosXbl",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 127857,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Mosie",
+                            "genres": [],
+                            "URI": "spotify:artist:6HGNvZKlT5TO7y4aJbDHql",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Oh! Frenchy",
+                                            "URI": "spotify:track:3Gvxk7y3zY13o7EPJECNyM",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 236153,
                                             "popularity": 2
                                         }
                                     ]

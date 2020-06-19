@@ -3,7 +3,12 @@
         {
             "popularity": [
                 {
-                    "timestamp": "2020-06-18 17:20:25.250000"
+                    "timestamp": "2020-06-19 03:25:27.270000"
+                }
+            ],
+            "analysis": [
+                {
+                    "timestamp": "2001-06-05 02:44:50.500000"
                 }
             ],
             "data": [
@@ -2658,6 +2663,174 @@
                         "timestamp": "2020-06-18 17:20:25.250000",
                         "name": "fwb",
                         "URI": "spotify:track:5PtGchZh3CKBpY9CSUfY3C"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 20:54:00",
+                        "name": "Rush Hour",
+                        "URI": "spotify:track:09VACB0akCnPueTFnjN5Pn"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 20:56:48.480000",
+                        "name": "Time Flies (feat. Lil B)",
+                        "URI": "spotify:track:613sTvP8USXm8SEKWsqCuv"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 21:00:26.260000",
+                        "name": "When in Rome",
+                        "URI": "spotify:track:4lIVN4LUJCmweoGJmk6hK9"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 21:03:49.490000",
+                        "name": "Weekend (feat. Miguel)",
+                        "URI": "spotify:track:6GnhWMhgJb7uyiiPEiEkDA"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 21:14:08.080000",
+                        "name": "In the Bag",
+                        "URI": "spotify:track:7odIekt1GqLVEAAWdnd9mJ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 21:16:29.290000",
+                        "name": "cry no more",
+                        "URI": "spotify:track:2chGR0bDuJdv1O5JNosXbl"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 21:19:56.560000",
+                        "name": "Freak (feat. REI AMI)",
+                        "URI": "spotify:track:5jkbw3FDS3bSSb4oLKYbjf"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 21:26:37.370000",
+                        "name": "When You Loved Me Least",
+                        "URI": "spotify:track:54Or9jvM3jWsZPaxEBBP4Y"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 21:30:29.290000",
+                        "name": "When You Loved Me Least",
+                        "URI": "spotify:track:54Or9jvM3jWsZPaxEBBP4Y"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 22:34:32.320000",
+                        "name": "When You Loved Me Least",
+                        "URI": "spotify:track:54Or9jvM3jWsZPaxEBBP4Y"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 22:38:09.090000",
+                        "name": "When You Loved Me Least",
+                        "URI": "spotify:track:54Or9jvM3jWsZPaxEBBP4Y"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 22:42:32.320000",
+                        "name": "Miss Mirage",
+                        "URI": "spotify:track:0IniDDYo8XdZkiIp5EmBP6"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 22:46:10.100000",
+                        "name": "When You Loved Me Least",
+                        "URI": "spotify:track:54Or9jvM3jWsZPaxEBBP4Y"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-18 22:49:11.110000",
+                        "name": "body cast",
+                        "URI": "spotify:track:3zpC30rfS6vtJGxBCTKK2m"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 00:52:18.180000",
+                        "name": "Kevin",
+                        "URI": "spotify:track:2DylrERZbUpx845Cd8y7hU"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 00:55:28.280000",
+                        "name": "SUNDOWN",
+                        "URI": "spotify:track:0ipgd8PPFza3NNmN3Rn2uF"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 00:57:49.490000",
+                        "name": "WHATS POPPIN",
+                        "URI": "spotify:track:1jaTQ3nqY3oAAYyCTbIvnM"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 01:11:36.360000",
+                        "name": "Why You Always Hatin?",
+                        "URI": "spotify:track:39hnH8WdPmNT3Q3yzwC9Rg"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 01:53:37.370000",
+                        "name": "Girls @ (feat. Chance the Rapper)",
+                        "URI": "spotify:track:5p7sELomeqtq9ypH3VeVH1"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 01:57:43.430000",
+                        "name": "Seven Nation Army",
+                        "URI": "spotify:track:7i6r9KotUPQg3ozKKgEPIN"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 02:00:53.530000",
+                        "name": "Black Skinhead",
+                        "URI": "spotify:track:722tgOgdIbNe3BEyLnejw4"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 02:05:03.030000",
+                        "name": "Hot N*gga",
+                        "URI": "spotify:track:19gEmPjfqSZT0ulDRfjl0m"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 02:10:28.280000",
+                        "name": "You",
+                        "URI": "spotify:track:6F7CjVIrwk7PddQUsoPmoo"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 03:25:27.270000",
+                        "name": "Oh! Frenchy",
+                        "URI": "spotify:track:3Gvxk7y3zY13o7EPJECNyM"
                     }
                 ]
             ]

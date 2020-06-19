@@ -6,6 +6,7 @@ import json                 # Parse
 import time                 # Execution time
 import datetime             # Sorting timestamps
 import operator             # Sorting specific indices
+import functools            # Memoization cache
 
 #####################################################
 
@@ -491,7 +492,9 @@ def addSong(path, index, trackName, trackURI, trackDuration):
         json.dump(genreData, fileWrite, indent=4) 
         fileWrite.close()
 
-def updateGenres(genreLength):
+def updateGenres():
+
+    # Create a list of all genres at the beginning of the genreData.json file
 
     print('\tChecking.')
 
@@ -903,20 +906,23 @@ def durationListened(token):
         print('timeout error.')
         durationListened(token)
 
-    print(response.status_code, '\n')
+    print(response.status_code)
 
     # Unauthorized
 
     if response.status_code == 401:
+        print('- Unauthoorized')
         time.sleep(10)
         durationListened(token)
 
     # No new data to grab
 
     if response.status_code == 204:
+        print('- Nothing is playing ( no data )')
         time.sleep(20)
         durationListened(token)
 
+    # Delete
     print(response.text)
 
     r = json.loads(str(response.text))    
@@ -933,48 +939,48 @@ def durationListened(token):
     # Functions
 
     def moreThanHalf(duration, progress):
-        if progress > (duration / 2):
+        if progress > (int(duration / 2)):
             return True
         else:
             return False
 
-    def isPlaying():
-        if r['is_playing'] == 'true':
-            return True
-        else:
-            return False
+    # https://docs.python.org/3/library/functools.html
 
-    # def isPaused():
-    #     if null == 'true':
-    #         return True
-    #     else:
-    #         return False
-
+    @Lru_cache(maxsize=8, typed=False)
     def constantChecker():
 
-        if isPlaying() == True:
+        # Constantly check for what is being listened to, if the user listens to more than half the song without switching it, it can be added to listening history for analysis
+
+        if r['is_playing'] == True:
 
             if moreThanHalf(trackDuration, trackProgress) == True:
 
-                # Add to listening history
-
+                # Add to listening history / proceed with script
+                print('more than half')
                 pass
 
             else:
 
                 # Calculate and wait for the remainder of half the song
+                print('less than half')
+                print( int(int(trackDuration / 2) - trackProgress) / 1000 )
 
-                time.sleep( (trackDuration / 2) - trackProgress )
-                constantChecker()
+                tempURI = trackURI
+                time.sleep( int(int(trackDuration / 2) - trackProgress) / 1000 )
+                durationListened(token)
 
-        else:
-            
-            # The song is not playing - wait then reloop
+        elif r['is_playing'] == False:
 
-            time.sleep(20)
+            # The music is not playing
+
+            print('not playing')
+            time.sleep(10)
             durationListened(token)
 
+
     # Call function
+
+    print(r['is_playing'])
 
     constantChecker()
     
@@ -1024,7 +1030,7 @@ def main():
     tStart = time.time()
 
     print('> Updating genres.')
-    updateGenres(genre)                                                          
+    updateGenres()                                                          
 
     exeuctionTime(tStart)
 
