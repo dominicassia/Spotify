@@ -6,7 +6,7 @@ import json                 # Parse
 import time                 # Execution time
 import datetime             # Sorting timestamps
 import operator             # Sorting specific indices
-import functools            # Memoization cache
+import functools            # Caching
 
 #####################################################
 
@@ -902,11 +902,15 @@ def durationListened(token):
 
     try:
         response = requests.get(url=url, headers=headers, timeout=10)
+
+        # This GET request returns information about a user's current listening status
+
     except TimeoutError:
+
         print('timeout error.')
         durationListened(token)
 
-    print(response.status_code)
+    print('\tStatus: ', response.status_code)
 
     # Unauthorized
 
@@ -918,17 +922,16 @@ def durationListened(token):
     # No new data to grab
 
     if response.status_code == 204:
-        print('- Nothing is playing ( no data )')
+        print('- Nothing is playing ( no data / waiting 20s )')
         time.sleep(20)
         durationListened(token)
 
-    # Delete
-    print(response.text)
+    print(response.text)        # Delete
 
     r = json.loads(str(response.text))    
 
     # Assign
-
+    
     trackName = r['item']['name'] 
     trackURI = r['item']['uri']
     trackProgress = r['progress_ms']
@@ -944,26 +947,22 @@ def durationListened(token):
         else:
             return False
 
-    # https://docs.python.org/3/library/functools.html
-
-    @Lru_cache(maxsize=8, typed=False)
     def constantChecker():
 
         # Constantly check for what is being listened to, if the user listens to more than half the song without switching it, it can be added to listening history for analysis
 
         if r['is_playing'] == True:
 
-            if moreThanHalf(trackDuration, trackProgress) == True:
+            if moreThanHalf(trackDuration, trackProgress) == True and trackURI == tempURI:
 
                 # Add to listening history / proceed with script
-                print('more than half')
+                print('- More than half of the same song has been listened to ( adding to history )')
                 pass
 
             else:
 
                 # Calculate and wait for the remainder of half the song
-                print('less than half')
-                print( int(int(trackDuration / 2) - trackProgress) / 1000 )
+                print('- Less than half the song has been listened to ( waiting', int(int(trackDuration / 2) - trackProgress) / 1000,'s )')
 
                 tempURI = trackURI
                 time.sleep( int(int(trackDuration / 2) - trackProgress) / 1000 )
@@ -973,10 +972,9 @@ def durationListened(token):
 
             # The music is not playing
 
-            print('not playing')
+            print('- Nothing is playing ( no data / waiting 10s )')
             time.sleep(10)
             durationListened(token)
-
 
     # Call function
 
@@ -984,6 +982,107 @@ def durationListened(token):
 
     constantChecker()
     
+
+def playback(token):
+
+    # Monitor the User's playback to determine which songs are important
+
+    def GETplayback(token):
+
+        # https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/
+
+        url = 'https://api.spotify.com/v1/me/player'
+        headers = {'Authorization': 'Bearer ' + token }
+
+        try:
+            response = requests.get(url=url, headers=headers, timeout=10)
+
+            # This GET request returns information about a user's current listening status
+
+        except TimeoutError:
+
+            print('timeout error.')
+            durationListened(token)
+
+        print('\tStatus: ', response.status_code)
+
+        # Unauthorized
+
+        if response.status_code == 401:
+            print('- Unauthoorized')
+            time.sleep(10)
+            durationListened(token)
+
+        # No new data to grab
+
+        if response.status_code == 204:
+            print('- Nothing is playing ( no data / waiting 20s )')
+            time.sleep(20)
+            durationListened(token)
+
+        r = json.loads(str(response.text))    
+
+        # Create dictionary to return
+
+        responseValues = {
+            'trackName'         : r['item']['name'], 
+            'trackURI'          : r['item']['uri'],
+            'trackProgress'     : r['progress_ms'],
+            'trackDuration'     : r['item']['duration_ms'],
+            'artistName'        : r['item']['artists'][0]['name'],
+            'artistURI'         : r['item']['artists'][0]['uri'],
+            'playing'           : r['is_playing']
+        }
+
+        return responseValues
+    
+    def moreThanHalf(duration, progress):
+
+        if progress > (int(duration / 2)):
+
+            return True
+            
+        else:
+
+            return False
+
+    def duration(response):
+
+        if response['playing'] == True:
+
+            if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and trackURI == tempURI:
+
+                # More than half of the same song has been listened to, add to listening history
+
+                print('- More than half of the same song has been listened to ( adding to history )')
+
+            elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == False:
+
+                # Calculate and wait for the remainder of half the song
+
+                print('- Less than half the song has been listened to ( waiting', int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000,'s )')
+
+                time.sleep( int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000 )
+                duration(response)
+
+            elif trackURI != tempURI:
+
+                # The User skipped the song before getting halfway, restart the function
+
+                playback(token)
+
+        elif response['playing'] == False:
+
+            # The music is not playing
+
+            print('- Nothing is playing ( no data / waiting 10s )')
+            time.sleep(10)
+            playback(token)
+
+    # Call functions
+
+    response = GETplayback(token)
+    duration(response)
 
 def exeuctionTime(tStart):
     tEnd = time.time()                                                      # End Clock
@@ -1009,6 +1108,18 @@ def main():
     token, displayName = validate(token, refreshToken, path, userID, clientID, clientSecret)
     
     exeuctionTime(tStart)
+
+    # Monitor playback
+
+    playback(token)
+
+
+
+
+
+
+
+
 
     # Recently played
     tStart = time.time()
@@ -1076,11 +1187,12 @@ main()
     dirCheck():     ensure there are data files to write to, if not create them with the generic format
 
 Ideal script:
-
-    https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/
-
-    Constantly monitors what youre listening to, in order to understand how long you've listened to a song
-
+    - Verify the token is valid
+    - Constantly monitors what youre listening to, in order to understand how long you've listened to a song
+    - If more than half the song is listened to, add it to listening history
+    - Add listening history songs to genreData.json
+        - Get additional data needed from pulling user's recently played songs and navigating backwards to find song
+    - Check playlists over a certain interval of time
 
 '''
 

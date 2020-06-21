@@ -3,7 +3,7 @@
         {
             "popularity": [
                 {
-                    "timestamp": "2020-06-19 03:25:27.270000"
+                    "timestamp": "2020-06-21 16:36:21.210000"
                 }
             ],
             "analysis": [
@@ -2831,6 +2831,524 @@
                         "timestamp": "2020-06-19 03:25:27.270000",
                         "name": "Oh! Frenchy",
                         "URI": "spotify:track:3Gvxk7y3zY13o7EPJECNyM"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 17:19:19.190000",
+                        "name": "Bad Things",
+                        "URI": "spotify:track:6ul7rCLSeYb2OmYZ8isxPp"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 17:23:01.010000",
+                        "name": "Living Out Loud (feat. Sia) - KDA Remix",
+                        "URI": "spotify:track:5I52kBFi5yW67mSAF7Xv7X"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 17:26:50.500000",
+                        "name": "Misbehaving",
+                        "URI": "spotify:track:04EDShdWyBr2aJPqjFjKAQ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 17:32:12.120000",
+                        "name": "Lucky",
+                        "URI": "spotify:track:1JD8X5jFCYdNiXFVPmCydA"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 17:38:36.360000",
+                        "name": "HE DON'T",
+                        "URI": "spotify:track:2eRzjxGfteRdLqCMzBc6IG"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 17:45:34.340000",
+                        "name": "Lose Yourself to Dance (feat. Pharrell Williams)",
+                        "URI": "spotify:track:5CMjjywI0eZMixPeqNd75R"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 17:51:20.200000",
+                        "name": "Veridis Quo",
+                        "URI": "spotify:track:2LD2gT7gwAurzdQDQtILds"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 17:58:51.510000",
+                        "name": "Robot Rock / Oh Yeah",
+                        "URI": "spotify:track:5eS6pTvDNOvh2kyxeZtK3r"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-19 17:59:07.070000",
+                        "name": "Daft Pretty Boys",
+                        "URI": "spotify:track:41d2Q6DHcM20OdzynkRtvf"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 02:04:37.370000",
+                        "name": "SUNDOWN",
+                        "URI": "spotify:track:0ipgd8PPFza3NNmN3Rn2uF"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 02:09:41.410000",
+                        "name": "Since the Day I Was Born",
+                        "URI": "spotify:track:05vTlPq6HAgNz6bf2icUWF"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 02:11:16.160000",
+                        "name": "F.U.T.W.",
+                        "URI": "spotify:track:26ZXwyyui0YVpWZchlmB9h"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 02:39:37.370000",
+                        "name": "F.U.T.W.",
+                        "URI": "spotify:track:26ZXwyyui0YVpWZchlmB9h"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 02:43:11.110000",
+                        "name": "Too Far Gone",
+                        "URI": "spotify:track:2vEIEy4MwAZWB1cLprigYs"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 02:46:52.520000",
+                        "name": "Bank Account",
+                        "URI": "spotify:track:2fQrGHiQOvpL9UgPvtYy6G"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 02:50:33.330000",
+                        "name": "Venice Venture",
+                        "URI": "spotify:track:4IBwgoDpNG2p7EouVtFw0E"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 02:57:42.420000",
+                        "name": "What's Free (feat. Rick Ross & Jay Z)",
+                        "URI": "spotify:track:4iQ5gmTAzWfK8JyFC2LBox"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:00:53.530000",
+                        "name": "Nan\u00e3",
+                        "URI": "spotify:track:0Psz3az3RIYfJpnsajBT8N"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:06:12.120000",
+                        "name": "Like It's Over (feat. MNDR)",
+                        "URI": "spotify:track:4y6PSWptEEDATKmja2xzCu"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:09:17.170000",
+                        "name": "Caffeine",
+                        "URI": "spotify:track:15SeSt7NAugpbYquPhF5dD"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:13:51.510000",
+                        "name": "Aries (YuGo) Part 2 (with Rae Sremmurd & Big Sean feat. Quavo & Pharrell)",
+                        "URI": "spotify:track:5NkfVQS8BkceRgoSQwcW6H"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:16:46.460000",
+                        "name": "underwater",
+                        "URI": "spotify:track:70vZcwwROcgskJAzrZUQBx"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:20:53.530000",
+                        "name": "PRBLMS",
+                        "URI": "spotify:track:4AtZRwSR8BOTTQg5ihSggt"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:27:23.230000",
+                        "name": "ELEMENT.",
+                        "URI": "spotify:track:1EaKU4dMbesXXd3BrLCtYG"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:35:56.560000",
+                        "name": "Fitzpleasure",
+                        "URI": "spotify:track:7DdXf9x75iEVCHWfoRwRuR"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:40:31.310000",
+                        "name": "Finale (feat. Nicholas Petricca)",
+                        "URI": "spotify:track:4ATmY1hv93ehw77LrIdbEh"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:49:56.560000",
+                        "name": "Lemon (feat. Drake) - Drake Remix",
+                        "URI": "spotify:track:739vCwA3EpBSkk3uDsI2wB"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:53:27.270000",
+                        "name": "Dennis",
+                        "URI": "spotify:track:6Dvxpqv61hyRZJs4qDfiP3"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 03:57:42.420000",
+                        "name": "Plain Jane",
+                        "URI": "spotify:track:4dVpf9jZjcORqGTLUaeYj9"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:02:46.460000",
+                        "name": "Just Some Loops",
+                        "URI": "spotify:track:17a6cgkneKMhzEN6g8pBn7"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:11:44.440000",
+                        "name": "Costa Rica (with Bas & JID feat. Guapdad 4000, Reese LAFLARE, Jace, Mez, Smokepurpp, Buddy & Ski Mask The Slump God)",
+                        "URI": "spotify:track:5WnfnSpuNEGXyEt78PBA6d"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:16:11.110000",
+                        "name": "Morning In America",
+                        "URI": "spotify:track:2JXNOtb0ANe6MzgRYDQG2J"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:20:02.020000",
+                        "name": "Use Somebody",
+                        "URI": "spotify:track:5VGlqQANWDKJFl0MBG3sg2"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:25:49.490000",
+                        "name": "Gorilla",
+                        "URI": "spotify:track:0WIJ4uPpoHXaPGVmdy3O6r"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:31:11.110000",
+                        "name": "42.26",
+                        "URI": "spotify:track:5CTzapBNGovLrqPas4cy7J"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:33:46.460000",
+                        "name": "Soma",
+                        "URI": "spotify:track:6gU7ohksNd6LsEJMWfDRhp"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:37:39.390000",
+                        "name": "Paradise - Radio Edit",
+                        "URI": "spotify:track:6BZWaurfUWT5UE2CuvkTji"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:55:17.170000",
+                        "name": "1.5",
+                        "URI": "spotify:track:2wOXxtHZgRkkrkEbKLzzqs"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 04:57:26.260000",
+                        "name": "REEL IT IN",
+                        "URI": "spotify:track:5qHirGR7M9tdm6C17DlzSY"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 05:10:47.470000",
+                        "name": "Overthinker",
+                        "URI": "spotify:track:4K9xid96G3YmIvQZXN9SXg"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 05:14:12.120000",
+                        "name": "Guru",
+                        "URI": "spotify:track:5M7IGym8CgSVOMNvDAGheL"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 05:16:50.500000",
+                        "name": "Suit & Tie (feat. Jay-Z)",
+                        "URI": "spotify:track:6vt0I1cw1YmAIKDJvHVIM5"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 14:03:36.360000",
+                        "name": "California Girls",
+                        "URI": "spotify:track:0LWfUHni3AITNe28V3wo3j"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 14:42:28.280000",
+                        "name": "Clubhouse",
+                        "URI": "spotify:track:7rdyAfIm1t6h6I1gyLtD17"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 14:47:16.160000",
+                        "name": "Ascension",
+                        "URI": "spotify:track:19CkkPInDRDIOlqfrz1mVn"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 14:50:26.260000",
+                        "name": "Break the Law",
+                        "URI": "spotify:track:7qfur8OfEOABgenV3Wf0JK"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 14:53:12.120000",
+                        "name": "Cut the Check (feat. Chief Keef)",
+                        "URI": "spotify:track:6U1ueRYXTjFHuJ9Ld2LBIW"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 15:52:00",
+                        "name": "Jump",
+                        "URI": "spotify:track:7uhniEFBcLsYD4W92E0Nx2"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 16:55:52.520000",
+                        "name": "Two Matches (feat. Ab-Soul)",
+                        "URI": "spotify:track:5dhYmSVGhAVVSf5uTwj7hv"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 16:56:21.210000",
+                        "name": "Suga Suga",
+                        "URI": "spotify:track:6Nq5lE0CeOAAAqN4qhkbZU"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 17:12:09.090000",
+                        "name": "AnyTime",
+                        "URI": "spotify:track:0xnBlKwiZlcab4Sjqg6rbl"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 17:24:03.030000",
+                        "name": "Rainy Day Cafe BGM",
+                        "URI": "spotify:track:6OoWB3xAIij79QL8Tn3UqU"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 17:53:16.160000",
+                        "name": "Boots Dance Jazz",
+                        "URI": "spotify:track:6kd7uqxvbLIh564YbRIUc5"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 19:39:42.420000",
+                        "name": "WDYW",
+                        "URI": "spotify:track:5yhFsdivnbfnucFVxuyfZo"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 19:44:08.080000",
+                        "name": "When Am I Gonna Lose You",
+                        "URI": "spotify:track:5wCVLW9qMtIY9IkBeyYnh6"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 19:47:57.570000",
+                        "name": "Wrist",
+                        "URI": "spotify:track:7qT7NUDywO7vNJNTNxqWiN"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 19:52:14.140000",
+                        "name": "White Iverson",
+                        "URI": "spotify:track:6eT7xZZlB2mwyzJ2sUKG6w"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-20 19:58:56.560000",
+                        "name": "The Start Of Something",
+                        "URI": "spotify:track:6K5GAopLZzzg0ZX8k5GWwh"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 01:09:05.050000",
+                        "name": "6 God",
+                        "URI": "spotify:track:3a8tAZFJxlmBwOtrf5L1oC"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 02:19:39.390000",
+                        "name": "Down Bad (feat. JID, Bas, J. Cole, EARTHGANG & Young Nudy)",
+                        "URI": "spotify:track:36J0iaPDGbYGsHvYpaYs3k"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 02:40:13.130000",
+                        "name": "Down Bad (feat. JID, Bas, J. Cole, EARTHGANG & Young Nudy)",
+                        "URI": "spotify:track:36J0iaPDGbYGsHvYpaYs3k"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 02:59:05.050000",
+                        "name": "4pm in Calabasas",
+                        "URI": "spotify:track:6C9SwoZ5OrxcvkntgA5t8s"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 03:02:31.310000",
+                        "name": "Fire",
+                        "URI": "spotify:track:1bVR1UVkeaJRK5LNpIe7Gp"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 03:07:08.080000",
+                        "name": "Don't Forget Me",
+                        "URI": "spotify:track:308kjPoIVBzDNExO54sqAi"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 03:18:59.590000",
+                        "name": "RUN IT UP",
+                        "URI": "spotify:track:6Jz6C4VVi7hmQeC4rDt3A2"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 03:22:25.250000",
+                        "name": "Numb / Encore",
+                        "URI": "spotify:track:5sNESr6pQfIhL3krM8CtZn"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 03:26:56.560000",
+                        "name": "Worst Behavior",
+                        "URI": "spotify:track:0MmqaSn9dzP5GHxZ933V4l"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 03:35:22.220000",
+                        "name": "Something About You - ODESZA Remix",
+                        "URI": "spotify:track:6vjWim6xU6tPjA42GxSp1U"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 03:39:29.290000",
+                        "name": "BIGBRIGHT",
+                        "URI": "spotify:track:3sftRA1ThVoZCnwsdhsviz"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 03:44:22.220000",
+                        "name": "let me go",
+                        "URI": "spotify:track:44Mhjm8slqqzJI2cCXzoXJ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 03:50:07.070000",
+                        "name": "Rewind",
+                        "URI": "spotify:track:3jjj9bdY7bYWZaaWPwmOpj"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 15:18:33.330000",
+                        "name": "Boots Dance Jazz",
+                        "URI": "spotify:track:6kd7uqxvbLIh564YbRIUc5"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 16:32:41.410000",
+                        "name": "Maple",
+                        "URI": "spotify:track:1PJYaFjResggmKHN0CmidL"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-21 16:36:21.210000",
+                        "name": "Photosynthesis",
+                        "URI": "spotify:track:3DlgDXIYtnWtJKiB8bZQMv"
                     }
                 ]
             ]
