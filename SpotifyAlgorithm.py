@@ -911,8 +911,9 @@ def playback(token):
 
         except TimeoutError:
 
-            print('timeout error.')
-            durationListened(token)
+            print('timeout error. ( waiting 20s )')
+            time.sleep(20)
+            playback(token)
 
         print('\tStatus: ', response.status_code)
 
@@ -921,14 +922,14 @@ def playback(token):
         if response.status_code == 401:
             print('- Unauthoorized')
             time.sleep(10)
-            durationListened(token)
+            playback(token)
 
         # No new data to grab
 
         if response.status_code == 204:
             print('- Nothing is playing ( no data / waiting 20s )')
             time.sleep(20)
-            durationListened(token)
+            playback(token)
 
         r = json.loads(str(response.text))    
 
@@ -960,49 +961,57 @@ def playback(token):
 
         # Temporarily store value of the track's URI
 
-        path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\temp.txt'
+        path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\temp.json'
 
-        tf = open(path, 'r+')
+        with open(path, 'r+') as tf:
+            tfData = json.load(tf)
+            
+            if tfData == {}:
 
-        tf.write( response['trackURI'] )
+                # Do nothing 
+                pass
+            
+            else:
 
-        print(tf.read())
+                tfData = {"URI" : response['trackURI']}
 
-        if response['playing'] == True:
+                json.dump(tfData, tf)
 
-            if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tf.read():
+            if response['playing'] == True:
 
-                # More than half of the same song has been listened to, add to listening history
+                if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tfData['URI']:
 
-                print('- More than half of the same song has been listened to ( adding to history )')
-                
-                time.sleep( int(response['trackDuration'] - response['trackProgress']) / 1000 )
+                    # More than half of the same song has been listened to, add to listening history
 
-            elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == False:
+                    print('- More than half of the same song has been listened to ( adding to history )')
+                    
+                    time.sleep( int(response['trackDuration'] - response['trackProgress']) / 1000 )
 
-                # Calculate and wait for the remainder of half the song
+                elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == False:
 
-                print('- Less than half the song has been listened to ( waiting', int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000,'s )')
+                    # Calculate and wait for the remainder of half the song
 
-                time.sleep( int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000 )
-                duration(response)
+                    print('- Less than half the song has been listened to ( waiting', int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000,'s )')
 
-            elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] != tf.read():
+                    time.sleep( int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000 )
+                    playback(token)
 
-                # The User skipped the song before getting halfway, restart the function
-                print('the song has been skipped')
+                elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tfData['URI']:
+
+                    # The User skipped the song before getting halfway, restart the function
+                    print('the song has been skipped')
+                    tf.close()
+                    playback(token)
+
+            elif response['playing'] == False:
+
+                # The music is not playing
+
+                print('- Nothing is playing ( no data / waiting 10s )')
+
+                time.sleep(10)
                 tf.close()
                 playback(token)
-
-        elif response['playing'] == False:
-
-            # The music is not playing
-
-            print('- Nothing is playing ( no data / waiting 10s )')
-
-            time.sleep(10)
-            tf.close()
-            playback(token)
 
     # Call functions
 
@@ -1086,10 +1095,6 @@ def main():
 
     exeuctionTime(tStart)
 
-    # Duration listened
-
-    durationListened(token)
-
 main()
 
 # Continuously run
@@ -1104,7 +1109,7 @@ main()
 
     isLiked():      check if a song from the response is liked --> pull all liked songs and compare to songs attempting to be added
 
-    durationListened():     if duration listened to a song is less than 45 sec, don't add to genreData
+    playback():     if duration listened to a song is less than 45 sec, don't add to genreData
 
     similarSongs():     songs listened to before and after a track will give insight to what genre that song may be --> if a un-genred song is surrounded by the same genres x amount of time, guess that that song is that genre
         nearbySongs():      find songs that have been played "around" a track and comapre their genres   songL --> songC --> songR, determine songC's genre by L & R genre
