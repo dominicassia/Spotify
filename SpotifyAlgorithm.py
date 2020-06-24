@@ -930,7 +930,7 @@ def playback(token, tempF):
         if response.status_code == 204:
             print('- Nothing is playing ( no data / waiting 20s )')
             time.sleep(20)
-            playback(token)
+            playback(token, tempF)
 
         r = json.loads(str(response.text))    
 
@@ -958,6 +958,11 @@ def playback(token, tempF):
 
             return False
 
+    def tempReturn(tempF):
+
+        tempF.seek(0)
+        return str(tempF.read())
+
     def duration(response, tempF):
 
         print(response)
@@ -967,23 +972,23 @@ def playback(token, tempF):
         # https://www.tutorialspoint.com/generate-temporary-files-and-directories-using-python
 
         try:
-            tempF.seek(0)
-            print('try', tempF.read())
+            print('trying', tempReturn(tempF))
 
         except AttributeError or ValueError:
 
             tempF = tempfile.TemporaryFile(mode='w+', dir=None)
 
-            print( 'writing temp', response['trackURI'] )
+            print( 'writing temp', response['trackURI'], '\n' )
 
-            tempF.write( response['trackURI'] )        
+            tempF.write( str(response['trackURI']) )        
             
-            print('Reading temp', tempF.read())
-
+            print('Reading temp', tempReturn(tempF), '\n')
 
         if response['playing'] == True:
 
-            if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempF.read():
+            print('A song is playing\n')
+
+            if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempReturn(tempF):
 
                 # More than half of the same song has been listened to, add to listening history
 
@@ -994,6 +999,13 @@ def playback(token, tempF):
                 tempF.close()
                 time.sleep( int(response['trackDuration'] - response['trackProgress']) / 1000 )
 
+            elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempReturn(tempF):
+
+                # The User skipped the song before getting halfway, restart the function
+                print('the song has been skipped')
+                tempF.close()
+                playback(token, tempF)
+
             elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == False:
 
                 # Calculate and wait for the remainder of half the song
@@ -1001,13 +1013,6 @@ def playback(token, tempF):
                 print('- Less than half the song has been listened to ( waiting', int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000,'s )')
 
                 time.sleep( int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000 )
-                playback(token, tempF)
-
-            elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempF.read():
-
-                # The User skipped the song before getting halfway, restart the function
-                print('the song has been skipped')
-                tempF.close()
                 playback(token, tempF)
 
         elif response['playing'] == False:
@@ -1018,6 +1023,10 @@ def playback(token, tempF):
 
             time.sleep(10)
             playback(token, tempF)
+
+        else:
+
+            print('No other cases match\n')
 
     # Call functions
 
@@ -1054,9 +1063,9 @@ def main():
     tempF = ''
     playback(token, tempF)
 
+    main()
 
-
-
+'''
 
 
 
@@ -1101,7 +1110,7 @@ def main():
     updatePlaylists(token, playlists)
 
     exeuctionTime(tStart)
-
+'''
 main()
 
 # Continuously run

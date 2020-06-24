@@ -60,7 +60,7 @@
                                 "Rap"
                             ],
                             "URI": "spotify:artist:3TVXtAsR1Inumwj472S9r4",
-                            "popularity": 25,
+                            "popularity": 26,
                             "songs": [
                                 {
                                     "song": [
@@ -374,6 +374,20 @@
                                                 "Rap"
                                             ],
                                             "duration": 216333,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Talk Up (feat. Jay-Z)",
+                                            "URI": "spotify:track:4ksuI04WMvUnJbHQjgs3L5",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 223240,
                                             "popularity": 2
                                         }
                                     ]
@@ -1950,7 +1964,7 @@
                                 "Rap"
                             ],
                             "URI": "spotify:artist:5K4W6rqBFWDnAN6FQUkS6x",
-                            "popularity": 2,
+                            "popularity": 3,
                             "songs": [
                                 {
                                     "song": [
@@ -1974,6 +1988,20 @@
                                                 "Rap"
                                             ],
                                             "duration": 188013,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Lift Yourself",
+                                            "URI": "spotify:track:3uYDO9dPLTVrgfwg7EYXSf",
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ],
+                                            "duration": 147904,
                                             "popularity": 2
                                         }
                                     ]
@@ -2265,7 +2293,7 @@
                                 "Alt-Light"
                             ],
                             "URI": "spotify:artist:4dM6NDYSfLcspt8GLoT5aE",
-                            "popularity": 30,
+                            "popularity": 34,
                             "songs": [
                                 {
                                     "song": [
@@ -2335,7 +2363,7 @@
                                                 "Alt-Light"
                                             ],
                                             "duration": 193427,
-                                            "popularity": 2
+                                            "popularity": 4
                                         }
                                     ]
                                 },
@@ -2665,6 +2693,36 @@
                                                 "Alt-Light"
                                             ],
                                             "duration": 168489,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Loving You",
+                                            "URI": "spotify:track:43AykbVv6PW6v7TcGkOuXy",
+                                            "exception": false,
+                                            "genres": [
+                                                "Modern",
+                                                "Alt-Light"
+                                            ],
+                                            "duration": 235284,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Immortal",
+                                            "URI": "spotify:track:7qgDhEvRJuo1bT9o2m8CqT",
+                                            "exception": false,
+                                            "genres": [
+                                                "Modern",
+                                                "Alt-Light"
+                                            ],
+                                            "duration": 260467,
                                             "popularity": 2
                                         }
                                     ]
@@ -4863,7 +4921,7 @@
                             "name": "PNAU",
                             "genres": [],
                             "URI": "spotify:artist:6n28c9qs9hNGriNa72b26u",
-                            "popularity": 3,
+                            "popularity": 4,
                             "songs": [
                                 {
                                     "song": [
@@ -4885,7 +4943,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 189493,
-                                            "popularity": 2
+                                            "popularity": 3
                                         }
                                     ]
                                 }
@@ -5415,7 +5473,7 @@
                             "name": "Mac Miller",
                             "genres": [],
                             "URI": "spotify:artist:4LLpKhyESsyAXpc4laK94U",
-                            "popularity": 38,
+                            "popularity": 40,
                             "songs": [
                                 {
                                     "song": [
@@ -5461,7 +5519,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 330506,
-                                            "popularity": 2
+                                            "popularity": 3
                                         }
                                     ]
                                 },
@@ -5569,7 +5627,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 223120,
-                                            "popularity": 4
+                                            "popularity": 5
                                         }
                                     ]
                                 },
@@ -7515,7 +7573,7 @@
                             "name": "TREGS",
                             "genres": [],
                             "URI": "spotify:artist:5FHmVQAYHP5qayys5DkXcu",
-                            "popularity": 1,
+                            "popularity": 2,
                             "songs": [
                                 {
                                     "song": [
@@ -7525,7 +7583,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 113285,
-                                            "popularity": 1
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -11143,6 +11201,102 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 175284,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Autograf",
+                            "genres": [],
+                            "URI": "spotify:artist:0FVj4JuzTyudaXAwfqDQ20",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Dream",
+                                            "URI": "spotify:track:45dkXL85qYZLEU8rM22QOQ",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 279428,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Sublab",
+                            "genres": [],
+                            "URI": "spotify:artist:3tjRdPCZTpme7vslZJYtJx",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Rising from the Ashes",
+                                            "URI": "spotify:track:6GygZN0o9JNs1x3adaLBBh",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 199411,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Matt and Kim",
+                            "genres": [],
+                            "URI": "spotify:artist:4MSMDY0ClgWqXApU53I1L1",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Daylight",
+                                            "URI": "spotify:track:57i3M29DWoo7RDk0Tf0LZG",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 171333,
+                                            "popularity": 2
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Yung Bans",
+                            "genres": [],
+                            "URI": "spotify:artist:6WkUZyqghQei2G809wMKuZ",
+                            "popularity": 2,
+                            "songs": [
+                                {
+                                    "song": [
+                                        {
+                                            "name": "Lonely",
+                                            "URI": "spotify:track:3OrzQ7xwaLyhEV7M10CqCS",
+                                            "exception": false,
+                                            "genres": [],
+                                            "duration": 194564,
                                             "popularity": 2
                                         }
                                     ]

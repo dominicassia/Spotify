@@ -3,7 +3,7 @@
         {
             "popularity": [
                 {
-                    "timestamp": "2020-06-24 15:18:07.070000"
+                    "timestamp": "2020-06-24 21:13:08.080000"
                 }
             ],
             "analysis": [
@@ -3703,6 +3703,13 @@
                 ],
                 [
                     {
+                        "timestamp": "2020-06-23 23:17:29.290000",
+                        "name": "Do Whatchu Want To Me",
+                        "URI": "spotify:track:10Zs7eRmTZ7zXmob4GR6Gm"
+                    }
+                ],
+                [
+                    {
                         "timestamp": "2020-06-24 01:39:02.020000",
                         "name": "Letter for God",
                         "URI": "spotify:track:4cVJtU3eCwRgoKT4MYnBG9"
@@ -3902,6 +3909,104 @@
                         "timestamp": "2020-06-24 15:18:07.070000",
                         "name": "Swamp Thing",
                         "URI": "spotify:track:3BgLdsgCSDILu9RYPrTPuy"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 17:08:26.260000",
+                        "name": "Loving You",
+                        "URI": "spotify:track:43AykbVv6PW6v7TcGkOuXy"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 17:09:32.320000",
+                        "name": "Able to See Me",
+                        "URI": "spotify:track:7scP7MITYHJ1cYr1yToNHO"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 17:56:03.030000",
+                        "name": "Berry",
+                        "URI": "spotify:track:6IgqOIfMDt2Xpk7X7VS6m6"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 17:58:37.370000",
+                        "name": "Lift Yourself",
+                        "URI": "spotify:track:3uYDO9dPLTVrgfwg7EYXSf"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 18:01:51.510000",
+                        "name": "Lonely",
+                        "URI": "spotify:track:3OrzQ7xwaLyhEV7M10CqCS"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 18:04:44.440000",
+                        "name": "Daylight",
+                        "URI": "spotify:track:57i3M29DWoo7RDk0Tf0LZG"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 18:08:26.260000",
+                        "name": "When in Rome",
+                        "URI": "spotify:track:4lIVN4LUJCmweoGJmk6hK9"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 18:11:43.430000",
+                        "name": "Go Bang",
+                        "URI": "spotify:track:15Xt2CmLqrLJ0uBlDEEimX"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 18:17:14.140000",
+                        "name": "Surf",
+                        "URI": "spotify:track:1kwnxJNVl7cwcU98RvMBaR"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 18:43:58.580000",
+                        "name": "Talk Up (feat. Jay-Z)",
+                        "URI": "spotify:track:4ksuI04WMvUnJbHQjgs3L5"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 20:48:59.590000",
+                        "name": "Rising from the Ashes",
+                        "URI": "spotify:track:6GygZN0o9JNs1x3adaLBBh"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 20:53:38.380000",
+                        "name": "Dream",
+                        "URI": "spotify:track:45dkXL85qYZLEU8rM22QOQ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 21:07:25.250000",
+                        "name": "Able to See Me",
+                        "URI": "spotify:track:7scP7MITYHJ1cYr1yToNHO"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-06-24 21:13:08.080000",
+                        "name": "Immortal",
+                        "URI": "spotify:track:7qgDhEvRJuo1bT9o2m8CqT"
                     }
                 ]
             ]
