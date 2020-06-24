@@ -7,6 +7,7 @@ import time                 # Execution time
 import datetime             # Sorting timestamps
 import operator             # Sorting specific indices
 import functools            # Caching
+import tempfile             # Temporary files
 
 #####################################################
 
@@ -321,7 +322,7 @@ def listeningHistory(response):
 
     print('\tSorting.')
 
-    with open(path) as fileRead: 
+    with open(path) as fileRead:
 
         temp = json.load(fileRead) 
 
@@ -893,7 +894,7 @@ def createPlaylist(token, playlistName, songs, userID):
     print('\t\tdone.\n')  
 
 
-def playback(token):
+def playback(token, tempF):
 
     # Monitor the User's playback to determine which songs are important
 
@@ -920,7 +921,7 @@ def playback(token):
         # Unauthorized
 
         if response.status_code == 401:
-            print('- Unauthoorized')
+            print('- Unauthorized')
             time.sleep(10)
             playback(token)
 
@@ -957,66 +958,71 @@ def playback(token):
 
             return False
 
-    def duration(response):
+    def duration(response, tempF):
+
+        print(response)
 
         # Temporarily store value of the track's URI
 
-        path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\temp.json'
+        # https://www.tutorialspoint.com/generate-temporary-files-and-directories-using-python
 
-        with open(path, 'r+') as tf:
-            tfData = json.load(tf)
+        try:
+            tempF.seek(0)
+            print('try', tempF.read())
+
+        except AttributeError or ValueError:
+
+            tempF = tempfile.TemporaryFile(mode='w+', dir=None)
+
+            print( 'writing temp', response['trackURI'] )
+
+            tempF.write( response['trackURI'] )        
             
-            if tfData == {}:
+            print('Reading temp', tempF.read())
 
-                # Do nothing 
-                pass
-            
-            else:
 
-                tfData = {"URI" : response['trackURI']}
+        if response['playing'] == True:
 
-                json.dump(tfData, tf)
+            if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempF.read():
 
-            if response['playing'] == True:
+                # More than half of the same song has been listened to, add to listening history
 
-                if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tfData['URI']:
+                print('- More than half of the same song has been listened to ( adding to history )')
+                
+                # Add to listening history here:
 
-                    # More than half of the same song has been listened to, add to listening history
+                tempF.close()
+                time.sleep( int(response['trackDuration'] - response['trackProgress']) / 1000 )
 
-                    print('- More than half of the same song has been listened to ( adding to history )')
-                    
-                    time.sleep( int(response['trackDuration'] - response['trackProgress']) / 1000 )
+            elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == False:
 
-                elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == False:
+                # Calculate and wait for the remainder of half the song
 
-                    # Calculate and wait for the remainder of half the song
+                print('- Less than half the song has been listened to ( waiting', int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000,'s )')
 
-                    print('- Less than half the song has been listened to ( waiting', int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000,'s )')
+                time.sleep( int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000 )
+                playback(token, tempF)
 
-                    time.sleep( int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000 )
-                    playback(token)
+            elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempF.read():
 
-                elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tfData['URI']:
+                # The User skipped the song before getting halfway, restart the function
+                print('the song has been skipped')
+                tempF.close()
+                playback(token, tempF)
 
-                    # The User skipped the song before getting halfway, restart the function
-                    print('the song has been skipped')
-                    tf.close()
-                    playback(token)
+        elif response['playing'] == False:
 
-            elif response['playing'] == False:
+            # The music is not playing
 
-                # The music is not playing
+            print('- Nothing is playing ( no data / waiting 10s )')
 
-                print('- Nothing is playing ( no data / waiting 10s )')
-
-                time.sleep(10)
-                tf.close()
-                playback(token)
+            time.sleep(10)
+            playback(token, tempF)
 
     # Call functions
 
     response = GETplayback(token)
-    duration(response)
+    duration(response, tempF)
 
 def exeuctionTime(tStart):
     tEnd = time.time()                                                      # End Clock
@@ -1045,7 +1051,8 @@ def main():
 
     # Monitor playback
 
-    playback(token)
+    tempF = ''
+    playback(token, tempF)
 
 
 
