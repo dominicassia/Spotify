@@ -914,13 +914,10 @@ def playback(token, tempF):
 
         except TimeoutError:
 
-            print('Timeout Error')
-            print('Sleep: 20 s\n')
-
-            time.sleep(20)
+            print('\tTimeout Error')
 
             print('\t----- restart -----\n')
-            playback(token, tempF)
+            main()
 
         print('Status: ', response.status_code, '\n')
 
@@ -928,11 +925,9 @@ def playback(token, tempF):
 
         if response.status_code == 401:
             print('\tUnauthorized')
-            print('\tSleep: 20 s\n')
-            time.sleep(10)
 
-            print('\t----- restart -----\n')
-            playback(token, tempF)
+            print('\t----- restart -----')
+            main()
 
         # No new data to grab
 
@@ -996,19 +991,10 @@ def playback(token, tempF):
                 tempF = tempfile.TemporaryFile(mode='w+', dir=None)
                 tempF.write( str(response['trackURI']) )
 
-                # print('Trying:', tempReturn(tempF))
-
-            else:
-                # print('Trying:', tempReturn(tempF))
-                pass
-
         except AttributeError or ValueError:
-
-            print('')
 
             tempF = tempfile.TemporaryFile(mode='w+', dir=None)
             tempF.write( str(response['trackURI']) )        
-
 
         if response['playing'] == True:
 
@@ -1020,25 +1006,27 @@ def playback(token, tempF):
 
                 if response['trackProgress'] <= ( (response['trackDuration'] / 4) *3):
 
-                    print('\tPlayback is halfway - Adding to listening history')
+                    print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
+                    print('\tAdding to listening history')
                 
                     # Add to listening history here:
+
+                    print('\tSleep:', round( ( response['trackDuration'] - response['trackProgress'] ) / 2000, 1), 's\n')
+                    time.sleep( ( response['trackDuration'] - response['trackProgress'] ) / 2000)
 
                     tempF.close()
 
                 else:
 
-                    print('\tPlayback progress is greater than 3/4')
+                    print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
+
+                    print('\tSleep:', round( ( response['trackDuration'] - response['trackProgress'] ) / 2000, 1), 's\n')
+                    time.sleep( ( response['trackDuration'] - response['trackProgress'] ) / 2000)
+
                     tempF.close()
-
-                # Sleep for one quarter of the song
-
-                print('\tSleep:', response['trackDuration'] / 4000, 's\n')
-                time.sleep(response['trackDuration'] / 4000)
 
                 print('\t----- restart -----\n')
                 playback(token, tempF)
-
 
             elif response['trackURI'] != tempReturn(tempF):
 
@@ -1053,16 +1041,16 @@ def playback(token, tempF):
 
                 # Calculate and wait for the remainder of half the song
 
-                print('\tPlayback is not halfway')
+                if response['trackProgress'] < ( response['trackDuration'] / 4 ):
 
-                if response['trackProgress'] < response['trackDuration'] / 4:
+                    print('\tPlayback progress:', round( ( response['trackProgress'] / response['trackDuration'] ) *100, 1), '%')
+                    print('\tSleep:', round( ( ( response['trackDuration'] / 2 ) - response['trackProgress']) / 2000, 1), 's\n')
+                    time.sleep( ( ( response['trackDuration'] / 2 ) - response['trackProgress']) / 2000 )
 
-                    print('\tSleep:', int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 2000, 's\n')
-                    time.sleep( int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 2000)
+                elif response['trackProgress'] > ( response['trackDuration'] / 4 ):
 
-                elif response['trackProgress'] > response['trackDuration'] / 4:
-
-                    print('\tSleep:', int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 1000, 's\n')
+                    print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
+                    print('\tSleep:', round( ( ( response['trackDuration'] / 2 ) - response['trackProgress']) / 1000, 1), 's\n')
                     time.sleep( int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 1000)
 
                 print('\t----- restart -----\n')
@@ -1168,13 +1156,6 @@ def main():
     exeuctionTime(tStart)
 '''
 main()
-
-# Continuously run
-
-# while True:
-#     main()
-#     time.sleep(3600)
-
 
 '''
 ** todo functions:
