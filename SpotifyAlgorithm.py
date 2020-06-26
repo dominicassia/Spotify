@@ -894,6 +894,8 @@ def createPlaylist(token, playlistName, songs, userID):
     print('\t\tdone.\n')  
 
 
+
+
 def playback(token, tempF):
 
     # Monitor the User's playback to determine which songs are important
@@ -912,24 +914,34 @@ def playback(token, tempF):
 
         except TimeoutError:
 
-            print('timeout error. ( waiting 20s )')
-            time.sleep(20)
-            playback(token)
+            print('Timeout Error')
+            print('Sleep: 20 s\n')
 
-        print('\tStatus: ', response.status_code)
+            time.sleep(20)
+
+            print('\t----- restart -----\n')
+            playback(token, tempF)
+
+        print('Status: ', response.status_code, '\n')
 
         # Unauthorized
 
         if response.status_code == 401:
-            print('- Unauthorized')
+            print('\tUnauthorized')
+            print('\tSleep: 20 s\n')
             time.sleep(10)
-            playback(token)
+
+            print('\t----- restart -----\n')
+            playback(token, tempF)
 
         # No new data to grab
 
         if response.status_code == 204:
-            print('- Nothing is playing ( no data / waiting 20s )')
+            print('\tNo data')
+            print('\tSleep: 20 s\n')
             time.sleep(20)
+
+            print('\t----- restart -----\n')
             playback(token, tempF)
 
         r = json.loads(str(response.text))    
@@ -959,74 +971,118 @@ def playback(token, tempF):
             return False
 
     def tempReturn(tempF):
+        try:
 
-        tempF.seek(0)
-        return str(tempF.read())
+            tempF.seek(0)
+            return str(tempF.read())
+
+        except ValueError:
+
+            tempF = tempfile.TemporaryFile(mode='w+', dir=None)
+            tempF.write( str(response['trackURI']) )
+
+            tempF.seek(0)
+            return str(tempF.read())
 
     def duration(response, tempF):
-
-        print(response)
 
         # Temporarily store value of the track's URI
 
         # https://www.tutorialspoint.com/generate-temporary-files-and-directories-using-python
 
         try:
-            print('trying', tempReturn(tempF))
+            if tempF == '':
+
+                tempF = tempfile.TemporaryFile(mode='w+', dir=None)
+                tempF.write( str(response['trackURI']) )
+
+                # print('Trying:', tempReturn(tempF))
+
+            else:
+                # print('Trying:', tempReturn(tempF))
+                pass
 
         except AttributeError or ValueError:
 
+            print('')
+
             tempF = tempfile.TemporaryFile(mode='w+', dir=None)
-
-            print( 'writing temp', response['trackURI'], '\n' )
-
             tempF.write( str(response['trackURI']) )        
-            
-            print('Reading temp', tempReturn(tempF), '\n')
+
 
         if response['playing'] == True:
 
-            print('A song is playing\n')
+            print('Playback:', response['trackName'], '|', response['artistName'], '\n')
 
             if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempReturn(tempF):
 
                 # More than half of the same song has been listened to, add to listening history
 
-                print('- More than half of the same song has been listened to ( adding to history )')
+                if response['trackProgress'] <= ( (response['trackDuration'] / 4) *3):
+
+                    print('\tPlayback is halfway - Adding to listening history')
                 
-                # Add to listening history here:
+                    # Add to listening history here:
 
-                tempF.close()
-                time.sleep( int(response['trackDuration'] - response['trackProgress']) / 1000 )
+                    tempF.close()
 
-            elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempReturn(tempF):
+                else:
+
+                    print('\tPlayback progress is greater than 3/4')
+                    tempF.close()
+
+                # Sleep for one quarter of the song
+
+                print('\tSleep:', response['trackDuration'] / 4000, 's\n')
+                time.sleep(response['trackDuration'] / 4000)
+
+                print('\t----- restart -----\n')
+                playback(token, tempF)
+
+
+            elif response['trackURI'] != tempReturn(tempF):
 
                 # The User skipped the song before getting halfway, restart the function
-                print('the song has been skipped')
+                print('\tSkipped\n')
                 tempF.close()
+
+                print('\t----- restart -----\n')
                 playback(token, tempF)
 
             elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == False:
 
                 # Calculate and wait for the remainder of half the song
 
-                print('- Less than half the song has been listened to ( waiting', int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000,'s )')
+                print('\tPlayback is not halfway')
 
-                time.sleep( int(int(response['trackDuration'] / 2) - response['trackProgress']) / 1000 )
+                if response['trackProgress'] < response['trackDuration'] / 4:
+
+                    print('\tSleep:', int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 2000, 's\n')
+                    time.sleep( int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 2000)
+
+                elif response['trackProgress'] > response['trackDuration'] / 4:
+
+                    print('\tSleep:', int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 1000, 's\n')
+                    time.sleep( int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 1000)
+
+                print('\t----- restart -----\n')
                 playback(token, tempF)
 
         elif response['playing'] == False:
 
             # The music is not playing
 
-            print('- Nothing is playing ( no data / waiting 10s )')
+            print('\tNo current playback')
+            print('\tSleep: 10 s\n')
 
             time.sleep(10)
+
+            print('\t----- restart -----\n')
             playback(token, tempF)
 
         else:
 
-            print('No other cases match\n')
+            print('\tFallback case.\n')
 
     # Call functions
 
