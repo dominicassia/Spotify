@@ -894,8 +894,6 @@ def createPlaylist(token, playlistName, songs, userID):
     print('\t\tdone.\n')  
 
 
-
-
 def playback(token, tempF):
 
     # Monitor the User's playback to determine which songs are important
@@ -915,6 +913,26 @@ def playback(token, tempF):
         except TimeoutError:
 
             print('\tTimeout Error')
+
+            print('\t----- restart -----\n')
+            main()
+
+        except ConnectionError:
+
+            print('\tConnection Error')
+
+            print('\tSleep: 25 sec')
+            time.sleep(25)
+
+            print('\t----- restart -----\n')
+            main()
+
+        except requests.ConnectionError(response):
+
+            print('\tConnection Error')
+
+            print('\tSleep: 25 sec')
+            time.sleep(25)
 
             print('\t----- restart -----\n')
             main()
