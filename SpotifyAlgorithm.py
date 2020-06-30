@@ -80,7 +80,30 @@ def userInfo(token, userID):
     url = 'https://api.spotify.com/v1/users/' + userID
     headers = {'Authorization':'Bearer ' + token }
 
-    response = requests.get(url=url, headers=headers, timeout=10)
+    try:
+        response = requests.get(url=url, headers=headers, timeout=10)
+
+    # https://requests.readthedocs.io/en/master/user/quickstart/#errors-and-exceptions
+
+    except requests.ConnectionError:
+
+        print('\n\tConnection Error')
+
+        print('\tSleep: 20 sec\n')
+        time.sleep(20)
+
+        print('\t----- restart -----\n')
+        main()
+
+    except requests.TimeoutError:
+
+        print('\tTimeout')
+
+        print('\tSleep: 5 sec')
+        time.sleep(5)
+
+        print('\t----- restart -----\n')
+        main() 
 
     return response
 
@@ -905,37 +928,32 @@ def playback(token, tempF):
         url = 'https://api.spotify.com/v1/me/player'
         headers = {'Authorization': 'Bearer ' + token }
 
-        try:
-            response = requests.get(url=url, headers=headers, timeout=10)
+        # https://stackoverflow.com/questions/16511337/correct-way-to-try-except-using-python-requests-module
 
+        try:
             # This GET request returns information about a user's current listening status
 
-        except TimeoutError:
+            response = requests.get(url=url, headers=headers, timeout=10)
+            
+        except requests.ConnectionError:
 
-            print('\tTimeout Error')
+            print('\n\tConnection Error')
 
-            print('\t----- restart -----\n')
-            main()
-
-        except ConnectionError:
-
-            print('\tConnection Error')
-
-            print('\tSleep: 25 sec')
-            time.sleep(25)
+            print('\tSleep: 20 sec\n')
+            time.sleep(20)
 
             print('\t----- restart -----\n')
             main()
 
-        except requests.ConnectionError(response):
+        except requests.TimeoutError:
 
-            print('\tConnection Error')
+            print('\tTimeout')
 
-            print('\tSleep: 25 sec')
-            time.sleep(25)
+            print('\tSleep: 5 sec')
+            time.sleep(5)
 
             print('\t----- restart -----\n')
-            main()
+            main() 
 
         print('Status: ', response.status_code, '\n')
 
