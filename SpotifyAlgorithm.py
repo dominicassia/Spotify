@@ -380,14 +380,14 @@ def listeningHistory(response):
 
     print('\n\tCalculating popularity.')
 
-    adjusted = popularity()
+    adjusted = popularityCheck()
 
     print('\t\tdone.')
 
     print('\n\t', songsWritten, 'songs written')
     print('\n\t', adjusted, 'popularity classes adjusted')
 
-def popularity():
+def popularityCheck():
 
     # If a song is added to the listening history, add 1 to the popularity of that song within genre data
 
@@ -1043,9 +1043,13 @@ def playback(token, tempF):
                 if response['trackProgress'] <= ( (response['trackDuration'] / 4) *3):
 
                     print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
-                    print('\tAdding to listening history')
+                    print('\n\tAdding to listening history')
                 
                     # Add to listening history here:
+
+                    localdata(token, response)
+
+                    print('\tComplete')
 
                     print('\tSleep:', round( ( response['trackDuration'] - response['trackProgress'] ) / 2000, 1), 's\n')
                     time.sleep( ( response['trackDuration'] - response['trackProgress'] ) / 2000)
@@ -1112,6 +1116,59 @@ def playback(token, tempF):
 
     response = GETplayback(token)
     duration(response, tempF)
+
+def localdata(token, response):
+
+    ''' Containing history(), popularity(), GETrecentTimestamp() '''
+
+    def history(token):
+
+        ''' history() writes song information to listeningData.json after such track has been deemed listened to within playback() -> duration() '''
+
+        # Recieves 'reponseValues' dictionary created in playback() -> GETplayback().. 
+            # Contains: trackName, trackURI, trackDuration, artistName, artistURI.. ( not needed: trackProgress, playing )
+
+        def GETrecentTimestamp(token):
+
+            ''' Returns official timestamp of track being added to listening history '''
+
+            # https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/
+
+            url = 'https://api.spotify.com/v1/me/player/recently-played'
+            headers = { 'Authorization':'Bearer ' + token }                                                     
+            params = { 'limit':1 }
+
+            try: 
+                response = requests.get(url, headers=headers, params=params, timeout=10)
+
+                # This GET returns JSON with the User's last played song 
+
+            except requests.Timeout:
+
+                print('\tRequest Timeout')
+
+            except requests.ConnectionError:
+
+                print('\tConnection Error')
+
+            print('\tStatus: ', response.status_code)     
+            print('\tProcessing request.\n')
+
+            r = json.loads(str(response.text))
+
+            print(response.text)
+
+            print('\n', r['items'][0])
+
+            # 'played_at'
+
+        GETrecentTimestamp(token)
+
+    history(token)
+
+    def popularity():
+
+        ''' popularity() uses the track recently added to listeningData.json with addHistory() to adjust the popularity class of an artist and track within genreData.json '''
 
 def exeuctionTime(tStart):
     tEnd = time.time()                                                      # End Clock
