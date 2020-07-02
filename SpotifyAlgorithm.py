@@ -6,7 +6,8 @@ import json                 # Parse
 import time                 # Execution time
 import datetime             # Sorting timestamps
 import operator             # Sorting specific indices
-import functools            # Memoization cache
+import functools            # Caching
+import tempfile             # Temporary files
 
 #####################################################
 
@@ -79,7 +80,30 @@ def userInfo(token, userID):
     url = 'https://api.spotify.com/v1/users/' + userID
     headers = {'Authorization':'Bearer ' + token }
 
-    response = requests.get(url=url, headers=headers, timeout=10)
+    try:
+        response = requests.get(url=url, headers=headers, timeout=10)
+
+    # https://requests.readthedocs.io/en/master/user/quickstart/#errors-and-exceptions
+
+    except requests.ConnectionError:
+
+        print('\n\tConnection Error')
+
+        print('\tSleep: 20 sec\n')
+        time.sleep(20)
+
+        print('\t----- restart -----\n')
+        main()
+
+    except requests.TimeoutError:
+
+        print('\tTimeout')
+
+        print('\tSleep: 5 sec')
+        time.sleep(5)
+
+        print('\t----- restart -----\n')
+        main() 
 
     return response
 
@@ -321,7 +345,7 @@ def listeningHistory(response):
 
     print('\tSorting.')
 
-    with open(path) as fileRead: 
+    with open(path) as fileRead:
 
         temp = json.load(fileRead) 
 
@@ -356,14 +380,14 @@ def listeningHistory(response):
 
     print('\n\tCalculating popularity.')
 
-    adjusted = popularity()
+    adjusted = popularityCheck()
 
     print('\t\tdone.')
 
     print('\n\t', songsWritten, 'songs written')
     print('\n\t', adjusted, 'popularity classes adjusted')
 
-def popularity():
+def popularityCheck():
 
     # If a song is added to the listening history, add 1 to the popularity of that song within genre data
 
@@ -893,97 +917,258 @@ def createPlaylist(token, playlistName, songs, userID):
     print('\t\tdone.\n')  
 
 
-def durationListened(token):
+def playback(token, tempF):
 
-    # https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/
+    # Monitor the User's playback to determine which songs are important
 
-    url = 'https://api.spotify.com/v1/me/player'
-    headers = {'Authorization': 'Bearer ' + token }
+    def GETplayback(token):
 
-    try:
-        response = requests.get(url=url, headers=headers, timeout=10)
-    except TimeoutError:
-        print('timeout error.')
-        durationListened(token)
+        # https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/
 
-    print(response.status_code)
+        url = 'https://api.spotify.com/v1/me/player'
+        headers = {'Authorization': 'Bearer ' + token }
 
-    # Unauthorized
+        # https://stackoverflow.com/questions/16511337/correct-way-to-try-except-using-python-requests-module
 
-    if response.status_code == 401:
-        print('- Unauthoorized')
-        time.sleep(10)
-        durationListened(token)
+        try:
+            # This GET request returns information about a user's current listening status
 
-    # No new data to grab
+            response = requests.get(url=url, headers=headers, timeout=10)
+            
+        except requests.ConnectionError:
 
-    if response.status_code == 204:
-        print('- Nothing is playing ( no data )')
-        time.sleep(20)
-        durationListened(token)
+            print('\n\tConnection Error')
 
-    # Delete
-    print(response.text)
+            print('\tSleep: 20 sec\n')
+            time.sleep(20)
 
-    r = json.loads(str(response.text))    
+            print('\t----- restart -----\n')
+            main()
 
-    # Assign
+        except requests.TimeoutError:
 
-    trackName = r['item']['name'] 
-    trackURI = r['item']['uri']
-    trackProgress = r['progress_ms']
-    trackDuration = r['item']['duration_ms']
-    artistName = r['item']['artists'][0]['name']
-    artistURI = r['item']['artists'][0]['uri']
+            print('\tTimeout')
 
-    # Functions
+            print('\tSleep: 5 sec')
+            time.sleep(5)
 
+            print('\t----- restart -----\n')
+            main() 
+
+        print('Status: ', response.status_code, '\n')
+
+        # Unauthorized
+
+        if response.status_code == 401:
+            print('\tUnauthorized')
+
+            print('\t----- restart -----')
+            main()
+
+        # No new data to grab
+
+        if response.status_code == 204:
+            print('\tNo data')
+            print('\tSleep: 20 s\n')
+            time.sleep(20)
+
+            print('\t----- restart -----\n')
+            playback(token, tempF)
+
+        r = json.loads(str(response.text))    
+
+        # Create dictionary to return
+
+        responseValues = {
+            'trackName'         : r['item']['name'], 
+            'trackURI'          : r['item']['uri'],
+            'trackProgress'     : r['progress_ms'],
+            'trackDuration'     : r['item']['duration_ms'],
+            'artistName'        : r['item']['artists'][0]['name'],
+            'artistURI'         : r['item']['artists'][0]['uri'],
+            'playing'           : r['is_playing']
+        }
+
+        return responseValues
+    
     def moreThanHalf(duration, progress):
+
         if progress > (int(duration / 2)):
+
             return True
+            
         else:
+
             return False
 
-    # https://docs.python.org/3/library/functools.html
+    def tempReturn(tempF):
+        try:
 
-    @Lru_cache(maxsize=8, typed=False)
-    def constantChecker():
+            tempF.seek(0)
+            return str(tempF.read())
 
-        # Constantly check for what is being listened to, if the user listens to more than half the song without switching it, it can be added to listening history for analysis
+        except ValueError:
 
-        if r['is_playing'] == True:
+            tempF = tempfile.TemporaryFile(mode='w+', dir=None)
+            tempF.write( str(response['trackURI']) )
 
-            if moreThanHalf(trackDuration, trackProgress) == True:
+            tempF.seek(0)
+            return str(tempF.read())
 
-                # Add to listening history / proceed with script
-                print('more than half')
-                pass
+    def duration(response, tempF):
 
-            else:
+        # Temporarily store value of the track's URI
+
+        # https://www.tutorialspoint.com/generate-temporary-files-and-directories-using-python
+
+        try:
+            if tempF == '':
+
+                tempF = tempfile.TemporaryFile(mode='w+', dir=None)
+                tempF.write( str(response['trackURI']) )
+
+        except AttributeError or ValueError:
+
+            tempF = tempfile.TemporaryFile(mode='w+', dir=None)
+            tempF.write( str(response['trackURI']) )        
+
+        if response['playing'] == True:
+
+            print('Playback:', response['trackName'], '|', response['artistName'], '\n')
+
+            if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempReturn(tempF):
+
+                # More than half of the same song has been listened to, add to listening history
+
+                if response['trackProgress'] <= ( (response['trackDuration'] / 4) *3):
+
+                    print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
+                    print('\n\tAdding to listening history')
+                
+                    # Add to listening history here:
+
+                    localdata(token, response)
+
+                    print('\tComplete')
+
+                    print('\tSleep:', round( ( response['trackDuration'] - response['trackProgress'] ) / 2000, 1), 's\n')
+                    time.sleep( ( response['trackDuration'] - response['trackProgress'] ) / 2000)
+
+                    tempF.close()
+
+                else:
+
+                    print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
+
+                    print('\tSleep:', round( ( response['trackDuration'] - response['trackProgress'] ) / 2000, 1), 's\n')
+                    time.sleep( ( response['trackDuration'] - response['trackProgress'] ) / 2000)
+
+                    tempF.close()
+
+                print('\t----- restart -----\n')
+                playback(token, tempF)
+
+            elif response['trackURI'] != tempReturn(tempF):
+
+                # The User skipped the song before getting halfway, restart the function
+                print('\tSkipped\n')
+                tempF.close()
+
+                print('\t----- restart -----\n')
+                playback(token, tempF)
+
+            elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == False:
 
                 # Calculate and wait for the remainder of half the song
-                print('less than half')
-                print( int(int(trackDuration / 2) - trackProgress) / 1000 )
 
-                tempURI = trackURI
-                time.sleep( int(int(trackDuration / 2) - trackProgress) / 1000 )
-                durationListened(token)
+                if response['trackProgress'] < ( response['trackDuration'] / 4 ):
 
-        elif r['is_playing'] == False:
+                    print('\tPlayback progress:', round( ( response['trackProgress'] / response['trackDuration'] ) *100, 1), '%')
+                    print('\tSleep:', round( ( ( response['trackDuration'] / 2 ) - response['trackProgress']) / 2000, 1), 's\n')
+                    time.sleep( ( ( response['trackDuration'] / 2 ) - response['trackProgress']) / 2000 )
+
+                elif response['trackProgress'] > ( response['trackDuration'] / 4 ):
+
+                    print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
+                    print('\tSleep:', round( ( ( response['trackDuration'] / 2 ) - response['trackProgress']) / 1000, 1), 's\n')
+                    time.sleep( int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 1000)
+
+                print('\t----- restart -----\n')
+                playback(token, tempF)
+
+        elif response['playing'] == False:
 
             # The music is not playing
 
-            print('not playing')
+            print('\tNo current playback')
+            print('\tSleep: 10 s\n')
+
             time.sleep(10)
-            durationListened(token)
 
+            print('\t----- restart -----\n')
+            playback(token, tempF)
 
-    # Call function
+        else:
 
-    print(r['is_playing'])
+            print('\tFallback case.\n')
 
-    constantChecker()
-    
+    # Call functions
+
+    response = GETplayback(token)
+    duration(response, tempF)
+
+def localdata(token, response):
+
+    ''' Containing history(), popularity(), GETrecentTimestamp() '''
+
+    def history(token):
+
+        ''' history() writes song information to listeningData.json after such track has been deemed listened to within playback() -> duration() '''
+
+        # Recieves 'reponseValues' dictionary created in playback() -> GETplayback().. 
+            # Contains: trackName, trackURI, trackDuration, artistName, artistURI.. ( not needed: trackProgress, playing )
+
+        def GETrecentTimestamp(token):
+
+            ''' Returns official timestamp of track being added to listening history '''
+
+            # https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/
+
+            url = 'https://api.spotify.com/v1/me/player/recently-played'
+            headers = { 'Authorization':'Bearer ' + token }                                                     
+            params = { 'limit':1 }
+
+            try: 
+                response = requests.get(url, headers=headers, params=params, timeout=10)
+
+                # This GET returns JSON with the User's last played song 
+
+            except requests.Timeout:
+
+                print('\tRequest Timeout')
+
+            except requests.ConnectionError:
+
+                print('\tConnection Error')
+
+            print('\tStatus: ', response.status_code)     
+            print('\tProcessing request.\n')
+
+            r = json.loads(str(response.text))
+
+            print(response.text)
+
+            print('\n', r['items'][0])
+
+            # 'played_at'
+
+        GETrecentTimestamp(token)
+
+    history(token)
+
+    def popularity():
+
+        ''' popularity() uses the track recently added to listeningData.json with addHistory() to adjust the popularity class of an artist and track within genreData.json '''
 
 def exeuctionTime(tStart):
     tEnd = time.time()                                                      # End Clock
@@ -1009,6 +1194,19 @@ def main():
     token, displayName = validate(token, refreshToken, path, userID, clientID, clientSecret)
     
     exeuctionTime(tStart)
+
+    # Monitor playback
+
+    tempF = ''
+    playback(token, tempF)
+
+    main()
+
+'''
+
+
+
+
 
     # Recently played
     tStart = time.time()
@@ -1049,26 +1247,15 @@ def main():
     updatePlaylists(token, playlists)
 
     exeuctionTime(tStart)
-
-    # Duration listened
-
-    durationListened(token)
-
+'''
 main()
-
-# Continuously run
-
-# while True:
-#     main()
-#     time.sleep(3600)
-
 
 '''
 ** todo functions:
 
     isLiked():      check if a song from the response is liked --> pull all liked songs and compare to songs attempting to be added
 
-    durationListened():     if duration listened to a song is less than 45 sec, don't add to genreData
+    playback():     if duration listened to a song is less than 45 sec, don't add to genreData
 
     similarSongs():     songs listened to before and after a track will give insight to what genre that song may be --> if a un-genred song is surrounded by the same genres x amount of time, guess that that song is that genre
         nearbySongs():      find songs that have been played "around" a track and comapre their genres   songL --> songC --> songR, determine songC's genre by L & R genre
@@ -1076,11 +1263,12 @@ main()
     dirCheck():     ensure there are data files to write to, if not create them with the generic format
 
 Ideal script:
-
-    https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/
-
-    Constantly monitors what youre listening to, in order to understand how long you've listened to a song
-
+    - Verify the token is valid
+    - Constantly monitors what youre listening to, in order to understand how long you've listened to a song
+    - If more than half the song is listened to, add it to listening history
+    - Add listening history songs to genreData.json
+        - Get additional data needed from pulling user's recently played songs and navigating backwards to find song
+    - Check playlists over a certain interval of time
 
 '''
 
