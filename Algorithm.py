@@ -29,9 +29,23 @@ import tempfile             # Temporary files
 
 def initialize():
 
+    ''' initialize() prepares essential data for the rest of the algorithm.
+
+        Crucial auth data is retrieved from tokenData.json & is verified to still be valid ( GET & save new auth if not )
+
+    '''
+
     def clientInfo():
 
-        ''' Retrieve data from tokenData.json and return as dictionary '''
+        ''' Retrieve data from tokenData.json and return as dictionary 
+        
+        (  ) --> dict
+
+        * dict = { str, str, str, str, str, str, str}
+
+        dict returns the values: token, clientID, clientSecret, userID, refreshToken, redirectURI, path
+        
+        '''
 
         path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\tokenData.json'
 
@@ -45,7 +59,8 @@ def initialize():
                 'clientSecret'  :   temp['data'][0]['clientSecret'],
                 'userID'        :   temp['data'][0]['clientUserID'],
                 'refreshToken'  :   temp['data'][0]['refreshToken'],
-                'redirectURI'   :   temp['data'][0]['redirectURI']
+                'redirectURI'   :   temp['data'][0]['redirectURI'],
+                'path'          :   path
 
             }
 
@@ -53,54 +68,83 @@ def initialize():
 
     def validate(tokenData):
 
-        ''' Uses GET request to grab the user's profile data to verify if the auth token is valid '''
+        ''' Uses GET request to grab the user's profile data to verify if the auth token is valid via status of the response 
+        
+            ( dict ) --> str, str
 
-        # userInfo() returns the response of requesting the user's profile data
+                validate( dict ) --> auth token & the user's display name
+    
+                * dict must contain: token, clientID, clientSecret, userID, refreshToken, redirectURI, path
+
+            If the GET request status is <401> the auth token is not valid & refresh() will be called & 
+            the new auth token will be saved to tokenData.json
+
+        '''
+
+        # userInfo() returns the request's response
 
         temp = userInfo(tokenData['token'], tokenData['userID'])
 
         print('\tStatus: ', temp.status_code)
 
-        # Check if token is valid, If response if <401> get a new token
+        # If the request's response is <401> the auth token is not vaid & must be refreshed
 
         if temp.status_code == 401:
 
-            print('\tObtaining new token.')                                                           
+            print('\tObtaining new token.')     
+
+            # refresh() returns a new auth token
+
             token = refresh(refreshToken, clientID, clientSecret)
 
-            # Write the token to tokenData.JSON
+            # save the new auth token to tokenData.json
 
-            with open(path, 'r+') as r:
+            with open(tokenData['path'], 'r+') as r:
 
-                # Load, Assign
                 data = json.load(r)
                 data['data'][0]['token'] = token
 
-                with open(path, 'w') as w:
+                with open(tokenData['path'], 'w') as w:
 
-                    # Dump
                     json.dump(data, w, indent=4)
 
                 print('\tSaved.\n')
 
+                # use the new token to request the user's profile data
+
                 print('> Retrieving user data.')
+
                 temp = userInfo(token, userID)
+
                 print('\tStatus: ', temp.status_code)
+
+        # Otherwise the auth token is still valid, assign & return display name & token
+
         else:
+
             print('\tValid token.\n')
             print('> Retrieving user data.')
             print('\tStatus: ', temp.status_code)
 
+        # Assign display name
 
         name = temp.json()
-        displayName = name['display_name']
+        displayName = str(name['display_name'])
         print('\tUser:', displayName, '\n')
 
         return token, displayName
 
     def userInfo(token, userID):
 
-        # Check status of saved token
+        ''' userInfo() requests the user's profile data & returns the response 
+        
+        ( str, str ) --> response
+
+        ( token, userID ) --> response
+ 
+        '''
+
+        # Request the user's profile data
 
         url = 'https://api.spotify.com/v1/users/' + userID
         headers = {'Authorization':'Bearer ' + token }
@@ -131,6 +175,8 @@ def initialize():
             main() 
 
         return response
+
+
 
     # Call functions inside initialize()
 
