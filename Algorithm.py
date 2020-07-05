@@ -1,20 +1,4 @@
-# Optimized, oraganized, and consice extension of SpotifyAlgorithm.py
-
-# Function map:
-
-#   initialize()
-#       clientInfo()    grabs token info from tokenData.json
-#       validate()      verifies the auth token is valid
-#       userInfo()      uses GET to request the user's profile data
-#       refresh()       grabs new auth token & saves to tokenData.json
-
-#   loop()
-#       
-
-#####################################################
-
 # Libraries
-
 import base64               # Encode
 import urllib.parse         # Encode
 import requests             # cURL 
@@ -26,6 +10,23 @@ import functools            # Caching
 import tempfile             # Temporary files
 
 #####################################################
+
+def executionTime(tStart):
+
+    ''' executionTime() calculates the execution time between tStart and when this function is called
+    
+        ( float ) --> ' Executed in float seconds ' 
+
+        ( tStart ) --> ' Executed in float seconds ' 
+
+        This function uses the time module to clock tEnd when the function is called & calculate the difference in time 
+        between tStart and tEnd
+
+    '''
+
+    tEnd = time.time()                                                      # End Clock
+    exTime = round(tEnd-tStart, 4)                                          # Calculate execution & round execution time
+    print('\tExecuted in', exTime, 's.\n') 
 
 def initialize():
 
@@ -46,6 +47,8 @@ def initialize():
         dict returns the values: token, clientID, clientSecret, userID, refreshToken, redirectURI, path
         
         '''
+
+        print('> Extracting Data.')
 
         path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\tokenData.json'
 
@@ -95,7 +98,7 @@ def initialize():
 
             # refresh() returns a new auth token
 
-            token = refresh(refreshToken, clientID, clientSecret)
+            token = refresh(tokenData['refreshToken'], tokenData['clientID'], tokenData['clientSecret'])
 
             # save the new auth token to tokenData.json
 
@@ -114,7 +117,7 @@ def initialize():
 
                 print('> Retrieving user data.')
 
-                temp = userInfo(token, userID)
+                temp = userInfo(token, tokenData['userID'])
 
                 print('\tStatus: ', temp.status_code)
 
@@ -123,6 +126,9 @@ def initialize():
         else:
 
             print('\tValid token.\n')
+
+            token = tokenData['token']
+
             print('> Retrieving user data.')
             print('\tStatus: ', temp.status_code)
 
@@ -176,15 +182,60 @@ def initialize():
 
         return response
 
+    def refresh(refreshToken, clientID, clientSecret):
+        
+        ''' refresh() utilizes the refresh token in order to obtain a new auth token via POST request
+        
+            ( str, str, str ) --> str
 
+            ( refresh token, client ID, client secret ) --> auth token
+
+        '''
+
+        data = { 'grant_type': 'refresh_token', 'refresh_token': refreshToken }
+
+        response = requests.post('https://accounts.spotify.com/api/token', data=data, auth=(clientID, clientSecret), timeout=10)
+        
+        # This POST returns JSON with the new access token
+        
+        r = response.json()
+
+        print('\tNew token obtained.')
+        return r['access_token']
 
     # Call functions inside initialize()
 
+    print('\n')
+
+    tStart = time.time()
     tokenData = clientInfo()
+    executionTime(tStart)
+
+    tStart = time.time()
     token, displayName = validate(tokenData)
- 
+    executionTime(tStart)
+
 def main():
+
+    ''' 
+        Optimized, oraganized, and consice extension of SpotifyAlgorithm.py
+
+        Function map:
+
+        initialize()        
+            clientInfo()    grabs token info from tokenData.json
+            validate()      verifies the auth token is valid
+            userInfo()      uses GET to request the user's profile data
+            refresh()       grabs new auth token & saves to tokenData.json
+
+        loop()
+   
+    '''
 
     # Call functions inside main()
 
     initialize()
+
+# Call main
+
+main()
