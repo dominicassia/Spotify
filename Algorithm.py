@@ -32,6 +32,14 @@ def initialize():
 
     ''' initialize() prepares essential data for the rest of the algorithm.
 
+        (  ) --> dict
+
+        (  ) --> tokenData
+
+        * dict = { str, str, str, str, str, str, str}
+
+        dict returns the values: token, clientID, clientSecret, userID, refreshToken, redirectURI, path        
+
         Crucial auth data is retrieved from tokenData.json & is verified to still be valid ( GET & save new auth if not )
 
     '''
@@ -215,6 +223,114 @@ def initialize():
     token, displayName = validate(tokenData)
     executionTime(tStart)
 
+    tStart = time.time()
+    tokenData = clientInfo()
+    executionTime(tStart)
+    
+    return tokenData
+
+def playback(token, tempF):
+
+    ''' playback() monitors the user's playback and determines what is eligible to be added to listeningData.json to be further analyzed 
+    
+        ( str, str ) --> function will loop or call other code to come back to the same loop
+
+        ( token, tempF )
+    '''
+
+    def GETplayback(token):
+
+        ''' Utilize a GET request to determine the playback state of the user's application & information
+            pertaining to what is playing
+        
+            ( str ) --> dict
+
+            ( auth token ) --> responseValues
+
+            * dict contains: { str, str, str, str, str, str, bool }
+
+            * responseValues: trackName, trackURI, trackProgress, trackDuration, artistName, artistURI, playing
+
+            Timeout:            Sleep for 5s    --> main()
+            Connection Error:   Sleep 20s       --> main()
+
+            <401> response:     Invalid token   --> main()
+            <204> response:     No data         --> Sleep 20s
+
+         '''
+
+        # https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/
+
+        url = 'https://api.spotify.com/v1/me/player'
+        headers = {'Authorization': 'Bearer ' + token }
+
+        try:
+            # This GET request returns response containing a user's current listening status
+
+            response = requests.get(url=url, headers=headers, timeout=10)
+            
+        except requests.ConnectionError:
+
+            print('\n\tConnection Error')
+            print('\tSleep: 20 sec\n')
+
+            time.sleep(20)
+
+            print('\t----- restart -----\n')
+
+            main()
+
+        except requests.TimeoutError:
+
+            print('\tTimeout')
+            print('\tSleep: 5 sec')
+
+            time.sleep(5)
+
+            print('\t----- restart -----\n')
+
+            main() 
+
+        print('Status: ', response.status_code, '\n')
+
+        # Unauthorized
+
+        if response.status_code == 401:
+
+            print('\tUnauthorized')
+            print('\t----- restart -----')
+
+            main()
+
+        # No data
+
+        if response.status_code == 204:
+
+            print('\tNo data')
+            print('\tSleep: 20 s\n')
+
+            time.sleep(20)
+
+            print('\t----- restart -----\n')
+
+            playback(token, tempF)
+
+        r = json.loads(str(response.text))    
+
+        # Create dictionary to return
+
+        responseValues = {
+            'trackName'         : r['item']['name'], 
+            'trackURI'          : r['item']['uri'],
+            'trackProgress'     : r['progress_ms'],
+            'trackDuration'     : r['item']['duration_ms'],
+            'artistName'        : r['item']['artists'][0]['name'],
+            'artistURI'         : r['item']['artists'][0]['uri'],
+            'playing'           : r['is_playing']
+        }
+
+        return responseValues
+
 def main():
 
     ''' 
@@ -222,19 +338,25 @@ def main():
 
         Function map:
 
-        initialize()        
+        initialize()        returns dict tokenData containing the contents of tokenData.json    
             clientInfo()    grabs token info from tokenData.json
             validate()      verifies the auth token is valid
             userInfo()      uses GET to request the user's profile data
             refresh()       grabs new auth token & saves to tokenData.json
 
-        loop()
-   
+        playback()
+            GETplayback()
+            moreThanHalf()
+            tempReturn()
+            duration()
+
     '''
 
     # Call functions inside main()
 
-    initialize()
+    tokenData = initialize()
+
+    playback( tokenData['token'], tempF='' )
 
 # Call main
 
