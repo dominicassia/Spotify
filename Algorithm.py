@@ -493,6 +493,10 @@ def localData(token, response):
 
         ( dict ) --> save data to .json
 
+        * dict contains: { str, str, str, str, str, str, bool, str }
+
+        * response: trackName, trackURI, trackProgress, trackDuration, artistName, artistURI, playing, timestamp
+
         Functions:
             convertTimestamp()
             writeHistory()
@@ -511,6 +515,8 @@ def localData(token, response):
         
             ( dict ) --> dict
 
+            UNIX ms --> YYYY-MM-DD HH:MM:SS.MS
+
             # https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
             # https://stackoverflow.com/questions/36103448/convert-from-unix-timestamp-with-milliseconds-to-hhmmss-in-python
         '''
@@ -521,16 +527,114 @@ def localData(token, response):
 
     def writeHistory(response):
 
-        ''' Write dict data to listeningData.json
+        ''' Write dict data to listeningData.json (target)
 
+            ( dict ) --> write to target
+
+            ( response ) --> write to target
+
+            listeningData.json entry format:
+
+            [{
+                timestamp   : " str (YYYY-MM-DD HH:MM:SS.MS)"
+                name        : " str "
+                uri         : " str (spotify:track:________________________)"
+            }]
+
+            * dict contains: { str, str, str, str, str, str, bool, str }
+
+            * response: trackName, trackURI, trackProgress, trackDuration, artistName, artistURI, playing, timestamp
         '''
-        pass
+
+        path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\listeningData.json'
+
+        with open(path, 'r+') as listeningDataFile:
+
+            # Load file as json object, append format, & dump to json file
+
+            listeningData = json.load(listeningDataFile)
+
+            lst = [{
+                'timestamp' :   response['timestamp'],
+                'name'      :   response['trackName'],
+                'URI'       :   response['trackURI']
+            }]
+
+            listeningData['items'][0]['data'].append(lst)
+
+            json.dump(listeningData, listeningDataFile, indent=4)
+
+            listeningDataFile.close()
+
+            return path
+
+    def sortHistory(path):
+
+        ''' sortHistory() ensures that all timestamps within listeningData.json are in chronlogical order
+        
+            ( str ) --> chronologically sorted json file **
+
+            ** json format must be as specified in jsonStructures.txt
+        '''
+        with open(path, 'r+') as listeningDataFile:
+
+            # Load file as json object, append all data to local list, sort, & dump to json file
+
+            listeningData = json.load(listeningDataFile)
+
+            lst = []
+
+            for i in range( len(listeningData['items'][0]['data'])):
+
+                # lst format: [[ timestamp, name, uri ], ... ]
+
+                lst.append([
+
+                    listeningData['items'][0]['data'][i][0]['timestamp'],
+                    listeningData['items'][0]['data'][i][0]['name'],
+                    listeningData['items'][0]['data'][i][0]['URI'],
+
+                ])
+
+            # Sort outter list by inner list using itemgetter
+                # https://stackoverflow.com/questions/4174941/how-to-sort-a-list-of-lists-by-a-specific-index-of-the-inner-list
+
+            lst = sorted( lst, key=operator.itemgetter(0) )
+
+            # Put list into json format and write back to file
+
+            for j in range(len(lst)):
+
+                lst[j] = [{
+
+                    'timestamp' :   str( lst[j][0] ),
+                    'name'      :   lst[j][1],
+                    'URI'       :   lst[j][2]
+
+                }]
+
+            # Write to file
+
+            json.dump(listeningData, listeningDataFile, indent=4)
+
+            listeningDataFile.close()
 
     # Call functions within localData()
 
+    print('Converting timestamp')
+    tStart = time.time()
     response = convertTimestamp(response)
-    writeHistory(response)
+    executionTime(tStart)
 
+    print('Writing listening history')
+    tStart = time.time()
+    path = writeHistory(response)
+    executionTime(tStart)
+
+    print('Sorting listeningData.json')
+    tStart = time.time()
+    sortHistory(path)
+    executionTime(tStart)
 
 def main():
 
