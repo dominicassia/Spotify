@@ -247,9 +247,9 @@ def playback(token, tempF):
 
             ( auth token ) --> responseValues
 
-            * dict contains: { str, str, str, str, str, str, bool }
+            * dict contains: { str, str, str, str, str, str, bool, str }
 
-            * responseValues: trackName, trackURI, trackProgress, trackDuration, artistName, artistURI, playing
+            * responseValues: trackName, trackURI, trackProgress, trackDuration, artistName, artistURI, playing, timestamp
 
             Timeout:            Sleep for 5s    --> main()
             Connection Error:   Sleep 20s       --> main()
@@ -326,7 +326,8 @@ def playback(token, tempF):
             'trackDuration'     : r['item']['duration_ms'],
             'artistName'        : r['item']['artists'][0]['name'],
             'artistURI'         : r['item']['artists'][0]['uri'],
-            'playing'           : r['is_playing']
+            'playing'           : r['is_playing'],
+            'timestamp'         : r['timestamp']
         }
 
         return responseValues
@@ -416,7 +417,7 @@ def playback(token, tempF):
                 
                     # Add to listening history here:
 
-                    localdata(token, response)
+                    localData(token, response)
 
                     print('\tComplete')
 
@@ -486,6 +487,51 @@ def playback(token, tempF):
     response = GETplayback(token)
     duration(response, tempF)
 
+def localData(token, response):
+    
+    ''' localData() writes history to listeningData.json and update genreData.json]
+
+        ( dict ) --> save data to .json
+
+        Functions:
+            convertTimestamp()
+            writeHistory()
+            sortHistory()
+            checkGenre()
+            writeGenre()
+                writeArtist()
+                writeSong()
+
+            popularity()
+    ''' 
+
+    def convertTimestamp(response):
+
+        ''' convertTimestamp() converts the timestamp stored with the current playback's data
+        
+            ( dict ) --> dict
+
+            # https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
+            # https://stackoverflow.com/questions/36103448/convert-from-unix-timestamp-with-milliseconds-to-hhmmss-in-python
+        '''
+
+        response['timestamp'] : datetime.datetime.fromtimestamp( response['timestamp'] / 1000).strftime('%Y-%m-%d %H:%M:%S.%f')
+
+        return response
+
+    def writeHistory(response):
+
+        ''' Write dict data to listeningData.json
+
+        '''
+        pass
+
+    # Call functions within localData()
+
+    response = convertTimestamp(response)
+    writeHistory(response)
+
+
 def main():
 
     ''' 
@@ -503,7 +549,19 @@ def main():
             GETplayback()
             moreThanHalf()
             tempReturn()
-            duration()
+            duration()      * Calls localData()
+
+        localData()
+            convertTimestamp()
+            writeHistory()
+            sortHistory()
+            checkGenre()
+            writeGenre()
+                writeArtist()
+                writeSong()
+
+            popularity()
+
 
     '''
 
