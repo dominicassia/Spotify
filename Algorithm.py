@@ -521,7 +521,7 @@ def localData(token, response):
             # https://stackoverflow.com/questions/36103448/convert-from-unix-timestamp-with-milliseconds-to-hhmmss-in-python
         '''
 
-        response['timestamp'] : datetime.datetime.fromtimestamp( response['timestamp'] / 1000).strftime('%Y-%m-%d %H:%M:%S.%f')
+        response['timestamp'] = datetime.datetime.fromtimestamp( response['timestamp'] / 1000).strftime('%Y-%m-%d %H:%M:%S.%f')
 
         return response
 
