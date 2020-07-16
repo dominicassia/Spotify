@@ -413,7 +413,7 @@ def playback(token, tempF):
                 if response['trackProgress'] <= ( (response['trackDuration'] / 4) *3):
 
                     print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
-                    print('\n\tAdding to listening history')
+                    print('\n\tAdding to listening history\n')
                 
                     # Add to listening history here:
 
@@ -489,7 +489,7 @@ def playback(token, tempF):
 
 def localData(token, response):
     
-    ''' localData() writes history to listeningData.json and update genreData.json]
+    ''' localData() writes history to listeningData.json and update genreData.json
 
         ( dict ) --> save data to .json
 
@@ -548,11 +548,11 @@ def localData(token, response):
 
         path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\listeningData.json'
 
-        with open(path, 'r+') as listeningDataFile:
+        with open(path) as fileRead:
 
             # Load file as json object, append format, & dump to json file
 
-            listeningData = json.load(listeningDataFile)
+            listeningData = json.load(fileRead)
 
             lst = [{
                 'timestamp' :   response['timestamp'],
@@ -562,9 +562,11 @@ def localData(token, response):
 
             listeningData['items'][0]['data'].append(lst)
 
-            json.dump(listeningData, listeningDataFile, indent=4)
+            # Write/dump to json file
 
-            listeningDataFile.close()
+            with open(path, 'r+') as fileWrite:
+
+                json.dump(listeningData, fileWrite, indent=4) 
 
             return path
 
@@ -576,11 +578,12 @@ def localData(token, response):
 
             ** json format must be as specified in jsonStructures.txt
         '''
-        with open(path, 'r+') as listeningDataFile:
+
+        with open(path) as fileRead:
 
             # Load file as json object, append all data to local list, sort, & dump to json file
 
-            listeningData = json.load(listeningDataFile)
+            listeningData = json.load(fileRead)
 
             lst = []
 
@@ -615,23 +618,23 @@ def localData(token, response):
 
             # Write to file
 
-            json.dump(listeningData, listeningDataFile, indent=4)
+            with open(path, 'r+') as fileWrite:
 
-            listeningDataFile.close()
+                json.dump(listeningData, fileWrite, indent=4) 
 
     # Call functions within localData()
 
-    print('Converting timestamp')
+    print('\tConverting timestamp\n')
     tStart = time.time()
     response = convertTimestamp(response)
     executionTime(tStart)
 
-    print('Writing listening history')
+    print('\tWriting listening history\n')
     tStart = time.time()
     path = writeHistory(response)
     executionTime(tStart)
 
-    print('Sorting listeningData.json')
+    print('\tSorting listeningData.json\n')
     tStart = time.time()
     sortHistory(path)
     executionTime(tStart)
@@ -678,7 +681,5 @@ def main():
 # Call main
 
 main()
-
-# TODO: work on writing to listeningData.json after duration() determines
 
 # TODO: Think about determining the different genres and checking if the artist and song data is added to genreData.json after something is added to listeningData.json as mentioned

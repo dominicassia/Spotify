@@ -2832,7 +2832,22 @@
                         "name": "Oh! Frenchy",
                         "URI": "spotify:track:3Gvxk7y3zY13o7EPJECNyM"
                     }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-16 00:00:19.455000",
+                        "name": "Icon",
+                        "URI": "spotify:track:22nyEAEM29tcBRhukR089b"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-15 23:58:36.421000",
+                        "name": "Paris",
+                        "URI": "spotify:track:72jbDTw1piOOj770jWNeaG"
+                    }
                 ]
+
             ]
         }
     ]
