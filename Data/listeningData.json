@@ -2846,8 +2846,29 @@
                         "name": "Paris",
                         "URI": "spotify:track:72jbDTw1piOOj770jWNeaG"
                     }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-16 11:52:23.062000",
+                        "name": "Cinema",
+                        "URI": "spotify:track:4jKeYH0Gwq2PE3YYSClzM9"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-16 11:55:16.225000",
+                        "name": "See You Again (feat. Kali Uchis)",
+                        "URI": "spotify:track:7KA4W4McWYRpgf0fWsJZWB"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-16 11:58:11.583000",
+                        "name": "Make Love",
+                        "URI": "spotify:track:4ABWPP59ItFKykdaDF09K5"
+                    }
                 ]
-
+                
             ]
         }
     ]

@@ -419,7 +419,7 @@ def playback(token, tempF):
 
                     localData(token, response)
 
-                    print('\tComplete')
+                    print('\tDone.\n')
 
                     print('\tSleep:', round( ( response['trackDuration'] - response['trackProgress'] ) / 2000, 1), 's\n')
                     time.sleep( ( response['trackDuration'] - response['trackProgress'] ) / 2000)
@@ -622,22 +622,79 @@ def localData(token, response):
 
                 json.dump(listeningData, fileWrite, indent=4) 
 
+    def checkLocalData(response):
+        
+        ''' checkLocalData() takes artist and track data and checks the contents of genreData.json to verify if the artist and track exist
+
+
+
+        '''
+
+        if verifyArtist(response['artistURI']) == True:
+
+            print('The artist is in genreData.. checking if track is in genreData')
+
+            if verifyTrack(response['trackURI']) == True:
+
+                print('The track is in genreData.. updating popularity')
+
+            else:
+
+                print('The track is ')
+
+
+        else:
+
+            print('The artist is not in genreData.. writing artist')
+            # writeArtist()
+
+
+    def verifyArtist(path, artistURI):
+
+        ''' verifyArtist() checks the contents of the json file path for the artist's URI
+            The function returns the index of the artist if found and False bool if not
+
+            ( str, str ) --> int **or bool
+
+            ( path, artistURI ) --> int **or False
+
+        '''
+
+        with open(path) as fileRead:
+
+            genreData = json.load(fileRead)
+
+    def verifyTrack(path, trackURI):
+
+        ''' verifyTrack() checks the contents of the json file path for the track's URI
+            The function returns the index of the track if found and False bool if not
+
+            ( str, str ) --> int **or bool
+
+            ( path, trackURI ) --> int **or False
+
+        '''
+
+        with open(path) as fileRead:
+
+            genreData = json.load(fileRead)
+
+    
     # Call functions within localData()
 
-    print('\tConverting timestamp\n')
-    tStart = time.time()
+    print('\t> Converting timestamp\n')
     response = convertTimestamp(response)
-    executionTime(tStart)
 
-    print('\tWriting listening history\n')
-    tStart = time.time()
+    print('\t> Writing listening history\n')
     path = writeHistory(response)
-    executionTime(tStart)
 
-    print('\tSorting listeningData.json\n')
-    tStart = time.time()
+    print('\t> Sorting listeningData.json\n')
     sortHistory(path)
-    executionTime(tStart)
+
+    print('\t> Checking genreData.json')
+    checkLocalData(response)
+
+    # TODO: Check if the song / artist is already in genreDara.json
 
 def main():
 
