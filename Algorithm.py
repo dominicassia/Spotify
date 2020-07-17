@@ -624,29 +624,17 @@ def localData(token, response):
 
     def checkLocalData(response):
         
-        ''' checkLocalData() takes artist and track data and checks the contents of genreData.json to verify if the artist and track exist
+        ''' checkLocalData() takes artist and track data and checks the contents of genreData.json and determine whether artist and 
+            track data must be added or updated
 
+            verifyArtist()
+            verifyTrack() 
+
+            writeArtist()
+            writeTrack()
 
 
         '''
-
-        if verifyArtist(response['artistURI']) == True:
-
-            print('The artist is in genreData.. checking if track is in genreData')
-
-            if verifyTrack(response['trackURI']) == True:
-
-                print('The track is in genreData.. updating popularity')
-
-            else:
-
-                print('The track is ')
-
-
-        else:
-
-            print('The artist is not in genreData.. writing artist')
-            # writeArtist()
 
 
     def verifyArtist(path, artistURI):
@@ -664,22 +652,93 @@ def localData(token, response):
 
             genreData = json.load(fileRead)
 
-    def verifyTrack(path, trackURI):
+            for i in range(len(genreData['items'][0]['data'])):
+
+                if genreData['items'][0]['data'][i]['artist'][0]['URI'] == artistURI:
+
+                    # return the index of the artist
+
+                    return i 
+
+    def verifyTrack(path, trackURI, artistIndex):
 
         ''' verifyTrack() checks the contents of the json file path for the track's URI
-            The function returns the index of the track if found and False bool if not
+            The function returns the index (int) of the track if found and False (bool) if not
 
-            ( str, str ) --> int **or bool
+            * To search through every song in the file (artist index not known) set artistIndex = False (bool)
 
-            ( path, trackURI ) --> int **or False
+            Artist index is known:
+                ( str, str, int ) --> index of track (int) or False if track not found (bool)
+
+            Artist index is not known:
+                ( str, str, bool ) --> index of track (int) or False if track not found (bool)
 
         '''
 
-        with open(path) as fileRead:
+        # Search the entire file
 
-            genreData = json.load(fileRead)
+        if type(artistIndex) == bool and artistIndex == False:
 
-    
+            # The artist index is not known, search through all songs in the file
+            
+            with open(path) as fileRead:
+
+                genreData = json.load(fileRead)
+
+                # For every artist in the file
+
+                for h in range(len(genreData['items'][0]['data'])):
+
+                    # For every song within that artist
+
+                    for i in range(len(genreData['items'][0]['data'][h]['artist'][0]['songs'])):
+
+                        if genreData['items'][0]['data'][h]['artist'][0]['songs'][i]['song'][0]['URI'] == trackURI:
+
+                            # Found the track, return the index of the track
+
+                            x = 0
+                            return i 
+                            break
+
+                        else:
+                            x += 1
+
+                if x != 0:
+
+                    # The track was not found, return false
+
+                    return False
+
+        # Given an artist index
+
+        elif type(artistIndex) == int:
+
+            # The artist's index is known, search for the song there
+
+            with open(path) as fileRead:
+
+                genreData = json.load(fileRead)
+
+                for i in range(len(genreData['items'][0]['data'][artistIndex]['artist'][0]['songs'])):
+
+                    if genreData['items'][0]['data'][h]['artist'][0]['songs'][i]['song'][0]['URI'] == trackURI:
+
+                        # Found the track, return the index of the track
+
+                        x = 0
+                        return i 
+                        break
+
+                    else:
+                        x += 1
+                
+                if x != 0:
+
+                    # The artist was not found
+
+                    return False
+
     # Call functions within localData()
 
     print('\t> Converting timestamp\n')
