@@ -627,14 +627,48 @@ def localData(token, response):
         ''' checkLocalData() takes artist and track data and checks the contents of genreData.json and determine whether artist and 
             track data must be added or updated
 
-            verifyArtist()
-            verifyTrack() 
+            verifyArtist()  Check if an artist's URI is in the file
+            verifyTrack()   Check if a song's URI is under an artist's URI or search the entire file
 
-            writeArtist()
-            writeTrack()
+            writeArtist()   Write the artist data to a file
+            writeTrack()    Write the track data to a file
 
+            popularity()    Adjust the popularity of a track + artist 
 
         '''
+        path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\genreData.json'
+
+        # Check if the artist is in the file
+
+        x = verifyArtist(path, response['artistURI'])
+
+        if type(x) == int:
+
+            # The artist index was found, x is the index, check if track is already under artist
+
+            y = verifyTrack(path, x)
+
+            if type(y) == int:
+
+                # The track index was found, no need to add the song, update the track + artist popularity
+
+                pass
+
+            if type(y) == bool:
+
+                # The track index was not found, add the song, update the track + artist popularity
+
+                pass
+
+            else: print('*Error verifying track')
+
+        if type(x) == bool:
+
+            # The artist index was not found, write the artist + track to the file, update the track + artist popularity
+
+            pass
+
+        else: print('*Error verifying artist')
 
 
     def verifyArtist(path, artistURI):
@@ -656,9 +690,20 @@ def localData(token, response):
 
                 if genreData['items'][0]['data'][i]['artist'][0]['URI'] == artistURI:
 
-                    # return the index of the artist
+                    # Found the artist, return the index of the track
 
+                    x = 0
                     return i 
+                    break
+
+                else:
+                    x += 1
+            
+            if x != 0:
+
+                # The artist was not found
+
+                return False
 
     def verifyTrack(path, trackURI, artistIndex):
 
@@ -672,6 +717,8 @@ def localData(token, response):
 
             Artist index is not known:
                 ( str, str, bool ) --> index of track (int) or False if track not found (bool)
+
+            ( path, trackURI, artistIndex ) --> output described above
 
         '''
 
@@ -739,6 +786,76 @@ def localData(token, response):
 
                     return False
 
+    def writeArtist(path, artistName, artistURI):
+
+        ''' writeSong() writes a new song with genreData's standard file structure when given all nessecary values 
+        
+            ( str, int, str, str, int ) --> write to file path
+
+            ( path, artistIndex, trackName, trackURI, trackDuration )
+
+            ** Newly written artist's will be located at index -1 (last)
+
+            default values: 
+                popularity  : 1
+                genres      : []
+                tracks      : []
+
+        '''
+        with open(path) as fileRead: 
+
+            genreData = json.load(fileRead)    
+
+            genreData['items'][0]['data'].append(
+
+                { 'artist' : [
+                    {   'name'      : artistName,
+                        'URI'       : artistURI,
+                        'popularity': 1,
+                        'genres'    : [],
+                        'tracks'    : [] 
+                    }] 
+                })                      
+        
+            with open(path, 'r+') as fileWrite:
+
+                json.dump(genreData, fileWrite, indent=4) 
+
+    def writeTrack(path, artistIndex, trackName, trackURI, trackDuration):
+
+        ''' writeTrack() writes a new song with genreData's standard file structure when given all nessecary values 
+        
+            ( str, int, str, str, int ) --> write to file path
+
+            ( path, artistIndex, trackName, trackURI, trackDuration )
+
+            default values: 
+                popularity  : 1
+                exception   : False
+                genres      : Inherit parent's genres
+
+        '''
+
+        with open(path) as fileRead: 
+
+            genreData = json.load(fileRead)    
+
+            genreData['items'][0]['data'][artistIndex]['artist'][0]['tracks'].append(
+
+                { 'track' : [
+                    {   'name'      : trackName,
+                        'URI'       : trackURI,
+                        'duration'  : trackDuration,
+                        'popularity': 1,
+                        'exception' : False,
+                        'genres'    : ['items'][0]['data'][artistIndex]['artist'][0]['genres']
+                    }] 
+                })                      
+        
+            with open(path, 'r+') as fileWrite:
+
+                json.dump(genreData, fileWrite, indent=4) 
+
     # Call functions within localData()
 
     print('\t> Converting timestamp\n')
@@ -752,8 +869,6 @@ def localData(token, response):
 
     print('\t> Checking genreData.json')
     checkLocalData(response)
-
-    # TODO: Check if the song / artist is already in genreDara.json
 
 def main():
 
