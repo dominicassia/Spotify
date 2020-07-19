@@ -634,8 +634,199 @@ def localData(token, response):
             writeTrack()    Write the track data to a file
 
             popularity()    Adjust the popularity of a track + artist 
-
         '''
+
+        def verifyArtist(path, artistURI):
+
+            ''' verifyArtist() checks the contents of the json file path for the artist's URI
+                The function returns the index of the artist if found and False bool if not
+
+                ( str, str ) --> int **or bool
+
+                ( path, artistURI ) --> int **or False
+
+            '''
+
+            with open(path) as fileRead:
+
+                x = 0
+
+                genreData = json.load(fileRead)
+
+                for i in range(len(genreData['items'][0]['data'])):
+
+                    if genreData['items'][0]['data'][i]['artist'][0]['URI'] == artistURI:
+
+                        # Found the artist, return the index of the track
+
+                        x = 0
+                        return i 
+                        break
+
+                    else:
+                        x += 1
+                
+                if x != 0:
+
+                    # The artist was not found
+
+                    return False
+
+        def verifyTrack(path, trackURI, artistIndex):
+
+            ''' verifyTrack() checks the contents of the json file path for the track's URI
+                The function returns the index (int) of the track if found and False (bool) if not
+
+                * To search through every song in the file (artist index not known) set artistIndex = False (bool)
+
+                Artist index is known:
+                    ( str, str, int ) --> index of track (int) or False if track not found (bool)
+
+                Artist index is not known:
+                    ( str, str, bool ) --> index of track (int) or False if track not found (bool)
+
+                ( path, trackURI, artistIndex ) --> output described above
+
+            '''
+
+            # Search the entire file
+
+            if type(artistIndex) == bool and artistIndex == False:
+
+                # The artist index is not known, search through all songs in the file
+                
+                with open(path) as fileRead:
+
+                    x = 0
+
+                    genreData = json.load(fileRead)
+
+                    # For every artist in the file
+
+                    for h in range(len(genreData['items'][0]['data'])):
+
+                        # For every song within that artist
+
+                        for i in range(len(genreData['items'][0]['data'][h]['artist'][0]['songs'])):
+
+                            if genreData['items'][0]['data'][h]['artist'][0]['songs'][i]['song'][0]['URI'] == trackURI:
+
+                                # Found the track, return the index of the track
+
+                                x = 0
+                                return i 
+                                break
+
+                            else:
+                                x += 1
+
+                    if x != 0:
+
+                        # The track was not found, return false
+
+                        return False
+
+            # Given an artist index
+
+            elif type(artistIndex) == int:
+
+                # The artist's index is known, search for the song there
+
+                with open(path) as fileRead:
+
+                    x = 0
+
+                    genreData = json.load(fileRead)
+
+                    for i in range(len(genreData['items'][0]['data'][artistIndex]['artist'][0]['songs'])):
+
+                        if genreData['items'][0]['data'][h]['artist'][0]['songs'][i]['song'][0]['URI'] == trackURI:
+
+                            # Found the track, return the index of the track
+
+                            x = 0
+                            return i 
+                            break
+
+                        else:
+                            x += 1
+                    
+                    if x != 0:
+
+                        # The artist was not found
+
+                        return False
+
+        def writeArtist(path, artistName, artistURI):
+
+            ''' writeSong() writes a new song with genreData's standard file structure when given all nessecary values 
+            
+                ( str, int, str, str, int ) --> write to file path
+
+                ( path, artistIndex, trackName, trackURI, trackDuration )
+
+                ** Newly written artist's will be located at index -1 (last)
+
+                default values: 
+                    popularity  : 1
+                    genres      : []
+                    tracks      : []
+
+            '''
+            with open(path) as fileRead: 
+
+                genreData = json.load(fileRead)    
+
+                genreData['items'][0]['data'].append(
+
+                    { 'artist' : [
+                        {   'name'      : artistName,
+                            'URI'       : artistURI,
+                            'popularity': 1,
+                            'genres'    : [],
+                            'tracks'    : [] 
+                        }] 
+                    })                      
+            
+                with open(path, 'r+') as fileWrite:
+
+                    json.dump(genreData, fileWrite, indent=4) 
+
+        def writeTrack(path, artistIndex, trackName, trackURI, trackDuration):
+
+            ''' writeTrack() writes a new song with genreData's standard file structure when given all nessecary values 
+            
+                ( str, int, str, str, int ) --> write to file path
+
+                ( path, artistIndex, trackName, trackURI, trackDuration )
+
+                default values: 
+                    popularity  : 1
+                    exception   : False
+                    genres      : Inherit parent's genres
+
+            '''
+
+            with open(path) as fileRead: 
+
+                genreData = json.load(fileRead)    
+
+                genreData['items'][0]['data'][artistIndex]['artist'][0]['tracks'].append(
+
+                    { 'track' : [
+                        {   'name'      : trackName,
+                            'URI'       : trackURI,
+                            'duration'  : trackDuration,
+                            'popularity': 1,
+                            'exception' : False,
+                            'genres'    : ['items'][0]['data'][artistIndex]['artist'][0]['genres']
+                        }] 
+                    })                      
+            
+                with open(path, 'r+') as fileWrite:
+
+                    json.dump(genreData, fileWrite, indent=4) 
+
         path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\genreData.json'
 
         # Check if the artist is in the file
@@ -658,7 +849,7 @@ def localData(token, response):
 
                 # The track index was not found, add the song, update the track + artist popularity
 
-                pass
+                writeTrack( path, x, response['trackName'], response['trackURI'], response['trackDuration'])
 
             else: print('*Error verifying track')
 
@@ -666,195 +857,11 @@ def localData(token, response):
 
             # The artist index was not found, write the artist + track to the file, update the track + artist popularity
 
-            pass
+            writeArtist(path, response['artistName'], response['artistURI'])
+
+            writeTrack( path, -1, response['trackName'], response['trackURI'], response['trackDuration'])
 
         else: print('*Error verifying artist')
-
-
-    def verifyArtist(path, artistURI):
-
-        ''' verifyArtist() checks the contents of the json file path for the artist's URI
-            The function returns the index of the artist if found and False bool if not
-
-            ( str, str ) --> int **or bool
-
-            ( path, artistURI ) --> int **or False
-
-        '''
-
-        with open(path) as fileRead:
-
-            genreData = json.load(fileRead)
-
-            for i in range(len(genreData['items'][0]['data'])):
-
-                if genreData['items'][0]['data'][i]['artist'][0]['URI'] == artistURI:
-
-                    # Found the artist, return the index of the track
-
-                    x = 0
-                    return i 
-                    break
-
-                else:
-                    x += 1
-            
-            if x != 0:
-
-                # The artist was not found
-
-                return False
-
-    def verifyTrack(path, trackURI, artistIndex):
-
-        ''' verifyTrack() checks the contents of the json file path for the track's URI
-            The function returns the index (int) of the track if found and False (bool) if not
-
-            * To search through every song in the file (artist index not known) set artistIndex = False (bool)
-
-            Artist index is known:
-                ( str, str, int ) --> index of track (int) or False if track not found (bool)
-
-            Artist index is not known:
-                ( str, str, bool ) --> index of track (int) or False if track not found (bool)
-
-            ( path, trackURI, artistIndex ) --> output described above
-
-        '''
-
-        # Search the entire file
-
-        if type(artistIndex) == bool and artistIndex == False:
-
-            # The artist index is not known, search through all songs in the file
-            
-            with open(path) as fileRead:
-
-                genreData = json.load(fileRead)
-
-                # For every artist in the file
-
-                for h in range(len(genreData['items'][0]['data'])):
-
-                    # For every song within that artist
-
-                    for i in range(len(genreData['items'][0]['data'][h]['artist'][0]['songs'])):
-
-                        if genreData['items'][0]['data'][h]['artist'][0]['songs'][i]['song'][0]['URI'] == trackURI:
-
-                            # Found the track, return the index of the track
-
-                            x = 0
-                            return i 
-                            break
-
-                        else:
-                            x += 1
-
-                if x != 0:
-
-                    # The track was not found, return false
-
-                    return False
-
-        # Given an artist index
-
-        elif type(artistIndex) == int:
-
-            # The artist's index is known, search for the song there
-
-            with open(path) as fileRead:
-
-                genreData = json.load(fileRead)
-
-                for i in range(len(genreData['items'][0]['data'][artistIndex]['artist'][0]['songs'])):
-
-                    if genreData['items'][0]['data'][h]['artist'][0]['songs'][i]['song'][0]['URI'] == trackURI:
-
-                        # Found the track, return the index of the track
-
-                        x = 0
-                        return i 
-                        break
-
-                    else:
-                        x += 1
-                
-                if x != 0:
-
-                    # The artist was not found
-
-                    return False
-
-    def writeArtist(path, artistName, artistURI):
-
-        ''' writeSong() writes a new song with genreData's standard file structure when given all nessecary values 
-        
-            ( str, int, str, str, int ) --> write to file path
-
-            ( path, artistIndex, trackName, trackURI, trackDuration )
-
-            ** Newly written artist's will be located at index -1 (last)
-
-            default values: 
-                popularity  : 1
-                genres      : []
-                tracks      : []
-
-        '''
-        with open(path) as fileRead: 
-
-            genreData = json.load(fileRead)    
-
-            genreData['items'][0]['data'].append(
-
-                { 'artist' : [
-                    {   'name'      : artistName,
-                        'URI'       : artistURI,
-                        'popularity': 1,
-                        'genres'    : [],
-                        'tracks'    : [] 
-                    }] 
-                })                      
-        
-            with open(path, 'r+') as fileWrite:
-
-                json.dump(genreData, fileWrite, indent=4) 
-
-    def writeTrack(path, artistIndex, trackName, trackURI, trackDuration):
-
-        ''' writeTrack() writes a new song with genreData's standard file structure when given all nessecary values 
-        
-            ( str, int, str, str, int ) --> write to file path
-
-            ( path, artistIndex, trackName, trackURI, trackDuration )
-
-            default values: 
-                popularity  : 1
-                exception   : False
-                genres      : Inherit parent's genres
-
-        '''
-
-        with open(path) as fileRead: 
-
-            genreData = json.load(fileRead)    
-
-            genreData['items'][0]['data'][artistIndex]['artist'][0]['tracks'].append(
-
-                { 'track' : [
-                    {   'name'      : trackName,
-                        'URI'       : trackURI,
-                        'duration'  : trackDuration,
-                        'popularity': 1,
-                        'exception' : False,
-                        'genres'    : ['items'][0]['data'][artistIndex]['artist'][0]['genres']
-                    }] 
-                })                      
-        
-            with open(path, 'r+') as fileWrite:
-
-                json.dump(genreData, fileWrite, indent=4) 
 
     # Call functions within localData()
 

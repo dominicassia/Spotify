@@ -9308,6 +9308,17 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Cautious Clay",
+                            "URI": "spotify:artist:6iWuBN32BqCJAeXW6o3nil",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": []
+                        }
+                    ]
                 }
             ]
         }

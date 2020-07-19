@@ -2867,8 +2867,21 @@
                         "name": "Make Love",
                         "URI": "spotify:track:4ABWPP59ItFKykdaDF09K5"
                     }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-18 10:16:42.847000",
+                        "name": "Joshua Tree",
+                        "URI": "spotify:track:1oJZx6GqvuyzUgPu5OBxlY"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-18 10:19:31.070000",
+                        "name": "Joshua Tree",
+                        "URI": "spotify:track:1oJZx6GqvuyzUgPu5OBxlY"
+                    }
                 ]
-                
             ]
         }
     ]
