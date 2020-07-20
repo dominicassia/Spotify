@@ -540,7 +540,7 @@
                             "name": "Big Wild",
                             "genres": [],
                             "URI": "spotify:artist:0PxzGnCYBpSuaI49OR94cA",
-                            "popularity": 2,
+                            "popularity": 3,
                             "tracks": [
                                 {
                                     "track": [
@@ -563,6 +563,18 @@
                                             "genres": [],
                                             "duration": 220000,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Aftergold (feat. Tove Styrke)",
+                                            "URI": "spotify:track:1wPRqq1czM3ny6189e56mq",
+                                            "duration": 191007,
+                                            "popularity": 2,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }
@@ -5183,7 +5195,7 @@
                             "name": "ayokay",
                             "genres": [],
                             "URI": "spotify:artist:4BzCdhJTyTS3gumq9xmymb",
-                            "popularity": 2,
+                            "popularity": 3,
                             "tracks": [
                                 {
                                     "track": [
@@ -5194,6 +5206,18 @@
                                             "genres": [],
                                             "duration": 192546,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Kings of Summer - Single Version",
+                                            "URI": "spotify:track:4Tid4MwqgR1CfKCun3tFon",
+                                            "duration": 207880,
+                                            "popularity": 2,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }
@@ -7271,7 +7295,7 @@
                             "name": "What So Not",
                             "genres": [],
                             "URI": "spotify:artist:4AA8eXtzqh5ykxtafLaPOi",
-                            "popularity": 3,
+                            "popularity": 4,
                             "tracks": [
                                 {
                                     "track": [
@@ -7294,6 +7318,18 @@
                                             "genres": [],
                                             "duration": 270257,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "High You Are",
+                                            "URI": "spotify:track:6zpCJDhdpHPZCcFCJZDqX5",
+                                            "duration": 213340,
+                                            "popularity": 2,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }
@@ -9396,6 +9432,30 @@
                                             "name": "Tints (feat. Kendrick Lamar)",
                                             "URI": "spotify:track:7c3SbTuufigBWURcICnAWy",
                                             "duration": 268400,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Electric Guest",
+                            "URI": "spotify:artist:7sgWBYtJpblXpJl2lU5WVs",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Oh Devil",
+                                            "URI": "spotify:track:1kcfGBb6kSrGqNIMW7rAlB",
+                                            "duration": 217586,
                                             "popularity": 1,
                                             "exception": false,
                                             "genres": []

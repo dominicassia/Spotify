@@ -413,13 +413,13 @@ def playback(token, tempF):
                 if response['trackProgress'] <= ( (response['trackDuration'] / 4) *3):
 
                     print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
-                    print('\n\tAdding to listening history\n')
+                    print('\n\t      Adding to listening history\n')
                 
                     # Add to listening history here:
 
                     localData(token, response)
 
-                    print('\tDone.\n')
+                    print('\t      Done.\n')
 
                     print('\tSleep:', round( ( response['trackDuration'] - response['trackProgress'] ) / 2000, 1), 's\n')
                     time.sleep( ( response['trackDuration'] - response['trackProgress'] ) / 2000)
@@ -884,16 +884,16 @@ def localData(token, response):
 
     # Call functions within localData()
 
-    print('\t> Converting timestamp\n')
+    print('\t\t> Converting timestamp\n')
     response = convertTimestamp(response)
 
-    print('\t> Writing listening history\n')
+    print('\t\t> Writing listening history\n')
     path = writeHistory(response)
 
-    print('\t> Sorting listeningData.json\n')
+    print('\t\t> Sorting listeningData.json\n')
     sortHistory(path)
 
-    print('\t> Checking genreData.json\n')
+    print('\t\t> Checking genreData.json\n')
     checkLocalData(response)
 
 def main():
