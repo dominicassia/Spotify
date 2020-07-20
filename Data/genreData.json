@@ -786,7 +786,7 @@
                                 "Rap"
                             ],
                             "URI": "spotify:artist:6l3HvQ5sa6mXTsMTB19rO5",
-                            "popularity": 2,
+                            "popularity": 3,
                             "tracks": [
                                 {
                                     "track": [
@@ -813,6 +813,20 @@
                                             ],
                                             "duration": 269786,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "G.O.M.D.",
+                                            "URI": "spotify:track:16qYlQ6koFxYVbiJbGHblz",
+                                            "duration": 301133,
+                                            "popularity": 2,
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ]
                                         }
                                     ]
                                 }
@@ -4449,7 +4463,7 @@
                             "name": "Meek Mill",
                             "genres": [],
                             "URI": "spotify:artist:20sxb77xiYeusSH8cVdatc",
-                            "popularity": 5,
+                            "popularity": 6,
                             "tracks": [
                                 {
                                     "track": [
@@ -4508,6 +4522,18 @@
                                             "genres": [],
                                             "duration": 197133,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "What's Free (feat. Rick Ross & Jay Z)",
+                                            "URI": "spotify:track:4iQ5gmTAzWfK8JyFC2LBox",
+                                            "duration": 362839,
+                                            "popularity": 2,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }
@@ -5793,7 +5819,7 @@
                             "name": "ODESZA",
                             "genres": [],
                             "URI": "spotify:artist:21mKp7DqtSNHhCAU2ugvUw",
-                            "popularity": 2,
+                            "popularity": 4,
                             "tracks": [
                                 {
                                     "track": [
@@ -5803,7 +5829,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 237140,
-                                            "popularity": 1
+                                            "popularity": 2
                                         }
                                     ]
                                 },
@@ -5828,6 +5854,18 @@
                                             "genres": [],
                                             "duration": 228154,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Higher Ground (feat. Naomi Wild)",
+                                            "URI": "spotify:track:7KT7VGnPU5QVXN3q1BOeqb",
+                                            "duration": 215130,
+                                            "popularity": 2,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }
@@ -6177,7 +6215,7 @@
                             "name": "Jay Rock",
                             "genres": [],
                             "URI": "spotify:artist:28ExwzUQsvgJooOI0X1mr3",
-                            "popularity": 1,
+                            "popularity": 2,
                             "tracks": [
                                 {
                                     "track": [
@@ -6187,7 +6225,7 @@
                                             "exception": false,
                                             "genres": [],
                                             "duration": 229670,
-                                            "popularity": 1
+                                            "popularity": 2
                                         }
                                     ]
                                 }
@@ -9334,6 +9372,30 @@
                                             "name": "Hurt",
                                             "URI": "spotify:track:1n5Oxo5iQNfxFU9dZxZuPO",
                                             "duration": 145558,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Anderson .Paak",
+                            "URI": "spotify:artist:3jK9MiCrA42lLAdMGUZpwa",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Tints (feat. Kendrick Lamar)",
+                                            "URI": "spotify:track:7c3SbTuufigBWURcICnAWy",
+                                            "duration": 268400,
                                             "popularity": 1,
                                             "exception": false,
                                             "genres": []

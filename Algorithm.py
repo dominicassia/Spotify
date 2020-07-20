@@ -840,9 +840,9 @@ def localData(token, response):
 
                 genreData = json.load(fileRead)
 
-                genreData['items'][0]['data'][artistIndex]['popularity'] += 1
+                genreData['items'][0]['data'][artistIndex]['artist'][0]['popularity'] += 1
 
-                genreData['items'][0]['data'][artistIndex]['tracks'][trackIndex]['track'][0]['popularity'] += 1
+                genreData['items'][0]['data'][artistIndex]['artist'][0]['tracks'][trackIndex]['track'][0]['popularity'] += 1
 
                 with open(path, 'r+') as fileWrite:
 
@@ -874,8 +874,6 @@ def localData(token, response):
 
                 popularity(path=path, artistIndex=x, trackIndex=-1)
 
-            else: print('*Error verifying track')
-
         if type(x) == bool:
 
             # The artist index was not found, write the artist + track to the file
@@ -883,8 +881,6 @@ def localData(token, response):
             writeArtist(path=path, artistName=response['artistName'], artistURI=response['artistURI'])
 
             writeTrack(path=path, artistIndex=-1, trackName=response['trackName'], trackURI=response['trackURI'], trackDuration=response['trackDuration'])
-
-        else: print('*Error verifying artist')
 
     # Call functions within localData()
 
@@ -897,7 +893,7 @@ def localData(token, response):
     print('\t> Sorting listeningData.json\n')
     sortHistory(path)
 
-    print('\t> Checking genreData.json')
+    print('\t> Checking genreData.json\n')
     checkLocalData(response)
 
 def main():
