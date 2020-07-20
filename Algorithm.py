@@ -738,9 +738,9 @@ def localData(token, response):
 
                     genreData = json.load(fileRead)
 
-                    for i in range(len(genreData['items'][0]['data'][artistIndex]['artist'][0]['songs'])):
+                    for i in range(len(genreData['items'][0]['data'][artistIndex]['artist'][0]['tracks'])):
 
-                        if genreData['items'][0]['data'][h]['artist'][0]['songs'][i]['song'][0]['URI'] == trackURI:
+                        if genreData['items'][0]['data'][artistIndex]['artist'][0]['tracks'][i]['track'][0]['URI'] == trackURI:
 
                             # Found the track, return the index of the track
 
@@ -819,7 +819,7 @@ def localData(token, response):
                             'duration'  : trackDuration,
                             'popularity': 1,
                             'exception' : False,
-                            'genres'    : ['items'][0]['data'][artistIndex]['artist'][0]['genres']
+                            'genres'    : genreData['items'][0]['data'][artistIndex]['artist'][0]['genres']
                         }] 
                     })                      
             
@@ -852,39 +852,37 @@ def localData(token, response):
 
         # Check if the artist is in the file
 
-        x = verifyArtist(path, response['artistURI'])
+        x = verifyArtist(path=path, artistURI=response['artistURI'])
 
         if type(x) == int:
 
             # The artist index was found, x is the index, check if track is already under artist
 
-            y = verifyTrack(path, x)
+            y = verifyTrack(path=path, artistIndex=x, trackURI=response['trackURI'])
 
             if type(y) == int:
 
                 # The track index was found, no need to add the song, update the track + artist popularity
 
-                popularity(path, x, y)
+                popularity(path=path, artistIndex=x, trackIndex=y)
 
             if type(y) == bool:
 
                 # The track index was not found, add the song, update the track + artist popularity
 
-                writeTrack(path, x, response['trackName'], response['trackURI'], response['trackDuration'])
+                writeTrack(path=path, artistIndex=x, trackName=response['trackName'], trackURI=response['trackURI'], trackDuration=response['trackDuration'])
 
-                popularity(path, x, -1)
+                popularity(path=path, artistIndex=x, trackIndex=-1)
 
             else: print('*Error verifying track')
 
         if type(x) == bool:
 
-            # The artist index was not found, write the artist + track to the file, update the track + artist popularity
+            # The artist index was not found, write the artist + track to the file
 
-            writeArtist(path, response['artistName'], response['artistURI'])
+            writeArtist(path=path, artistName=response['artistName'], artistURI=response['artistURI'])
 
-            writeTrack(path, -1, response['trackName'], response['trackURI'], response['trackDuration'])
-
-            popularity(path, -1, -1)
+            writeTrack(path=path, artistIndex=-1, trackName=response['trackName'], trackURI=response['trackURI'], trackDuration=response['trackDuration'])
 
         else: print('*Error verifying artist')
 
