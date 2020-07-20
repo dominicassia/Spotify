@@ -827,6 +827,27 @@ def localData(token, response):
 
                     json.dump(genreData, fileWrite, indent=4) 
 
+        def popularity(path, artistIndex, trackIndex):
+
+            ''' popularity() adjusts the popularity class of an Artist and Track          within genreData.json
+
+                ( str, str, str ) --> updated class
+
+                ( path, artistIndex, trackIndex ) --> updated class
+            '''
+
+            with open(path) as fileRead:
+
+                genreData = json.load(fileRead)
+
+                genreData['items'][0]['data'][artistIndex]['popularity'] += 1
+
+                genreData['items'][0]['data'][artistIndex]['tracks'][trackIndex]['track'][0]['popularity'] += 1
+
+                with open(path, 'r+') as fileWrite:
+
+                    json.dump(genreData, fileWrite, indent=4)
+
         path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\genreData.json'
 
         # Check if the artist is in the file
@@ -843,13 +864,15 @@ def localData(token, response):
 
                 # The track index was found, no need to add the song, update the track + artist popularity
 
-                pass
+                popularity(path, x, y)
 
             if type(y) == bool:
 
                 # The track index was not found, add the song, update the track + artist popularity
 
-                writeTrack( path, x, response['trackName'], response['trackURI'], response['trackDuration'])
+                writeTrack(path, x, response['trackName'], response['trackURI'], response['trackDuration'])
+
+                popularity(path, x, -1)
 
             else: print('*Error verifying track')
 
@@ -859,7 +882,9 @@ def localData(token, response):
 
             writeArtist(path, response['artistName'], response['artistURI'])
 
-            writeTrack( path, -1, response['trackName'], response['trackURI'], response['trackDuration'])
+            writeTrack(path, -1, response['trackName'], response['trackURI'], response['trackDuration'])
+
+            popularity(path, -1, -1)
 
         else: print('*Error verifying artist')
 
@@ -921,3 +946,5 @@ def main():
 main()
 
 # TODO: Think about determining the different genres and checking if the artist and song data is added to genreData.json after something is added to listeningData.json as mentioned
+
+# TODO: Create files / file error exceptions
