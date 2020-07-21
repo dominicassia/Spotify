@@ -79,7 +79,7 @@
                                         {
                                             "name": "Hold On, We're Going Home",
                                             "URI": "spotify:track:6GCsFtfTR4R9Y0ECkFJhNr",
-                                            "exception": false,
+                                            "exception": true,
                                             "genres": [],
                                             "duration": 227880,
                                             "popularity": 1
@@ -362,7 +362,7 @@
                                 "Modern"
                             ],
                             "URI": "spotify:artist:5Lhxlge1CR1DrgDAje8Qaw",
-                            "popularity": 7,
+                            "popularity": 8,
                             "tracks": [
                                 {
                                     "track": [
@@ -431,6 +431,20 @@
                                             ],
                                             "duration": 262253,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Paint California",
+                                            "URI": "spotify:track:2ZlgqiomIrjvkuWFDSVOLY",
+                                            "duration": 207133,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": [
+                                                "Modern"
+                                            ]
                                         }
                                     ]
                                 }
@@ -9456,6 +9470,30 @@
                                             "name": "Oh Devil",
                                             "URI": "spotify:track:1kcfGBb6kSrGqNIMW7rAlB",
                                             "duration": 217586,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Moon Taxi",
+                            "URI": "spotify:artist:5DK8eK7fjvRsziXzyr3sFA",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Make Your Mind Up",
+                                            "URI": "spotify:track:4EAoAeIwUUvevkPLvhwTpx",
+                                            "duration": 213066,
                                             "popularity": 1,
                                             "exception": false,
                                             "genres": []

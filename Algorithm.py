@@ -829,11 +829,13 @@ def localData(token, response):
 
         def popularity(path, artistIndex, trackIndex):
 
-            ''' popularity() adjusts the popularity class of an Artist and Track          within genreData.json
+            ''' popularity() adjusts the popularity class of an Artist and Track within genreData.json
 
                 ( str, str, str ) --> updated class
 
                 ( path, artistIndex, trackIndex ) --> updated class
+
+                ** If trackIndex is passed False (bool) the popularity will not be updated for the track
             '''
 
             with open(path) as fileRead:
@@ -842,7 +844,9 @@ def localData(token, response):
 
                 genreData['items'][0]['data'][artistIndex]['artist'][0]['popularity'] += 1
 
-                genreData['items'][0]['data'][artistIndex]['artist'][0]['tracks'][trackIndex]['track'][0]['popularity'] += 1
+                if trackIndex == type(int):
+
+                    genreData['items'][0]['data'][artistIndex]['artist'][0]['tracks'][trackIndex]['track'][0]['popularity'] += 1
 
                 with open(path, 'r+') as fileWrite:
 
@@ -872,7 +876,7 @@ def localData(token, response):
 
                 writeTrack(path=path, artistIndex=x, trackName=response['trackName'], trackURI=response['trackURI'], trackDuration=response['trackDuration'])
 
-                popularity(path=path, artistIndex=x, trackIndex=-1)
+                popularity(path=path, artistIndex=x, trackIndex=False)
 
         if type(x) == bool:
 
