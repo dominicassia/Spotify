@@ -431,6 +431,8 @@ def playback(token, tempF, multiplier):
 
                     localData(token, response)
 
+                    multiplier = 0
+
                     print('\t      Done.\n')
 
                     print('\tSleep:', round( ( response['trackDuration'] - response['trackProgress'] ) / 2000, 1), 's\n')
@@ -448,7 +450,7 @@ def playback(token, tempF, multiplier):
                     tempF.close()
 
                 print('\t----- restart -----\n')
-                playback(token, tempF)
+                playback(token, tempF, multiplier)
 
             elif response['trackURI'] != tempReturn(tempF):
 
@@ -457,7 +459,7 @@ def playback(token, tempF, multiplier):
                 tempF.close()
 
                 print('\t----- restart -----\n')
-                playback(token, tempF)
+                playback(token, tempF, multiplier)
 
             elif moreThanHalf( response['trackDuration'], response['trackProgress'] ) == False:
 
@@ -476,7 +478,7 @@ def playback(token, tempF, multiplier):
                     time.sleep( int( int( response['trackDuration'] / 2 ) - response['trackProgress']) / 1000)
 
                 print('\t----- restart -----\n')
-                playback(token, tempF)
+                playback(token, tempF, multiplier)
 
         elif response['playing'] == False:
 
@@ -488,7 +490,7 @@ def playback(token, tempF, multiplier):
             time.sleep(10)
 
             print('\t----- restart -----\n')
-            playback(token, tempF)
+            playback(token, tempF, multiplier)
 
         else:
 
@@ -911,6 +913,13 @@ def localData(token, response):
 
     print('\t\t> Checking genreData.json\n')
     checkLocalData(response)
+
+def playlists():
+
+    ''' playlists() GETs playlist data, compares it to local playlist data, 
+        while making sure the execution is less than 20 seconds in order to 
+        keep current with possible playback in the background
+    ''' 
 
 def main():
 
