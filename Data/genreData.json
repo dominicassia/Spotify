@@ -3805,7 +3805,7 @@
                             "name": "Abhi The Nomad",
                             "genres": [],
                             "URI": "spotify:artist:1gUi2utSbJLNPddYENJAp4",
-                            "popularity": 4,
+                            "popularity": 5,
                             "tracks": [
                                 {
                                     "track": [
@@ -3840,6 +3840,18 @@
                                             "genres": [],
                                             "duration": 242526,
                                             "popularity": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Long Nights",
+                                            "URI": "spotify:track:6CFTyE4NSXSakklU5ddCuI",
+                                            "duration": 170232,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }
@@ -6913,7 +6925,7 @@
                             "name": "Goth Babe",
                             "genres": [],
                             "URI": "spotify:artist:7o96HO2zrujyATtVsqGhh3",
-                            "popularity": 2,
+                            "popularity": 4,
                             "tracks": [
                                 {
                                     "track": [
@@ -6924,6 +6936,18 @@
                                             "genres": [],
                                             "duration": 267130,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Sometimes",
+                                            "URI": "spotify:track:7oJmIBxEAYjfkS7lhZ7M1S",
+                                            "duration": 262736,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }
@@ -7897,7 +7921,7 @@
                             "name": "Sir Sly",
                             "genres": [],
                             "URI": "spotify:artist:3DFoVPonoAAt4EZ1FEI8ue",
-                            "popularity": 2,
+                            "popularity": 3,
                             "tracks": [
                                 {
                                     "track": [
@@ -7908,6 +7932,18 @@
                                             "genres": [],
                                             "duration": 231896,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "&Run",
+                                            "URI": "spotify:track:0w4m3Xp4svlIoyL94Zjlyd",
+                                            "duration": 226587,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }
@@ -9494,6 +9530,102 @@
                                             "name": "Make Your Mind Up",
                                             "URI": "spotify:track:4EAoAeIwUUvevkPLvhwTpx",
                                             "duration": 213066,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Voxtrot",
+                            "URI": "spotify:artist:7b697TI9p2abLzSo3eJTKW",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Raised By Wolves",
+                                            "URI": "spotify:track:60ooMa1yzfKIl1Nf4O1GI5",
+                                            "duration": 280613,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Saint Motel",
+                            "URI": "spotify:artist:1dWEYMPtNmvSVaDNLgB6NV",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "My Type",
+                                            "URI": "spotify:track:2Iq6HhIquO7JKr0KfTNLzU",
+                                            "duration": 204811,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Manchester Orchestra",
+                            "URI": "spotify:artist:5wFXmYsg3KFJ8BDsQudJ4f",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "The Sunshine",
+                                            "URI": "spotify:track:63k361zOGEhmvgzBdzzSGP",
+                                            "duration": 117173,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "The Symposium",
+                            "URI": "spotify:artist:2FQgnKHydnhSnRS17BSy28",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Poison",
+                                            "URI": "spotify:track:1Jg3XdrCOZ5rrirIOggdtW",
+                                            "duration": 182778,
                                             "popularity": 1,
                                             "exception": false,
                                             "genres": []

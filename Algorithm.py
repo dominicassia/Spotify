@@ -229,7 +229,7 @@ def initialize():
     
     return tokenData
 
-def playback(token, tempF):
+def playback(token, tempF, multiplier):
 
     ''' playback() monitors the user's playback and determines what is eligible to be added to listeningData.json to be further analyzed 
     
@@ -238,7 +238,7 @@ def playback(token, tempF):
         ( token, tempF )
     '''
 
-    def GETplayback(token):
+    def GETplayback(token, multiplier):
 
         ''' Utilize a GET request to determine the playback state of the user's application & information
             pertaining to what is playing
@@ -293,6 +293,16 @@ def playback(token, tempF):
 
         print('Status: ', response.status_code, '\n')
 
+        # Check multiplier value
+
+        if multiplier == 2:
+
+            # The 204 status has been recieved for 60 sec ( 20sec * 3times ) 
+
+            print('> Analyzing playlists\n')
+
+            playlists()
+
         # Unauthorized
 
         if response.status_code == 401:
@@ -306,6 +316,8 @@ def playback(token, tempF):
 
         if response.status_code == 204:
 
+            multiplier += 1 
+
             print('\tNo data')
             print('\tSleep: 20 s\n')
 
@@ -313,7 +325,7 @@ def playback(token, tempF):
 
             print('\t----- restart -----\n')
 
-            playback(token, tempF)
+            playback(token, tempF, multiplier)
 
         r = json.loads(str(response.text))    
 
@@ -415,7 +427,7 @@ def playback(token, tempF):
                     print('\tPlayback progress:', round((response['trackProgress'] / response['trackDuration'])*100, 1), '%')
                     print('\n\t      Adding to listening history\n')
                 
-                    # Add to listening history here:
+                    # Add to json here:
 
                     localData(token, response)
 
@@ -484,7 +496,7 @@ def playback(token, tempF):
 
     # Call functions within playback()
 
-    response = GETplayback(token)
+    response = GETplayback(token, multiplier)
     duration(response, tempF)
 
 def localData(token, response):
@@ -937,7 +949,7 @@ def main():
 
     tokenData = initialize()
 
-    playback( tokenData['token'], tempF='' )
+    playback( tokenData['token'], tempF='', multiplier=0 )
 
 # Call main
 

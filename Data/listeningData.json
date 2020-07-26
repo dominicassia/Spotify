@@ -1,11 +1,6 @@
 {
     "items": [
         {
-            "popularity": [
-                {
-                    "timestamp": "2020-06-19 03:25:27.270000"
-                }
-            ],
             "analysis": [
                 {
                     "timestamp": "2001-06-05 02:44:50.500000"
@@ -3041,6 +3036,62 @@
                         "timestamp": "2020-07-20 23:35:25.551000",
                         "name": "Paint California",
                         "URI": "spotify:track:2ZlgqiomIrjvkuWFDSVOLY"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-20 23:36:55.562000",
+                        "name": "Raised By Wolves",
+                        "URI": "spotify:track:60ooMa1yzfKIl1Nf4O1GI5"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-20 23:41:31.209000",
+                        "name": "&Run",
+                        "URI": "spotify:track:0w4m3Xp4svlIoyL94Zjlyd"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-20 23:45:12.920000",
+                        "name": "My Type",
+                        "URI": "spotify:track:2Iq6HhIquO7JKr0KfTNLzU"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-20 23:48:32.842000",
+                        "name": "Car Camping",
+                        "URI": "spotify:track:113EquoKtGlOefuvIfIXVQ"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-20 23:52:57.981000",
+                        "name": "The Sunshine",
+                        "URI": "spotify:track:63k361zOGEhmvgzBdzzSGP"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-20 23:54:47.255000",
+                        "name": "Sometimes",
+                        "URI": "spotify:track:7oJmIBxEAYjfkS7lhZ7M1S"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-20 23:59:07.989000",
+                        "name": "Poison",
+                        "URI": "spotify:track:1Jg3XdrCOZ5rrirIOggdtW"
+                    }
+                ],
+                [
+                    {
+                        "timestamp": "2020-07-21 00:02:02.807000",
+                        "name": "Long Nights",
+                        "URI": "spotify:track:6CFTyE4NSXSakklU5ddCuI"
                     }
                 ]
             ]
