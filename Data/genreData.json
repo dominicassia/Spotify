@@ -2497,7 +2497,7 @@
                                 "Rap-Light"
                             ],
                             "URI": "spotify:artist:4xRYI6VqpkE3UwrDrAZL8L",
-                            "popularity": 4,
+                            "popularity": 7,
                             "tracks": [
                                 {
                                     "track": [
@@ -2536,6 +2536,48 @@
                                             ],
                                             "duration": 199866,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Open Mic\\\\Aquarius III",
+                                            "URI": "spotify:track:4L6QpiLxCLok9wZfFIdiqF",
+                                            "duration": 303930,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap-Light"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Soul Food II",
+                                            "URI": "spotify:track:7e0nXDIIa6hFqI4HmuanLP",
+                                            "duration": 333777,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap-Light"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Perfect",
+                                            "URI": "spotify:track:5jbDih9bLGmI8ycUKkN5XA",
+                                            "duration": 100291,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap-Light"
+                                            ]
                                         }
                                     ]
                                 }
@@ -7141,7 +7183,7 @@
                             "name": "Flux Pavilion",
                             "genres": [],
                             "URI": "spotify:artist:7muzHifhMdnfN1xncRLOqk",
-                            "popularity": 2,
+                            "popularity": 3,
                             "tracks": [
                                 {
                                     "track": [
@@ -7152,6 +7194,18 @@
                                             "genres": [],
                                             "duration": 256147,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "20:25",
+                                            "URI": "spotify:track:3zwR7O61Dl7hsf5nwENrvy",
+                                            "duration": 232053,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }
@@ -7597,7 +7651,7 @@
                             "name": "Medasin",
                             "genres": [],
                             "URI": "spotify:artist:62vbsDRAq0qHdezaCOzB0T",
-                            "popularity": 2,
+                            "popularity": 3,
                             "tracks": [
                                 {
                                     "track": [
@@ -7608,6 +7662,18 @@
                                             "genres": [],
                                             "duration": 218533,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Home",
+                                            "URI": "spotify:track:42NB7w0tDCag0mQpCtZe7Y",
+                                            "duration": 194546,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
                                         }
                                     ]
                                 }

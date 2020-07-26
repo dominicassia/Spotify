@@ -301,7 +301,7 @@ def playback(token, tempF, multiplier):
 
             print('> Analyzing playlists\n')
 
-            playlists()
+            playlists(token)
 
         # Unauthorized
 
@@ -388,7 +388,7 @@ def playback(token, tempF, multiplier):
             tempF.seek(0)
             return str(tempF.read())
 
-    def duration(response, tempF):
+    def duration(response, tempF, multiplier):
 
         ''' duration() monitors the progress of a song's playback by using response data from GETplayback(), 
             temporarily storing the CURL response while waiting for more than half the song to be listened to 
@@ -416,6 +416,8 @@ def playback(token, tempF, multiplier):
 
         if response['playing'] == True:
 
+            multiplier = 0.0
+
             print('Playback:', response['trackName'], '|', response['artistName'], '\n')
 
             if moreThanHalf( response['trackDuration'], response['trackProgress'] ) == True and response['trackURI'] == tempReturn(tempF):
@@ -431,7 +433,7 @@ def playback(token, tempF, multiplier):
 
                     localData(token, response)
 
-                    multiplier = 0
+                    multiplier = 0.0
 
                     print('\t      Done.\n')
 
@@ -489,6 +491,8 @@ def playback(token, tempF, multiplier):
 
             time.sleep(10)
 
+            multiplier += 0.5
+
             print('\t----- restart -----\n')
             playback(token, tempF, multiplier)
 
@@ -496,10 +500,14 @@ def playback(token, tempF, multiplier):
 
             print('\tFallback case.\n')
 
+        if multiplier == 1.5:
+
+            print('> Analyzing Playlists')
+
     # Call functions within playback()
 
     response = GETplayback(token, multiplier)
-    duration(response, tempF)
+    duration(response, tempF, multiplier)
 
 def localData(token, response):
     
@@ -914,12 +922,88 @@ def localData(token, response):
     print('\t\t> Checking genreData.json\n')
     checkLocalData(response)
 
-def playlists():
+def playlists(token):
 
     ''' playlists() GETs playlist data, compares it to local playlist data, 
         while making sure the execution is less than 20 seconds in order to 
         keep current with possible playback in the background
     ''' 
+
+    def GETdisplayname(token):
+        
+        ''' GETdisplayname() GETs a user's current profile data in order to compare the display name
+            to the owner of a playlist. This can be used to determine if the algorithm can manipulate 
+            such a playlist
+
+            ( token ) --> displayName
+
+            https://developer.spotify.com/documentation/web-api/reference/users-profile/get-current-users-profile/
+        '''
+        
+        url = 'https://api.spotify.com/v1/me'
+        headers = {'Authorization': 'Bearer ' + token }
+
+        response = requests.get(url, headers=headers, timeout=10)
+
+        r = response.json()
+
+        displayName = r['display_name']
+
+        return displayName
+
+
+    def GETplaylists(token):
+
+        ''' GETplaylists() uses a GET request to grab a user's playlist data
+
+            ( str ) 
+
+            https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/
+        '''
+
+        # Retrieve the User's current playlists
+
+        url = 'https://api.spotify.com/v1/me/playlists'
+        headers = {'Authorization': 'Bearer ' + token }
+        params = { 'limit':50 }
+
+        response = requests.get(url, headers=headers, params=params, timeout=10)
+
+        # This GET request returns JSON including 50 of the user's playlists
+
+        r = response.json()
+
+        # Print status code 
+
+        print('\tStatus: ', response.status_code)                                                                                
+        print('\tProcessing request.\n')
+
+        playlists = []
+        x = 0
+
+        for i in range( len(r['items'])):
+
+            # Determine if the playlist is owned by the user
+
+            if r['items'][i]['owner']['display_name'] == displayName:
+
+                # Create list of needed data: playlist name, playlist ID, amount of tracks
+
+                playlists.append( [r['items'][i]['name'], r['items'][i]['id'], r['items'][i]['tracks']['total']] )
+                x += 1
+
+        print('\t', i, 'playlists found')
+        print('\t', x, 'playlists owned by', displayName)
+
+        return playlists
+
+    # Call functions within playlists()
+
+
+    print(GETdisplayname(token))
+    GETplaylists(token)
+    
+
 
 def main():
 
@@ -958,7 +1042,7 @@ def main():
 
     tokenData = initialize()
 
-    playback( tokenData['token'], tempF='', multiplier=0 )
+    playback( tokenData['token'], tempF='', multiplier=0.0 )
 
 # Call main
 
