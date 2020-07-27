@@ -293,16 +293,6 @@ def playback(token, tempF, multiplier):
 
         print('Status: ', response.status_code, '\n')
 
-        # Check multiplier value
-
-        if multiplier == 2:
-
-            # The 204 status has been recieved for 60 sec ( 20sec * 3times ) 
-
-            print('> Analyzing playlists\n')
-
-            playlists(token)
-
         # Unauthorized
 
         if response.status_code == 401:
@@ -319,6 +309,17 @@ def playback(token, tempF, multiplier):
             multiplier += 1 
 
             print('\tNo data')
+
+            # Check multiplier value
+
+            if multiplier % 3 == 0 :
+
+                # The 204 status has been recieved for 60 sec ( 20sec * 3times ) 
+
+                print('\n> Analyzing playlists\n')
+
+                playlists(token)
+
             print('\tSleep: 20 s\n')
 
             time.sleep(20)
@@ -503,6 +504,8 @@ def playback(token, tempF, multiplier):
         if multiplier == 1.5:
 
             print('> Analyzing Playlists')
+
+            playlists(token)
 
     # Call functions within playback()
 
@@ -947,16 +950,20 @@ def playlists(token):
 
         r = response.json()
 
-        displayName = r['display_name']
+        displayName = r ['display_name']
 
         return displayName
 
 
-    def GETplaylists(token):
+    def GETplaylists(token, displayName):
 
-        ''' GETplaylists() uses a GET request to grab a user's playlist data
+        ''' GETplaylists() uses a GET request to grab a user's playlist data and appends 
+            the playlists name, id, and total amount of tracks to a list names 'playlists' 
+            which is returned 
 
-            ( str ) 
+            ( str, str ) --> ( list ) --> [ [ playlist name, playlist id, total tracks on playlist ] ]
+
+            ( token, displayName ) --> ( playlists ) --> [ [name, id, total], [], ... ] 
 
             https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/
         '''
@@ -993,17 +1000,15 @@ def playlists(token):
                 x += 1
 
         print('\t', i, 'playlists found')
-        print('\t', x, 'playlists owned by', displayName)
+        print('\t', x, 'playlists owned by', displayName, '\n')
 
         return playlists
 
     # Call functions within playlists()
 
-
-    print(GETdisplayname(token))
-    GETplaylists(token)
+    displayName = GETdisplayname(token)
+    playlists = GETplaylists(token, displayName)
     
-
 
 def main():
 
