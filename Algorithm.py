@@ -954,7 +954,6 @@ def playlists(token):
 
         return displayName
 
-
     def GETplaylists(token, displayName):
 
         ''' GETplaylists() uses a GET request to grab a user's playlist data and appends 
