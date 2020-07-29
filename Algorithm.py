@@ -1003,10 +1003,44 @@ def playlists(token):
 
         return playlists
 
+    def updatePlaylists(token, playlists):
+
+        ''' updatePlaylists() grabs each playlist owned by the user and checks whether
+            or not the songs are in playlistData.json, adding or removing songs depending 
+            on changes
+
+            ( str, list ) --> ** various actions
+
+            -- playlist: [[name, id, total songs], ..]
+
+            https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
+        '''
+
+        def GETplaylistByID( token, playlistID ):
+
+            ''' GetplaylistByID() GETs all data pertaining to a specific playlist ID
+
+                ( token ) --> json response
+
+                https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
+            '''
+
+            pass
+
+        # Call functions within updatePlaylists()
+
+        for i in range(len(playlists)):
+
+            # For each playlist owned by the user
+
+            response = GETplaylistByID( token, playlists[i][1] )   
+
     # Call functions within playlists()
 
     displayName = GETdisplayname(token)
     playlists = GETplaylists(token, displayName)
+    updatePlaylists(token, playlists)
+
     
 
 def main():
