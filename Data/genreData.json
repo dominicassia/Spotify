@@ -1054,7 +1054,7 @@
                                 "Rap"
                             ],
                             "URI": "spotify:artist:13ubrt8QOOCPljQ2FL1Kca",
-                            "popularity": 4,
+                            "popularity": 5,
                             "tracks": [
                                 {
                                     "track": [
@@ -1105,6 +1105,20 @@
                                             ],
                                             "duration": 187105,
                                             "popularity": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Cocky (feat. London On Da Track)",
+                                            "URI": "spotify:track:1nO2NjuFkGaAWcMdJ1pNrp",
+                                            "duration": 232413,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": [
+                                                "Rap"
+                                            ]
                                         }
                                     ]
                                 }
@@ -9692,6 +9706,126 @@
                                             "name": "Poison",
                                             "URI": "spotify:track:1Jg3XdrCOZ5rrirIOggdtW",
                                             "duration": 182778,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Big K.R.I.T.",
+                            "URI": "spotify:artist:0CKa42Jqrc9fSFbDjePaXP",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Cool 2 Be Southern",
+                                            "URI": "spotify:track:5vpKp1OqRblGUxRMGvIcEE",
+                                            "duration": 202320,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "The Paper Kites",
+                            "URI": "spotify:artist:79hrYiudVcFyyxyJW0ipTy",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Woodland",
+                                            "URI": "spotify:track:431qZaQAJuIolwBrlDa6Yg",
+                                            "duration": 231586,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Ti\u00ebsto",
+                            "URI": "spotify:artist:2o5jDhtHVPhrJdv3cEQ99Z",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Red Lights",
+                                            "URI": "spotify:track:5L2l7mI8J1USMzhsmdjat9",
+                                            "duration": 262200,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Attom",
+                            "URI": "spotify:artist:1Xq5wasmlEwC6TqCqJtP5o",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Wander",
+                                            "URI": "spotify:track:7EU98YlJjRrKlSjgpzD5kX",
+                                            "duration": 192244,
+                                            "popularity": 1,
+                                            "exception": false,
+                                            "genres": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "artist": [
+                        {
+                            "name": "Samuel Barber",
+                            "URI": "spotify:artist:4XDJurjQCnWLlE7KLZCT9x",
+                            "popularity": 1,
+                            "genres": [],
+                            "tracks": [
+                                {
+                                    "track": [
+                                        {
+                                            "name": "Adagio for Strings, Op. 11",
+                                            "URI": "spotify:track:62WgjGTKgBOfakQKo5grf8",
+                                            "duration": 383466,
                                             "popularity": 1,
                                             "exception": false,
                                             "genres": []

@@ -1,4 +1,6 @@
-# Libraries
+__author__ = 'dominic assia'
+
+# Dependencies
 import base64               # Encode
 import urllib.parse         # Encode
 import requests             # cURL 
@@ -9,6 +11,8 @@ import operator             # Sorting specific indices
 import functools            # Caching
 import tempfile             # Temporary files
 
+import playlist             # playlist functions
+import spotify_requests     # spotify requests
 #####################################################
 
 def executionTime(tStart):
@@ -1025,7 +1029,78 @@ def playlists(token):
                 https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
             '''
 
-            pass
+        def localPlaylists( response ):
+
+            ''' localPlaylists() locates the playlist by id locally and compares it to what 
+                is in the response
+
+                ( json response ) --> write to playlistData.json
+            '''             
+
+            path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\playlistData.json'                     
+
+            p = json.load( open(path, 'r+') )
+
+            playlistsWritten = 0
+            songsWritten = 0
+
+            for h in range(len(playlists)):
+
+                x = 0
+
+                for i in range(len(p["items"][0]['data'])):
+
+                    # Open playlistData.JSON 
+
+                    path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\playlistData.json'                     
+                    f = open(path, 'r+')
+                    p = json.load(f)
+
+                    # Format of playlists: playlist name, playlist ID, amount of tracks 
+
+                    if p['items'][0]['data'][i]['playlist'][0]['id'] == playlists[h][1]:
+
+                        # This playlist is already in playlistData.JSON, check songs and add song genres 
+
+                        x = 0
+                        break
+
+                    else:
+
+                        # This playlist is not in playlistData.JSON, add playlist, check songs and add song genres
+
+                        x += 1 
+
+            if x > 0:
+
+                # Once a playlist is added, the file must be reopened
+
+                print('\tWriting playlist', playlists[h][0])
+
+                addPlaylist(path, playlists[h][1], playlists[h][2], playlists[h][0] )
+                playlistsWritten += 1
+
+                print('\t\tdone.\n')
+
+                print('\tChecking songs:', playlists[h][0])
+
+                checkPlaylistSongs(playlists[h][1], token, path)
+
+                print('\n\t\t\tdone.\n')
+
+            if x == 0:
+
+                # Check songs
+
+                print('\tChecking songs:', playlists[h][0])
+
+                checkPlaylistSongs(playlists[h][1], token, path)
+
+                print('\n\t\t\tdone.\n') 
+                
+
+            print('\n\t', playlistsWritten, 'playlists saved')
+            print('\t', songsWritten, 'songs saved')\
 
         # Call functions within updatePlaylists()
 
@@ -1034,14 +1109,14 @@ def playlists(token):
             # For each playlist owned by the user
 
             response = GETplaylistByID( token, playlists[i][1] )   
+            localPlaylists( response )
 
     # Call functions within playlists()
 
-    displayName = GETdisplayname(token)
+    displayName = spotify_requests.GETdisplayname(token)
+    # displayName = GETdisplayname(token)
     playlists = GETplaylists(token, displayName)
     updatePlaylists(token, playlists)
-
-    
 
 def main():
 
@@ -1084,7 +1159,8 @@ def main():
 
 # Call main
 
-main()
+if __name__ == '__main__':
+    main()
 
 # TODO: Think about determining the different genres and checking if the artist and song data is added to genreData.json after something is added to listeningData.json as mentioned
 
