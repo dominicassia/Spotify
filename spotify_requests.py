@@ -75,6 +75,41 @@ def GETplaylists(token, displayName):
 
     return playlists
 
+def GETplaylistByID(token, playlistID):
+
+    ''' GETplaylistByID() GETs all data pertaining to a specific playlist ID
+
+        ( token ) --> json response
+
+        https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
+    '''
+
+def GETplaylistTracks(token, playlistID):
+    
+    ''' GETplaylistTracks() GETs all tracks in a playlist when given the playlist's ID
+
+        ( token, playlist ID ) --> list of track data**
+
+        ** [[ track_name, track_URI, track_duration ],..]
+
+        # https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/
+    '''
+
+    url = 'https://api.spotify.com/v1/playlists/{playlist_id}/tracks'.format(playlist_id = playlistID)
+    headers = { 'Authorization':'Bearer ' + token }                                                     
+    params = { 'limit':100 }
+
+    response = requests.get(url=url, headers=headers, params=params, timeout=10)
+
+    # This GET returns JSON with all track data from the playlist ID given
+
+    print('\t\tStatus: ', response.status_code)                                                   
+    print('\t\tProcessing request.\n')
+
+    r = json.loads(str(response.text))
+
+    
+
 def GETplayback(token, multiplier):
 
     ''' Utilize a GET request to determine the playback state of the user's application & information

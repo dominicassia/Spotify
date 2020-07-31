@@ -4,34 +4,12 @@ import json
 
 #####################################################
 
-def updatePlaylists(token, playlists):
-
-    ''' updatePlaylists() grabs each playlist owned by the user and checks whether
-        or not the songs are in playlistData.json, adding or removing songs depending 
-        on changes
-
-        ( str, list ) --> ** various actions
-
-        -- playlist: [[name, id, total songs], ..]
-
-        https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
-    '''
-
-def GETplaylistByID( token, playlistID ):
-
-    ''' GetplaylistByID() GETs all data pertaining to a specific playlist ID
-
-        ( token ) --> json response
-
-        https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
-    '''
-
-def localPlaylists( response ):
+def localPlaylists(playlists):
 
     ''' localPlaylists() locates the playlist by id locally and compares it to what 
         is in the response
 
-        ( json response ) --> write to playlistData.json
+        ( list ) --> write to playlistData.json
     '''             
 
     path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\playlistData.json'                     
@@ -95,6 +73,5 @@ def localPlaylists( response ):
 
         print('\n\t\t\tdone.\n') 
         
-
     print('\n\t', playlistsWritten, 'playlists saved')
     print('\t', songsWritten, 'songs saved')
