@@ -1,5 +1,3 @@
-__author__ = 'dominic assia'
-
 # Dependencies
 import base64               # Encode
 import urllib.parse         # Encode
