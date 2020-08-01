@@ -1,3 +1,18 @@
+''' 
+Spotify Playlists
+~~~~~~~~~~~~~~~~~~~~~
+
+This module stores various functions for interacting between local json 
+data and responses from the Spotify API.
+
+============================
+
+Functions:
+
+    | localPlaylists( playlists )
+
+'''
+
 # Dependencies
 import requests
 import json

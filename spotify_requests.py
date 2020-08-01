@@ -1,3 +1,22 @@
+''' 
+Spotify Requests
+~~~~~~~~~~~~~~~~~~~~~
+
+This module stores various functions for interacting between the Spotify API 
+and the algorithm using the requests library.
+
+============================
+
+Functions:
+
+    | GETdisplayname( token )
+    | GETplaylists( token, displayName )
+    | GETplaylistByID( token, playlistID )
+    | GETplaylistTracks( token, playlistID )
+    | GETplayback( token, multiplier )
+
+'''
+
 # Dependencies
 import requests
 import json
