@@ -127,8 +127,6 @@ def GETplaylistTracks(token, playlistID):
 
     r = json.loads(str(response.text))
 
-    
-
 def GETplayback(token, multiplier):
 
     ''' Utilize a GET request to determine the playback state of the user's application & information
