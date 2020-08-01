@@ -22,7 +22,7 @@ import json
 def localPlaylists(playlists):
 
     ''' localPlaylists() locates the playlist by id locally and compares it to what 
-        is in the response
+        is in the response from spotify_requests.GETplaylistByID()
 
         ( list ) --> write to playlistData.json
     '''             

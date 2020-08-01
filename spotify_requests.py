@@ -103,6 +103,20 @@ def GETplaylistByID(token, playlistID):
         https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
     '''
 
+    url = 'https://api.spotify.com/v1/playlists/{playlist_id}'.format(playlist_id = playlistID)
+    headers = { 'Authorization':'Bearer ' + token }                                                     
+
+    response = requests.get(url=url, headers=headers, timeout=10)
+
+    # This GET returns JSON with all track data from the playlist ID given
+
+    print('\t\tStatus: ', response.status_code)                                                   
+    print('\t\tProcessing request.\n')
+
+    r = json.loads(str(response.text))
+
+    return r
+
 def GETplaylistTracks(token, playlistID):
     
     ''' GETplaylistTracks() GETs all tracks in a playlist when given the playlist's ID
@@ -118,14 +132,29 @@ def GETplaylistTracks(token, playlistID):
     headers = { 'Authorization':'Bearer ' + token }                                                     
     params = { 'limit':100 }
 
-    response = requests.get(url=url, headers=headers, params=params, timeout=10)
-
     # This GET returns JSON with all track data from the playlist ID given
+    response = requests.get(url=url, headers=headers, params=params, timeout=10)
 
     print('\t\tStatus: ', response.status_code)                                                   
     print('\t\tProcessing request.\n')
 
     r = json.loads(str(response.text))
+
+    for i in range(len(r['total'])):
+
+        # Data kept from http response
+        plystRespData = [
+            {
+                trackName       : '',
+                trackURI        : '',
+                trackDuration   : '',
+                artistName      : '',
+                artistURI       : '',
+
+            }
+        ]
+
+    return plystRespData
 
 def GETplayback(token, multiplier):
 

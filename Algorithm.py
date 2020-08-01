@@ -944,9 +944,8 @@ def playlists(token):
     for i in range(len(playlists)):
 
         # For each playlist owned by the user
-        response = spotify_requests.GETplaylistByID( token, playlists[i][1] )   
-        playlist.localPlaylists( response )
-
+        plystRespData = spotify_requests.GETplaylistTracks( token, playlists[i][1] )   
+        playlist.localPlaylists( plystRespData )
 
 def main():
 
