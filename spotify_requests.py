@@ -123,7 +123,7 @@ def GETplaylistTracks(token, playlistID):
 
         ( token, playlist ID ) --> list of track data**
 
-        ** [[ track_name, track_URI, track_duration ],..]
+        ** [ playlistID, [{trackName, trackURI, trackDuration, artistName, artistURI}, {...}, ... ]]
 
         # https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/
     '''
@@ -140,19 +140,26 @@ def GETplaylistTracks(token, playlistID):
 
     r = json.loads(str(response.text))
 
+    # Structure of plystRespData:
+    # [ playlistID, [{trackName, trackURI, trackDuration, artistName, artistURI}, {...}, ... ]]
+
+    plystRespData = []
+    plystRespData[0] = playlistID
+    plystRespData[1] = []
+
     for i in range(len(r['total'])):
 
         # Data kept from http response
-        plystRespData = [
+        plystRespData[1].append(
             {
-                trackName       : '',
-                trackURI        : '',
-                trackDuration   : '',
-                artistName      : '',
-                artistURI       : '',
+                'trackName'       : '',
+                'trackURI'        : '',
+                'trackDuration'   : '',
+                'artistName'      : '',
+                'artistURI'       : '',
 
             }
-        ]
+        )
 
     return plystRespData
 
