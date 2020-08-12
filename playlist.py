@@ -55,6 +55,8 @@ def localPlaylists(playlists):
 
                 checkPlaylistSongs(p['items'][0]['data'][i]['playlist'][0]['id'], token, path)
 
+                # TODO: Add song genres
+
                 x = 0
                 break
 
@@ -96,7 +98,7 @@ def localPlaylists(playlists):
 
 def checkPlaylistSongs(playlistID, token, path):
 
-    SR.GETplaylistByID(token, playlistID)
+    r = SR.GETplaylistByID(token, playlistID)
 
     # Open playlistData.JSON as f and load keywords as obj. p
 
