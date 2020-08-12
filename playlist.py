@@ -17,6 +17,8 @@ Functions:
 import requests
 import json
 
+import spotify_requests as SR
+
 #####################################################
 
 def localPlaylists(playlists):
@@ -42,7 +44,6 @@ def localPlaylists(playlists):
 
             # Open playlistData.JSON 
 
-            path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\playlistData.json'                     
             f = open(path, 'r+')
             p = json.load(f)
 
@@ -51,6 +52,8 @@ def localPlaylists(playlists):
             if p['items'][0]['data'][i]['playlist'][0]['id'] == playlists[h][1]:
 
                 # This playlist is already in playlistData.JSON, check songs and add song genres 
+
+                checkPlaylistSongs(p['items'][0]['data'][i]['playlist'][0]['id'], token, path)
 
                 x = 0
                 break
@@ -90,3 +93,112 @@ def localPlaylists(playlists):
         
     print('\n\t', playlistsWritten, 'playlists saved')
     print('\t', songsWritten, 'songs saved')
+
+def checkPlaylistSongs(playlistID, token, path):
+
+    SR.GETplaylistByID(token, playlistID)
+
+    # Open playlistData.JSON as f and load keywords as obj. p
+
+    with open(path, 'r+') as playlistData:
+        p = json.load(playlistData)                                                                                
+
+        # Find the index of the given playlist ID within playlistData.JSON, assign to playlistIndex
+
+        for e in range(len(p['items'][0]['data'])):                                                     
+
+            if playlistID == p['items'][0]['data'][e]['playlist'][0]['id']:
+                playlistIndex = e
+                break
+
+        # Find songs in response, but not in playlistData.JSON, add these songs to playlistData.JSON
+
+        for g in range(len(r['items'])):
+
+            # Update / reppen file
+
+            playlistData = open(path, 'r+')
+            p = json.load(playlistData)
+
+            x = 0
+
+            # If there are no songs in the playlistData.JSON list, just add all the songs
+
+            if len(p['items'][0]['data'][playlistIndex]['playlist'][0]['songs']) > 0:
+
+                for h in range(len(p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'])):
+
+                    if r['items'][g]['track']['name'] == p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][h]['name']:
+
+                        # The song is already in the file, do nothing
+                        x = 0
+                        break
+
+                    else:
+
+                        # The song is not found in the file, add the song
+                        x += 1
+
+                if x > 0:
+
+                    # Add the song to playlistData.JSON
+
+                    addSongToPlaylistData(
+                        path, 
+                        playlistIndex, 
+                        r['items'][g]['track']['name'], 
+                        r['items'][g]['track']['uri'], 
+                        r['items'][g]['track']['artists'][0]['name'], 
+                        r['items'][g]['track']['artists'][0]['uri'])
+
+            else: 
+
+                # Add the song to playlistData.JSON
+
+                addSongToPlaylistData(
+                    path, 
+                    playlistIndex, 
+                    r['items'][g]['track']['name'], 
+                    r['items'][g]['track']['uri'], 
+                    r['items'][g]['track']['artists'][0]['name'], 
+                    r['items'][g]['track']['artists'][0]['uri'])
+
+        # Find songs not in response, but in playlistData.JSON, POST these songs to the online playlist
+
+        tracksToAdd = []
+
+        for i in range(len(p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'])):
+
+            # Update / reopen file
+
+            playlistData = open(path, 'r+')
+            p = json.load(playlistData)
+
+            y = 0
+
+            for j in range(len(r['items'])):
+
+                # print( p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][i]['name'], '==', r['items'][j]['track']['name'] )
+
+                if p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][i]['name'] == r['items'][j]['track']['name']:
+
+                    # The song from playlistData.JSON is in the public playlist, no action
+
+                    y = 0 
+                    break
+
+                else:
+
+                    # The song in playlistData.JSON is not in the public playlist, add it by appending to list of songs to add
+
+                    y += 1
+
+            
+            if y > 0:
+
+                print('\t\tAdding track:', p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][i]['name'])
+
+                tracksToAdd.append(p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][i]['URI'])
+
+        if len(tracksToAdd) > 0:    
+            postPlaylist(token, p['items'][0]['data'][playlistIndex]['playlist'][0]['id'], tracksToAdd)

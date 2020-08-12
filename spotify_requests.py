@@ -20,6 +20,7 @@ Functions:
 # Dependencies
 import requests
 import json
+import time
 
 #####################################################
 
@@ -144,10 +145,14 @@ def GETplaylistTracks(token, playlistID):
     # [ playlistID, [{trackName, trackURI, trackDuration, artistName, artistURI}, {...}, ... ]]
 
     plystRespData = []
-    plystRespData[0] = playlistID
-    plystRespData[1] = []
+    temp = []
 
-    for i in range(len(r['total'])):
+    plystRespData.append(playlistID)
+    plystRespData.append(temp)
+
+    print(r['items'][0])
+
+    for i in range(r['total']):
 
         # Data kept from http response
         plystRespData[1].append(
@@ -157,9 +162,7 @@ def GETplaylistTracks(token, playlistID):
                 'trackDuration'   : '',
                 'artistName'      : '',
                 'artistURI'       : '',
-
-            }
-        )
+            })
 
     return plystRespData
 

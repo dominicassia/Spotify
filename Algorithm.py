@@ -9,8 +9,8 @@ import operator             # Sorting specific indices
 import functools            # Caching
 import tempfile             # Temporary files
 
-import playlist             # playlist functions
-import spotify_requests     # spotify requests
+import playlist                 # playlist functions
+import spotify_requests as SR   # spotify requests
 #####################################################
 
 def executionTime(tStart):
@@ -240,113 +240,6 @@ def playback(token, tempF, multiplier):
         ( token, tempF )
     '''
 
-    def GETplayback(token, multiplier):
-
-        ''' Utilize a GET request to determine the playback state of the user's application & information
-            pertaining to what is playing
-        
-            ( str ) --> dict
-
-            ( auth token ) --> responseValues
-
-            * dict contains: { str, str, str, str, str, str, bool, str }
-
-            * responseValues: trackName, trackURI, trackProgress, trackDuration, artistName, artistURI, playing, timestamp
-
-            Timeout:            Sleep for 5s    --> main()
-            Connection Error:   Sleep 20s       --> main()
-
-            <401> response:     Invalid token   --> main()
-            <204> response:     No data         --> Sleep 20s
-
-         '''
-
-        # https://developer.spotify.com/documentation/web-api/reference/player/get-information-about-the-users-current-playback/
-
-        url = 'https://api.spotify.com/v1/me/player'
-        headers = {'Authorization': 'Bearer ' + token }
-
-        try:
-            # This GET request returns response containing a user's current listening status
-
-            response = requests.get(url=url, headers=headers, timeout=10)
-            
-        except requests.ConnectionError:
-
-            print('\n\tConnection Error')
-            print('\tSleep: 20 sec\n')
-
-            time.sleep(20)
-
-            print('\t----- restart -----\n')
-
-            main()
-
-        except requests.TimeoutError:
-
-            print('\tTimeout')
-            print('\tSleep: 5 sec')
-
-            time.sleep(5)
-
-            print('\t----- restart -----\n')
-
-            main() 
-
-        print('Status: ', response.status_code, '\n')
-
-        # Unauthorized
-
-        if response.status_code == 401:
-
-            print('\tUnauthorized')
-            print('\t----- restart -----')
-
-            main()
-
-        # No data
-
-        if response.status_code == 204:
-
-            multiplier += 1 
-
-            print('\tNo data')
-
-            # Check multiplier value
-
-            if multiplier % 3 == 0 :
-
-                # The 204 status has been recieved for 60 sec ( 20sec * 3times ) 
-
-                print('\n> Analyzing playlists\n')
-
-                playlists(token)
-
-            print('\tSleep: 20 s\n')
-
-            time.sleep(20)
-
-            print('\t----- restart -----\n')
-
-            playback(token, tempF, multiplier)
-
-        r = json.loads(str(response.text))    
-
-        # Create dictionary to return
-
-        responseValues = {
-            'trackName'         : r['item']['name'], 
-            'trackURI'          : r['item']['uri'],
-            'trackProgress'     : r['progress_ms'],
-            'trackDuration'     : r['item']['duration_ms'],
-            'artistName'        : r['item']['artists'][0]['name'],
-            'artistURI'         : r['item']['artists'][0]['uri'],
-            'playing'           : r['is_playing'],
-            'timestamp'         : r['timestamp']
-        }
-
-        return responseValues
-
     def moreThanHalf(duration, progress):
 
         ''' moreThanHalf() is a simple logic function to determine if the songs progess is more than half of the songs duration
@@ -511,7 +404,7 @@ def playback(token, tempF, multiplier):
 
     # Call functions within playback()
 
-    response = GETplayback(token, multiplier)
+    response = spotify_requests.GETplayback(token, multiplier)
     duration(response, tempF, multiplier)
 
 def localData(token, response):
@@ -934,18 +827,16 @@ def playlists(token):
         keep current with possible playback in the background
     ''' 
     # GET the User's display name
-    displayName = spotify_requests.GETdisplayname(token)
+    displayName = SR.GETdisplayname(token)
 
     # GET the User's playlists
-    playlists = spotify_requests.GETplaylists(token, displayName)
+    playlists = SR.GETplaylists(token, displayName)
 
     # GET each playlist by ID & compare to local data
 
-    for i in range(len(playlists)):
-
-        # For each playlist owned by the user
-        plystRespData = spotify_requests.GETplaylistTracks( token, playlists[i][1] )   
-        playlist.localPlaylists( plystRespData )
+    # Get playlists under the user and pass to playlist.localPlaylists
+    plystRespData = SR.GETplaylistTracks( token, playlists[i][1] )   
+    playlist.localPlaylists( plystRespData )
 
 def main():
 
@@ -977,7 +868,6 @@ def main():
 
             popularity()
 
-
     '''
 
     # Call functions inside main()
@@ -990,7 +880,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# TODO: Think about determining the different genres and checking if the artist and song data is added to genreData.json after something is added to listeningData.json as mentioned
-
-# TODO: Create files / file error exceptions
