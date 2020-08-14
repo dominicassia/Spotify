@@ -53,6 +53,7 @@ def localPlaylists(playlists):
 
                 # This playlist is already in playlistData.JSON, check songs and add song genres 
 
+                # Check songs in playlist
                 checkPlaylistSongs(p['items'][0]['data'][i]['playlist'][0]['id'], token, path)
 
                 # TODO: Add song genres
@@ -63,6 +64,9 @@ def localPlaylists(playlists):
             else:
 
                 # This playlist is not in playlistData.JSON, add playlist, check songs and add song genres
+                
+                # Check songs in playlist
+                checkPlaylistSongs(p['items'][0]['data'][i]['playlist'][0]['id'], token, path)
 
                 x += 1 
 
@@ -96,12 +100,44 @@ def localPlaylists(playlists):
     print('\n\t', playlistsWritten, 'playlists saved')
     print('\t', songsWritten, 'songs saved')
 
+def addLocalplaylist(path, playlistID, playlistTrackNum, playlistName):
+    ''' addLocalplaylist() adds a new playlist entry to the local json structure
+
+
+        
+    '''
+
+    # Read the existing structure
+
+    with open(path) as fileRead: 
+
+        temp = json.load(fileRead)    
+
+        # Append the new playlist
+
+        temp['items'][0]['data'].append(
+            { 
+            "playlist":[
+                {
+                 "name":playlistName,
+                 "id":playlistID,
+                 "total-songs":playlistTrackNum,
+                 "songs":[] 
+                }] })                      
+        
+        # Write the playlist
+
+        with open(path) as fileWrite:
+
+            json.dump(temp, fileWrite, indent=4) 
+
+
 def checkPlaylistSongs(playlistID, token, path):
 
     r = SR.GETplaylistByID(token, playlistID)
 
     # Open playlistData.JSON as f and load keywords as obj. p
-
+    
     with open(path, 'r+') as playlistData:
         p = json.load(playlistData)                                                                                
 
