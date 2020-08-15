@@ -21,12 +21,14 @@ import spotify_requests as SR
 
 #####################################################
 
-def localPlaylists(playlists):
+# Main functions
 
-    ''' localPlaylists() locates the playlist by id locally and compares it to what 
+def localPlaylists(playlists):
+    ''' 
+        localPlaylists() locates the playlist by id locally and compares it to what 
         is in the response from spotify_requests.GETplaylistByID()
 
-        ( list ) --> write to playlistData.json
+            ( list ) --> write to playlistData.json
     '''             
 
     path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\playlistData.json'                     
@@ -35,6 +37,8 @@ def localPlaylists(playlists):
 
     playlistsWritten = 0
     songsWritten = 0
+
+    print(playlists)
 
     for h in range(len(playlists)):
 
@@ -65,8 +69,11 @@ def localPlaylists(playlists):
 
                 # This playlist is not in playlistData.JSON, add playlist, check songs and add song genres
                 
+                # Add the playlist to playlistData
+                addLocalplaylist(path, playlists)
+
                 # Check songs in playlist
-                checkPlaylistSongs(p['items'][0]['data'][i]['playlist'][0]['id'], token, path)
+                checkPlaylistSongs(p['items'][0]['data'][-1]['playlist'][0]['id'], token, path)
 
                 x += 1 
 
@@ -100,45 +107,26 @@ def localPlaylists(playlists):
     print('\n\t', playlistsWritten, 'playlists saved')
     print('\t', songsWritten, 'songs saved')
 
-def addLocalplaylist(path, playlistID, playlistTrackNum, playlistName):
-    ''' addLocalplaylist() adds a new playlist entry to the local json structure
-
-
-        
-    '''
-
-    # Read the existing structure
-
-    with open(path) as fileRead: 
-
-        temp = json.load(fileRead)    
-
-        # Append the new playlist
-
-        temp['items'][0]['data'].append(
-            { 
-            "playlist":[
-                {
-                 "name":playlistName,
-                 "id":playlistID,
-                 "total-songs":playlistTrackNum,
-                 "songs":[] 
-                }] })                      
-        
-        # Write the playlist
-
-        with open(path) as fileWrite:
-
-            json.dump(temp, fileWrite, indent=4) 
-
-
 def checkPlaylistSongs(playlistID, token, path):
+    '''
+        Check Songs in a Playlist
+        ~~~~~~~~~~~~~~~~~~~~~~~~~
+            This function GETs the playlist by ID and checks the songs
+            returned in the response to what is in the json file. 
+
+            - If a track from the response is not in the file, the track will be added to the file
+            - If a track from the file is not in the response, the track will be removed from the file
+
+            ( playlist ID, token, path ) = None
+            ( str, str, str ) = None
+    '''
 
     r = SR.GETplaylistByID(token, playlistID)
 
     # Open playlistData.JSON as f and load keywords as obj. p
     
     with open(path, 'r+') as playlistData:
+
         p = json.load(playlistData)                                                                                
 
         # Find the index of the given playlist ID within playlistData.JSON, assign to playlistIndex
@@ -240,3 +228,40 @@ def checkPlaylistSongs(playlistID, token, path):
 
         if len(tracksToAdd) > 0:    
             postPlaylist(token, p['items'][0]['data'][playlistIndex]['playlist'][0]['id'], tracksToAdd)
+
+# Sub Functions
+
+def addLocalplaylist(path, id, totalTracks, name):
+    ''' 
+        Add a Playlist to a Local Json File
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        This function adds a new playlist entry to the local json structure
+
+            ( file path, playlist id, total tracks, playlist name ) = None
+            ( str, str, int, str ) = None
+    '''
+
+    # Read the existing structure
+
+    with open(path) as fileRead: 
+
+        temp = json.load(fileRead)    
+
+        # Append the new playlist
+
+        temp['items'][0]['data'].append(
+            { 
+            "playlist":[
+                {
+                    "name":        name,
+                    "id":          id,
+                    "total-songs": totalTracks,
+                    "songs":       [] 
+                }]
+            })                      
+        
+        # Write the playlist
+
+        with open(path) as fileWrite:
+
+            json.dump(temp, fileWrite, indent=4) 

@@ -120,13 +120,18 @@ def GETplaylistByID(token, playlistID):
 
 def GETplaylistTracks(token, playlistID):
     
-    ''' GETplaylistTracks() GETs all tracks in a playlist when given the playlist's ID
+    ''' 
+        GET Request a Playlist's Tracks
+        ~~~~~~~~~~~~~~~~
+            This function GETs all tracks in a playlist when given the playlist's ID
 
-        ( token, playlist ID ) --> list of track data**
+            ( token, playlist ID ) = list
+            ( str, str ) = list
 
-        ** [ playlistID, [{trackName, trackURI, trackDuration, artistName, artistURI}, {...}, ... ]]
+            list = [ playlistID, [{trackName, trackURI, trackDuration, artistName, artistURI}, {...}, ... ]]
 
-        # https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/
+
+        Reference: https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/
     '''
 
     url = 'https://api.spotify.com/v1/playlists/{playlist_id}/tracks'.format(playlist_id = playlistID)

@@ -832,8 +832,6 @@ def playlists(token):
     # GET the User's playlists
     playlists = SR.GETplaylists(token, displayName)
 
-    # GET each playlist by ID & compare to local data
-
     # Get playlists under the user and pass to playlist.localPlaylists
     plystRespData = SR.GETplaylistTracks( token, playlists[i][1] )   
     playlist.localPlaylists( plystRespData )
