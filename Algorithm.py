@@ -829,12 +829,11 @@ def playlists(token):
     # GET the User's display name
     displayName = SR.GETdisplayname(token)
 
-    # GET the User's playlists
+    # GET all playlists owned by the User
     playlists = SR.GETplaylists(token, displayName)
 
-    # Get playlists under the user and pass to playlist.localPlaylists
-    plystRespData = SR.GETplaylistTracks( token, playlists[i][1] )   
-    playlist.localPlaylists( plystRespData )
+    # Compare playlists in response to playlistData.json
+    playlist.localPlaylists(playlists)
 
 def main():
 

@@ -87,7 +87,12 @@ def GETplaylists(token, displayName):
 
             # Create list of needed data: playlist name, playlist ID, amount of tracks
 
-            playlists.append( [r['items'][i]['name'], r['items'][i]['id'], r['items'][i]['tracks']['total']] )
+            playlists.append([
+                r['items'][i]['name'], 
+                r['items'][i]['id'], 
+                r['items'][i]['tracks']['total']
+                ])
+                
             x += 1
 
     print('\t', i, 'playlists found')

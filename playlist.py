@@ -24,13 +24,17 @@ import spotify_requests as SR
 # Main functions
 
 def localPlaylists(playlists):
-    ''' 
-        localPlaylists() locates the playlist by id locally and compares it to what 
-        is in the response from spotify_requests.GETplaylistByID()
+    '''
+        Compare Local Playlists to Response Playlists
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-            ( list ) --> write to playlistData.json
+            This function locates the playlist by id (playlistData.json)
+            and compares it to what is in the response from spotify_requests.GETplaylistByID()
+
+            ( list ) = write to playlistData.json
     '''             
 
+    # Initially open the file
     path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\playlistData.json'                     
 
     p = json.load( open(path, 'r+') )
@@ -38,69 +42,64 @@ def localPlaylists(playlists):
     playlistsWritten = 0
     songsWritten = 0
 
-    print(playlists)
-
+    # Length of playlists in the response
     for h in range(len(playlists)):
 
         x = 0
 
+        # Length of playlists in playlistData.json
         for i in range(len(p["items"][0]['data'])):
 
             # Open playlistData.JSON 
+            p = json.load(open(path, 'r+'))
 
-            f = open(path, 'r+')
-            p = json.load(f)
-
-            # Format of playlists: playlist name, playlist ID, amount of tracks 
-
+            # If the local ID == response ID 
             if p['items'][0]['data'][i]['playlist'][0]['id'] == playlists[h][1]:
 
-                # This playlist is already in playlistData.JSON, check songs and add song genres 
-
-                # Check songs in playlist
-                checkPlaylistSongs(p['items'][0]['data'][i]['playlist'][0]['id'], token, path)
-
-                # TODO: Add song genres
-
+                # This playlist is already in playlistData.JSON, check songs and add song genres
                 x = 0
                 break
 
             else:
 
                 # This playlist is not in playlistData.JSON, add playlist, check songs and add song genres
-                
-                # Add the playlist to playlistData
-                addLocalplaylist(path, playlists)
-
-                # Check songs in playlist
-                checkPlaylistSongs(p['items'][0]['data'][-1]['playlist'][0]['id'], token, path)
-
                 x += 1 
 
     if x > 0:
-
         # Once a playlist is added, the file must be reopened
 
+        # Add the playlist to playlistData
         print('\tWriting playlist', playlists[h][0])
 
         addPlaylist(path, playlists[h][1], playlists[h][2], playlists[h][0] )
+            # Since the playlist was just appeneded it will be at index -1
+
         playlistsWritten += 1
 
         print('\t\tdone.\n')
 
+        # Check songs in playlist
         print('\tChecking songs:', playlists[h][0])
 
         checkPlaylistSongs(playlists[h][1], token, path)
 
         print('\n\t\t\tdone.\n')
 
+        # Evaluate Genres
+        print('\tEvaluating Genres:', playlists[h][0])
+
+        # TODO: Add Genres
+
+        print('\n\t\t\tdone.\n')
+        
     if x == 0:
 
-        # Check songs
-
+        # Check songs in playlist
         print('\tChecking songs:', playlists[h][0])
-
         checkPlaylistSongs(playlists[h][1], token, path)
+
+        # TODO: Add Genres
+        print('\tEvaluating Genres:', playlists[h][0])
 
         print('\n\t\t\tdone.\n') 
         
