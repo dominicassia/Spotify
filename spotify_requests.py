@@ -160,8 +160,6 @@ def GETplaylistTracks(token, playlistID):
     plystRespData.append(playlistID)
     plystRespData.append(temp)
 
-    print(r['items'][0])
-
     for i in range(r['total']):
 
         # Data kept from http response

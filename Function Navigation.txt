@@ -1,0 +1,11 @@
+Function Navigation
+===================
+
+____________
+Playlist.py:
+
+localPlaylists()              
+\-> addPlaylist()                                   ( Only if the playlist data is not already local )
+\-> checkPlaylistSongs()                            ( Compare local data to response data )
+    \-> spotify_requests.GETplaylistTracks()        ( Gets response with all songs from a playlist ) 
+    \-> addSongToPlaylistData()                     ( Adds song to local data )

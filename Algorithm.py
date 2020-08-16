@@ -389,6 +389,12 @@ def playback(token, tempF, multiplier):
 
             multiplier += 0.5
 
+            if multiplier == 1.5:
+
+                print('> Analyzing Playlists')
+
+                playlists(token)
+
             print('\t----- restart -----\n')
             playback(token, tempF, multiplier)
 
@@ -396,15 +402,9 @@ def playback(token, tempF, multiplier):
 
             print('\tFallback case.\n')
 
-        if multiplier == 1.5:
-
-            print('> Analyzing Playlists')
-
-            playlists(token)
-
     # Call functions within playback()
 
-    response = spotify_requests.GETplayback(token, multiplier)
+    response = SR.GETplayback(token, multiplier)
     duration(response, tempF, multiplier)
 
 def localData(token, response):
@@ -833,7 +833,7 @@ def playlists(token):
     playlists = SR.GETplaylists(token, displayName)
 
     # Compare playlists in response to playlistData.json
-    playlist.localPlaylists(playlists)
+    playlist.localPlaylists(playlists, token)
 
 def main():
 

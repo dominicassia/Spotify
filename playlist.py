@@ -23,15 +23,15 @@ import spotify_requests as SR
 
 # Main functions
 
-def localPlaylists(playlists):
+def localPlaylists(playlists, token):
     '''
         Compare Local Playlists to Response Playlists
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
             This function locates the playlist by id (playlistData.json)
-            and compares it to what is in the response from spotify_requests.GETplaylistByID()
+            and compares it to what is in the response from SR.GETplaylistByID()
 
-            ( list ) = write to playlistData.json
+            ( list, token ) = write to playlistData.json
     '''             
 
     # Initially open the file
@@ -81,7 +81,7 @@ def localPlaylists(playlists):
         # Check songs in playlist
         print('\tChecking songs:', playlists[h][0])
 
-        checkPlaylistSongs(playlists[h][1], token, path)
+        checkPlaylistSongs(-1, playlists[h][1], token, path)
 
         print('\n\t\t\tdone.\n')
 
@@ -96,7 +96,7 @@ def localPlaylists(playlists):
 
         # Check songs in playlist
         print('\tChecking songs:', playlists[h][0])
-        checkPlaylistSongs(playlists[h][1], token, path)
+        checkPlaylistSongs(i, playlists[h][1], token, path)
 
         # TODO: Add Genres
         print('\tEvaluating Genres:', playlists[h][0])
@@ -106,7 +106,7 @@ def localPlaylists(playlists):
     print('\n\t', playlistsWritten, 'playlists saved')
     print('\t', songsWritten, 'songs saved')
 
-def checkPlaylistSongs(playlistID, token, path):
+def checkPlaylistSongs(index, playlistID, token, path):
     '''
         Check Songs in a Playlist
         ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -120,7 +120,7 @@ def checkPlaylistSongs(playlistID, token, path):
             ( str, str, str ) = None
     '''
 
-    r = SR.GETplaylistByID(token, playlistID)
+    r = SR.GETplaylistTracks(token, playlistID)
 
     # Open playlistData.JSON as f and load keywords as obj. p
     
@@ -128,17 +128,9 @@ def checkPlaylistSongs(playlistID, token, path):
 
         p = json.load(playlistData)                                                                                
 
-        # Find the index of the given playlist ID within playlistData.JSON, assign to playlistIndex
-
-        for e in range(len(p['items'][0]['data'])):                                                     
-
-            if playlistID == p['items'][0]['data'][e]['playlist'][0]['id']:
-                playlistIndex = e
-                break
-
         # Find songs in response, but not in playlistData.JSON, add these songs to playlistData.JSON
 
-        for g in range(len(r['items'])):
+        for g in range(len(r[1])):
 
             # Update / reppen file
 
@@ -149,11 +141,11 @@ def checkPlaylistSongs(playlistID, token, path):
 
             # If there are no songs in the playlistData.JSON list, just add all the songs
 
-            if len(p['items'][0]['data'][playlistIndex]['playlist'][0]['songs']) > 0:
+            if len(p['items'][0]['data'][index]['playlist'][0]['songs']) > 0:
 
-                for h in range(len(p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'])):
+                for h in range(len(p['items'][0]['data'][index]['playlist'][0]['songs'])):
 
-                    if r['items'][g]['track']['name'] == p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][h]['name']:
+                    if r['items'][g]['track']['name'] == p['items'][0]['data'][index]['playlist'][0]['songs'][h]['name']:
 
                         # The song is already in the file, do nothing
                         x = 0
@@ -165,28 +157,27 @@ def checkPlaylistSongs(playlistID, token, path):
                         x += 1
 
                 if x > 0:
-
                     # Add the song to playlistData.JSON
-
                     addSongToPlaylistData(
                         path, 
                         playlistIndex, 
                         r['items'][g]['track']['name'], 
                         r['items'][g]['track']['uri'], 
                         r['items'][g]['track']['artists'][0]['name'], 
-                        r['items'][g]['track']['artists'][0]['uri'])
+                        r['items'][g]['track']['artists'][0]['uri']
+                    )
 
             else: 
-
-                # Add the song to playlistData.JSON
-
-                addSongToPlaylistData(
-                    path, 
-                    playlistIndex, 
-                    r['items'][g]['track']['name'], 
-                    r['items'][g]['track']['uri'], 
-                    r['items'][g]['track']['artists'][0]['name'], 
-                    r['items'][g]['track']['artists'][0]['uri'])
+                # Add all songs to playlistData.JSON
+                for k in range(len(r[1])):
+                    addSongToPlaylistData(
+                        path, 
+                        index, 
+                        r[k]['trackName'], 
+                        r[k]['trackURI'], 
+                        r[k]['artistName'], 
+                        r[k]['artistURI']
+                    )
 
         # Find songs not in response, but in playlistData.JSON, POST these songs to the online playlist
 
@@ -264,3 +255,29 @@ def addLocalplaylist(path, id, totalTracks, name):
         with open(path) as fileWrite:
 
             json.dump(temp, fileWrite, indent=4) 
+
+def addSongToPlaylistData(path, playlistIndex, trackName, trackURI, artistName, artistURI):
+
+    print('\t\tWriting', trackName )
+
+    # Read existing data
+    with open(path) as fileRead:
+        playlistData = json.load(fileRead)
+
+        # Append new data
+        playlistData['items'][0]['data'][playlistIndex]['playlist'][0]['songs'].append(
+            {
+                "name":     trackName,
+                "URI":      trackURI,
+                "artist": [
+                    {
+                        "name": artistName,
+                        "URI":  artistURI
+                    }]
+            })
+
+        # Write new structure
+        with open(path, 'r+') as fileWrite:
+            json.dump(playlistData, fileWrite, indent=4)
+
+    print('\t\t\tdone.')
