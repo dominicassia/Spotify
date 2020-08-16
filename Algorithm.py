@@ -404,7 +404,7 @@ def playback(token, tempF, multiplier):
 
     # Call functions within playback()
 
-    response = SR.GETplayback(token, multiplier)
+    response = SR.GETplayback(token, multiplier, tempF)
     duration(response, tempF, multiplier)
 
 def localData(token, response):

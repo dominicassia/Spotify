@@ -22,6 +22,9 @@ import requests
 import json
 import time
 
+import Algorithm
+import playlist
+
 #####################################################
 
 def GETdisplayname(token):
@@ -174,7 +177,7 @@ def GETplaylistTracks(token, playlistID):
 
     return plystRespData
 
-def GETplayback(token, multiplier):
+def GETplayback(token, multiplier, tempF):
 
     ''' Utilize a GET request to determine the playback state of the user's application & information
         pertaining to what is playing
@@ -254,7 +257,7 @@ def GETplayback(token, multiplier):
 
             print('\n> Analyzing playlists\n')
 
-            playlists(token)
+            Algorithm.playlists(token)
 
         print('\tSleep: 20 s\n')
 
@@ -262,7 +265,7 @@ def GETplayback(token, multiplier):
 
         print('\t----- restart -----\n')
 
-        playback(token, tempF, multiplier)
+        Algorithm.playback(token, tempF, multiplier)
 
     r = json.loads(str(response.text))    
 
@@ -280,3 +283,24 @@ def GETplayback(token, multiplier):
     }
 
     return responseValues
+
+def postPlaylist(token, playlistID, tracksToAdd):
+
+    print('\t\tPosting tracks.')
+
+    # https://developer.spotify.com/documentation/web-api/reference/playlists/add-tracks-to-playlist/
+
+    uris = ''
+    for i in range(len(tracksToAdd)):
+        uris += tracksToAdd[i]
+
+    url = 'https://api.spotify.com/v1/playlists/{playlist_id}/tracks'.format(playlist_id = playlistID)
+    headers = {'Authorization': 'Bearer ' + token }
+    params = { 'uris':uris }
+
+    response = requests.post(url, headers=headers, params=params, timeout=10)
+
+    # This POST returns a 'snapshot_id' of the action taken
+
+    print('\t\tStatus:', response.status_code)
+    print('\t\t\tdone.\n')

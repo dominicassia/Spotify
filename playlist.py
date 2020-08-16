@@ -42,6 +42,8 @@ def localPlaylists(playlists, token):
     playlistsWritten = 0
     songsWritten = 0
 
+    print(playlists)
+
     # Length of playlists in the response
     for h in range(len(playlists)):
 
@@ -145,7 +147,7 @@ def checkPlaylistSongs(index, playlistID, token, path):
 
                 for h in range(len(p['items'][0]['data'][index]['playlist'][0]['songs'])):
 
-                    if r['items'][g]['track']['name'] == p['items'][0]['data'][index]['playlist'][0]['songs'][h]['name']:
+                    if r[1][g]['trackName'] == p['items'][0]['data'][index]['playlist'][0]['songs'][h]['name']:
 
                         # The song is already in the file, do nothing
                         x = 0
@@ -160,11 +162,11 @@ def checkPlaylistSongs(index, playlistID, token, path):
                     # Add the song to playlistData.JSON
                     addSongToPlaylistData(
                         path, 
-                        playlistIndex, 
-                        r['items'][g]['track']['name'], 
-                        r['items'][g]['track']['uri'], 
-                        r['items'][g]['track']['artists'][0]['name'], 
-                        r['items'][g]['track']['artists'][0]['uri']
+                        index, 
+                        r[1][g]['trackName'], 
+                        r[1][g]['trackURI'], 
+                        r[1][g]['artistName'], 
+                        r[1][g]['artistURI']
                     )
 
             else: 
@@ -173,17 +175,17 @@ def checkPlaylistSongs(index, playlistID, token, path):
                     addSongToPlaylistData(
                         path, 
                         index, 
-                        r[k]['trackName'], 
-                        r[k]['trackURI'], 
-                        r[k]['artistName'], 
-                        r[k]['artistURI']
+                        r[1][k]['trackName'], 
+                        r[1][k]['trackURI'], 
+                        r[1][k]['artistName'], 
+                        r[1][k]['artistURI']
                     )
 
         # Find songs not in response, but in playlistData.JSON, POST these songs to the online playlist
 
         tracksToAdd = []
 
-        for i in range(len(p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'])):
+        for i in range(len(p['items'][0]['data'][index]['playlist'][0]['songs'])):
 
             # Update / reopen file
 
@@ -192,11 +194,11 @@ def checkPlaylistSongs(index, playlistID, token, path):
 
             y = 0
 
-            for j in range(len(r['items'])):
+            for j in range(len(r[1])):
 
-                # print( p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][i]['name'], '==', r['items'][j]['track']['name'] )
+                # print( p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'], '==', r['items'][j]['track']['name'] )
 
-                if p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][i]['name'] == r['items'][j]['track']['name']:
+                if p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'] == r[1][j]['trackName']:
 
                     # The song from playlistData.JSON is in the public playlist, no action
 
@@ -212,12 +214,12 @@ def checkPlaylistSongs(index, playlistID, token, path):
             
             if y > 0:
 
-                print('\t\tAdding track:', p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][i]['name'])
+                print('\t\tAdding track:', p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'])
 
-                tracksToAdd.append(p['items'][0]['data'][playlistIndex]['playlist'][0]['songs'][i]['URI'])
+                tracksToAdd.append(p['items'][0]['data'][index]['playlist'][0]['songs'][i]['URI'])
 
         if len(tracksToAdd) > 0:    
-            postPlaylist(token, p['items'][0]['data'][playlistIndex]['playlist'][0]['id'], tracksToAdd)
+            SR.postPlaylist(token, p['items'][0]['data'][index]['playlist'][0]['id'], tracksToAdd)
 
 # Sub Functions
 
@@ -256,7 +258,7 @@ def addLocalplaylist(path, id, totalTracks, name):
 
             json.dump(temp, fileWrite, indent=4) 
 
-def addSongToPlaylistData(path, playlistIndex, trackName, trackURI, artistName, artistURI):
+def addSongToPlaylistData(path, index, trackName, trackURI, artistName, artistURI):
 
     print('\t\tWriting', trackName )
 
@@ -265,7 +267,7 @@ def addSongToPlaylistData(path, playlistIndex, trackName, trackURI, artistName, 
         playlistData = json.load(fileRead)
 
         # Append new data
-        playlistData['items'][0]['data'][playlistIndex]['playlist'][0]['songs'].append(
+        playlistData['items'][0]['data'][index]['playlist'][0]['songs'].append(
             {
                 "name":     trackName,
                 "URI":      trackURI,
@@ -281,3 +283,4 @@ def addSongToPlaylistData(path, playlistIndex, trackName, trackURI, artistName, 
             json.dump(playlistData, fileWrite, indent=4)
 
     print('\t\t\tdone.')
+
