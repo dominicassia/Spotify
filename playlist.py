@@ -198,6 +198,10 @@ def checkPlaylistSongs(index, playlistID, token, path):
 
                 # print( p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'], '==', r['items'][j]['track']['name'] )
 
+                print(r[1])
+
+                print(p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'], '==', r[1][j]['trackName'])
+
                 if p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'] == r[1][j]['trackName']:
 
                     # The song from playlistData.JSON is in the public playlist, no action

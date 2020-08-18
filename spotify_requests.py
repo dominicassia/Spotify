@@ -168,11 +168,10 @@ def GETplaylistTracks(token, playlistID):
         # Data kept from http response
         plystRespData[1].append(
             {
-                'trackName'       : '',
-                'trackURI'        : '',
-                'trackDuration'   : '',
-                'artistName'      : '',
-                'artistURI'       : '',
+                'trackName'       : r['items'][i]['track']['name'],
+                'trackURI'        : r['items'][0]['track']['uri'],
+                'artistName'      : r['items'][g]['track']['artists'][0]['name'],
+                'artistURI'       : r['items'][g]['track']['artists'][0]['uri'],
             })
 
     return plystRespData
