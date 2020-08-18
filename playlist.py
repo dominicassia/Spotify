@@ -196,13 +196,9 @@ def checkPlaylistSongs(index, playlistID, token, path):
 
             for j in range(len(r[1])):
 
-                # print( p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'], '==', r['items'][j]['track']['name'] )
+                print(p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'], '=?=', r[1][j]['trackName'])
 
-                print(r[1])
-
-                print(p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'], '==', r[1][j]['trackName'])
-
-                if p['items'][0]['data'][index]['playlist'][0]['songs'][i]['name'] == r[1][j]['trackName']:
+                if p['items'][0]['data'][index]['playlist'][0]['songs'][i]['URI'] == r[1][j]['trackURI']:
 
                     # The song from playlistData.JSON is in the public playlist, no action
 
@@ -214,7 +210,6 @@ def checkPlaylistSongs(index, playlistID, token, path):
                     # The song in playlistData.JSON is not in the public playlist, add it by appending to list of songs to add
 
                     y += 1
-
             
             if y > 0:
 

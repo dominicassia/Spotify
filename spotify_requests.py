@@ -169,9 +169,10 @@ def GETplaylistTracks(token, playlistID):
         plystRespData[1].append(
             {
                 'trackName'       : r['items'][i]['track']['name'],
-                'trackURI'        : r['items'][0]['track']['uri'],
-                'artistName'      : r['items'][g]['track']['artists'][0]['name'],
-                'artistURI'       : r['items'][g]['track']['artists'][0]['uri'],
+                'trackURI'        : r['items'][i]['track']['uri'],
+                'trackDuration'   : r['items'][i]['track']['duration_ms'],
+                'artistName'      : r['items'][i]['track']['artists'][0]['name'],
+                'artistURI'       : r['items'][i]['track']['artists'][0]['uri'],
             })
 
     return plystRespData
