@@ -172,7 +172,7 @@ def initialize():
 
         except requests.ConnectionError:
 
-            print('\n\tConnection Error')
+            print('\tConnection Error')
 
             print('\tSleep: 20 sec\n')
             time.sleep(20)

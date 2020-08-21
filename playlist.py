@@ -33,26 +33,23 @@ def localPlaylists(playlists, token):
 
             ( list, token ) = write to playlistData.json
     '''             
-
-    # Initially open the file
-    path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\playlistData.json'                     
-
-    p = json.load( open(path, 'r+') )
-
+    
     playlistsWritten = 0
     songsWritten = 0
 
-    print(playlists)
-
-    # Length of playlists in the response
     for h in range(len(playlists)):
 
         x = 0
 
+        # Initially open the file
+        path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\playlistData.json'                     
+
+        p = json.load(open(path, 'r+'))
+
         # Length of playlists in playlistData.json
         for i in range(len(p["items"][0]['data'])):
 
-            # Open playlistData.JSON 
+            # Update playlistData.JSON 
             p = json.load(open(path, 'r+'))
 
             # If the local ID == response ID 
@@ -60,51 +57,53 @@ def localPlaylists(playlists, token):
 
                 # This playlist is already in playlistData.JSON, check songs and add song genres
                 x = 0
+                p.close()
                 break
 
             else:
 
                 # This playlist is not in playlistData.JSON, add playlist, check songs and add song genres
+                p.close()
                 x += 1 
 
-    if x > 0:
-        # Once a playlist is added, the file must be reopened
+        if x > 0:
+            # Once a playlist is added, the file must be reopened
 
-        # Add the playlist to playlistData
-        print('\tWriting playlist', playlists[h][0])
+            # Add the playlist to playlistData
+            print('\tWriting playlist', playlists[h][0])
 
-        addPlaylist(path, playlists[h][1], playlists[h][2], playlists[h][0] )
-            # Since the playlist was just appeneded it will be at index -1
+            addLocalPlaylist(path, playlists[h][1], playlists[h][2], playlists[h][0] )
+                # Since the playlist was just appeneded it will be at index -1
 
-        playlistsWritten += 1
+            playlistsWritten += 1
 
-        print('\t\tdone.\n')
+            print('\t\tdone.\n')
 
-        # Check songs in playlist
-        print('\tChecking songs:', playlists[h][0])
+            # Check songs in playlist
+            print('\tChecking songs:', playlists[h][0])
 
-        checkPlaylistSongs(-1, playlists[h][1], token, path)
+            checkPlaylistSongs(-1, playlists[h][1], token, path)
 
-        print('\n\t\t\tdone.\n')
+            print('\n\t\t\tdone.\n')
 
-        # Evaluate Genres
-        print('\tEvaluating Genres:', playlists[h][0])
+            # Evaluate Genres
+            print('\tEvaluating Genres:', playlists[h][0])
 
-        # TODO: Add Genres
+            # TODO: Add Genres
 
-        print('\n\t\t\tdone.\n')
-        
-    if x == 0:
+            print('\n\t\t\tdone.\n')
+            
+        if x == 0:
 
-        # Check songs in playlist
-        print('\tChecking songs:', playlists[h][0])
-        checkPlaylistSongs(i, playlists[h][1], token, path)
+            # Check songs in playlist
+            print('\tChecking songs:', playlists[h][0])
+            checkPlaylistSongs(i, playlists[h][1], token, path)
 
-        # TODO: Add Genres
-        print('\tEvaluating Genres:', playlists[h][0])
+            # TODO: Add Genres
+            print('\tEvaluating Genres:', playlists[h][0])
 
-        print('\n\t\t\tdone.\n') 
-        
+            print('\n\t\t\tdone.\n') 
+            
     print('\n\t', playlistsWritten, 'playlists saved')
     print('\t', songsWritten, 'songs saved')
 
@@ -220,7 +219,7 @@ def checkPlaylistSongs(index, playlistID, token, path):
 
 # Sub Functions
 
-def addLocalplaylist(path, id, totalTracks, name):
+def addLocalPlaylist(path, id, totalTracks, name):
     ''' 
         Add a Playlist to a Local Json File
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -253,7 +252,7 @@ def addLocalplaylist(path, id, totalTracks, name):
 
         with open(path) as fileWrite:
 
-            json.dump(temp, fileWrite, indent=4) 
+            json.dump(temp, fileWrite, indent=4)
 
 def addSongToPlaylistData(path, index, trackName, trackURI, artistName, artistURI):
 
