@@ -44,66 +44,69 @@ def localPlaylists(playlists, token):
         # Initially open the file
         path = 'C:\\Users\\Domin\\github\\Python\\Spotify\\Data\\playlistData.json'                     
 
-        p = json.load(open(path, 'r+'))
+        with open(path, 'r+') as fileRead:
+            p = json.load(fileRead)
 
-        # Length of playlists in playlistData.json
-        for i in range(len(p["items"][0]['data'])):
+            # Length of playlists in playlistData.json
+            for i in range(len(p['items'][0]['data'])):
 
-            # Update playlistData.JSON 
-            p = json.load(open(path, 'r+'))
+                # Update playlistData.JSON 
+                with open(path, 'r+') as fileRead:
+                    p = json.load(fileRead)
 
-            # If the local ID == response ID 
-            if p['items'][0]['data'][i]['playlist'][0]['id'] == playlists[h][1]:
+                    # If the local ID == response ID 
 
-                # This playlist is already in playlistData.JSON, check songs and add song genres
-                x = 0
-                p.close()
-                break
+                    print(p['items'][0]['data'][i]['playlist'][0]['id'], '==', playlists[h][1])
+                    if p['items'][0]['data'][i]['playlist'][0]['id'] == playlists[h][1]:
 
-            else:
+                        # This playlist is already in playlistData.JSON, check songs and add song genres
+                        x = 0
+                        break
 
-                # This playlist is not in playlistData.JSON, add playlist, check songs and add song genres
-                p.close()
-                x += 1 
+                    else:
+                        # This playlist is not in playlistData.JSON, add playlist, check songs and add song genres
+                        x += 1 
 
-        if x > 0:
-            # Once a playlist is added, the file must be reopened
+            print(x)
 
-            # Add the playlist to playlistData
-            print('\tWriting playlist', playlists[h][0])
+            if x > 0:
+                # Once a playlist is added, the file must be reopened
 
-            addLocalPlaylist(path, playlists[h][1], playlists[h][2], playlists[h][0] )
-                # Since the playlist was just appeneded it will be at index -1
+                # Add the playlist to playlistData
+                print('\tWriting playlist', playlists[h][0])
 
-            playlistsWritten += 1
+                addLocalPlaylist(path, playlists[h][1], playlists[h][2], playlists[h][0] )
+                    # Since the playlist was just appeneded it will be at index -1
 
-            print('\t\tdone.\n')
+                playlistsWritten += 1
 
-            # Check songs in playlist
-            print('\tChecking songs:', playlists[h][0])
+                print('\t\tdone.\n')
 
-            checkPlaylistSongs(-1, playlists[h][1], token, path)
+                # Check songs in playlist
+                print('\tChecking songs:', playlists[h][0])
 
-            print('\n\t\t\tdone.\n')
+                checkPlaylistSongs(-1, playlists[h][1], token, path)
 
-            # Evaluate Genres
-            print('\tEvaluating Genres:', playlists[h][0])
+                print('\n\t\t\tdone.\n')
 
-            # TODO: Add Genres
+                # Evaluate Genres
+                print('\tEvaluating Genres:', playlists[h][0])
 
-            print('\n\t\t\tdone.\n')
-            
-        if x == 0:
+                # TODO: Add Genres
 
-            # Check songs in playlist
-            print('\tChecking songs:', playlists[h][0])
-            checkPlaylistSongs(i, playlists[h][1], token, path)
+                print('\n\t\t\tdone.\n')
+                
+            if x == 0:
 
-            # TODO: Add Genres
-            print('\tEvaluating Genres:', playlists[h][0])
+                # Check songs in playlist
+                print('\tChecking songs:', playlists[h][0])
+                checkPlaylistSongs(i, playlists[h][1], token, path)
 
-            print('\n\t\t\tdone.\n') 
-            
+                # TODO: Add Genres
+                print('\tEvaluating Genres:', playlists[h][0])
+
+                print('\n\t\t\tdone.\n') 
+                
     print('\n\t', playlistsWritten, 'playlists saved')
     print('\t', songsWritten, 'songs saved')
 
@@ -249,8 +252,7 @@ def addLocalPlaylist(path, id, totalTracks, name):
             })                      
         
         # Write the playlist
-
-        with open(path) as fileWrite:
+        with open(path, 'r+') as fileWrite:
 
             json.dump(temp, fileWrite, indent=4)
 

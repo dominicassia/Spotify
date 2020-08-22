@@ -2297,6 +2297,87 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "playlist": [
+                        {
+                            "name": "Slow vibe",
+                            "id": "0XZbOHBdmANFs19Gu6xuu6",
+                            "total-songs": 7,
+                            "songs": [
+                                {
+                                    "name": "Cold War",
+                                    "URI": "spotify:track:6DwiGVCgXGREeCyJZtX7S1",
+                                    "artist": [
+                                        {
+                                            "name": "Cautious Clay",
+                                            "URI": "spotify:artist:6iWuBN32BqCJAeXW6o3nil"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "TROJAN HORSE",
+                                    "URI": "spotify:track:1cQCdozRmaErXowT6iDQML",
+                                    "artist": [
+                                        {
+                                            "name": "SEBASTIAN PAUL",
+                                            "URI": "spotify:artist:1tQu5TjcAK68fx8qrc8ZgF"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Venice Venture",
+                                    "URI": "spotify:track:4IBwgoDpNG2p7EouVtFw0E",
+                                    "artist": [
+                                        {
+                                            "name": "Big Wild",
+                                            "URI": "spotify:artist:0PxzGnCYBpSuaI49OR94cA"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Bust It Open",
+                                    "URI": "spotify:track:4N9NdhWqwAln3vusoM1FSW",
+                                    "artist": [
+                                        {
+                                            "name": "Cool Company",
+                                            "URI": "spotify:artist:6lOCVUQbb9wzuZQbZQV9zn"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Go Fuck Yourself",
+                                    "URI": "spotify:track:4NZrZgrRoR4GwR7flWOXRI",
+                                    "artist": [
+                                        {
+                                            "name": "Two Feet",
+                                            "URI": "spotify:artist:5sWHDYs0csV6RS48xBl0tH"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Enough to Believe - Jamie Jones Remix",
+                                    "URI": "spotify:track:4LtVrrqpn48l4Iq7KIshmi",
+                                    "artist": [
+                                        {
+                                            "name": "Bob Moses",
+                                            "URI": "spotify:artist:6LHsnRBUYhFyt01PdKXAF5"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "All4you",
+                                    "URI": "spotify:track:7pp7ofOZGtELMkn74jLDze",
+                                    "artist": [
+                                        {
+                                            "name": "The Palms",
+                                            "URI": "spotify:artist:1zVGInzEij1qk9ZlMlOC2X"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
