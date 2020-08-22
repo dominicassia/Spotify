@@ -56,7 +56,6 @@ def localPlaylists(playlists, token):
 
                     # If the local ID == response ID 
 
-                    print(p['items'][0]['data'][i]['playlist'][0]['id'], '==', playlists[h][1])
                     if p['items'][0]['data'][i]['playlist'][0]['id'] == playlists[h][1]:
 
                         # This playlist is already in playlistData.JSON, check songs and add song genres
@@ -66,8 +65,6 @@ def localPlaylists(playlists, token):
                     else:
                         # This playlist is not in playlistData.JSON, add playlist, check songs and add song genres
                         x += 1 
-
-            print(x)
 
             if x > 0:
                 # Once a playlist is added, the file must be reopened
@@ -217,7 +214,16 @@ def checkPlaylistSongs(index, playlistID, token, path):
 
                 tracksToAdd.append(p['items'][0]['data'][index]['playlist'][0]['songs'][i]['URI'])
 
-        if len(tracksToAdd) > 0:    
+        if len(tracksToAdd) > 0: 
+
+            print('\n\t\tPosting', tracksToAdd[0])
+
+            for k in range(len(1, tracksToAdd)):
+
+                print('\t\t', tracksToAdd[k])
+
+            print('\t\tto', p['items'][0]['data'][index]['playlist'][0]['name'])
+
             SR.postPlaylist(token, p['items'][0]['data'][index]['playlist'][0]['id'], tracksToAdd)
 
 # Sub Functions
@@ -233,13 +239,11 @@ def addLocalPlaylist(path, id, totalTracks, name):
     '''
 
     # Read the existing structure
-
     with open(path) as fileRead: 
 
         temp = json.load(fileRead)    
 
         # Append the new playlist
-
         temp['items'][0]['data'].append(
             { 
             "playlist":[
