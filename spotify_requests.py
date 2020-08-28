@@ -217,7 +217,7 @@ def GETplayback(token, multiplier, tempF):
 
         print('\t----- restart -----\n')
 
-        main()
+        Algorithm.main()
 
     except requests.TimeoutError:
 
@@ -228,7 +228,7 @@ def GETplayback(token, multiplier, tempF):
 
         print('\t----- restart -----\n')
 
-        main() 
+        Algorithm.main() 
 
     print('Status: ', response.status_code, '\n')
 
@@ -239,7 +239,7 @@ def GETplayback(token, multiplier, tempF):
         print('\tUnauthorized')
         print('\t----- restart -----')
 
-        main()
+        Algorithm.main()
 
     # No data
 

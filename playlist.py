@@ -104,6 +104,9 @@ def localPlaylists(playlists, token):
 
                 print('\n\t\t\tdone.\n') 
                 
+    checkPlaylistLength(path)
+    print('\t\tdone.')
+
     print('\n\t', playlistsWritten, 'playlists saved')
     print('\t', songsWritten, 'songs saved')
 
@@ -218,7 +221,7 @@ def checkPlaylistSongs(index, playlistID, token, path):
 
             print('\n\t\tPosting', tracksToAdd[0])
 
-            for k in range(len(1, tracksToAdd)):
+            for k in range(1, len(tracksToAdd)):
 
                 print('\t\t', tracksToAdd[k])
 
@@ -286,3 +289,34 @@ def addSongToPlaylistData(path, index, trackName, trackURI, artistName, artistUR
 
     print('\t\t\tdone.')
 
+def checkPlaylistLength(path):
+    '''
+        Check the length of a playlist
+        ~~~~~~~~
+        This function checks ensures the value of 'total-songs' in a playlist's json entry matches 
+        the actual length of the list of song enteries under 'songs'
+
+            (path of playlistData.json file) --> corrects incorrect length
+    '''
+    # Open the file and load the json
+    with open(path) as fileRead:
+
+        p = json.load(fileRead)
+
+        # Iterate through all playlists
+        for i in range(len(p['items'][0]['data'])):
+
+            # Compare the value of 'total-songs' to the acutal length
+            if p['items'][0]['data'][i]['playlist'][0]['total-songs'] != len(p['items'][0]['data'][i]['playlist'][0]['songs']):
+
+                # The lengths do not match, adjust total-songs to match the length of songs
+
+                print('\n\tCorrecting the total-songs for', p['items'][0]['data'][i]['playlist'][0]['name'])
+
+                # Assign the new value
+                p['items'][0]['data'][i]['playlist'][0]['total-songs'] = len(p['items'][0]['data'][i]['playlist'][0]['songs'])
+
+                # Open in append mode and dump the json data
+                with open(path, 'r+') as fileWrite:
+
+                    json.dump(p, fileWrite, indent=4)        
